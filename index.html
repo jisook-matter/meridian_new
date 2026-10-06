@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian — Super Early Flood Warning for Your Council | Matter®</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-900:#08243A; --navy-800:#0E3F63; --navy:#175787;
+  --blue-600:#2A6FA8; --blue:#3E8DD6; --blue-300:#7FB4E4;
+  --blue-200:#B8D6F0; --blue-100:#E3EEF9; --droplet:#C1E4F8;
+  --mist:#F4F8FC; --paper:#fff; --pink:#F288DE;
+  --ink:#0F2233; --ink-soft:#54718B; --rule:#DBE7F2;
+  --r:22px; --shadow:0 1px 2px rgba(8,36,58,.04),0 12px 32px -16px rgba(8,36,58,.18);
+  --shadow-lift:0 2px 4px rgba(8,36,58,.05),0 26px 50px -20px rgba(8,36,58,.28);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{font-family:'Poppins',system-ui,sans-serif;color:var(--ink);background:var(--mist);
+  line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased;font-size:16px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+h1,h2,h3,h4{line-height:1.15;font-weight:700;letter-spacing:-.02em}
+
+/* ---------- progress + nav ---------- */
+#bar{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;
+  background:linear-gradient(90deg,var(--blue),var(--pink));transition:width .1s linear}
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);
+  backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);
+  border-bottom:1px solid var(--rule)}
+.navin{max-width:1080px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:28px}
+.navlogo{width:104px;flex:none;display:block}
+.navlinks{display:flex;gap:22px;margin-left:auto;flex-wrap:wrap}
+.navlinks a{color:var(--ink-soft);text-decoration:none;font-size:13.5px;font-weight:500;
+  position:relative;padding:3px 0;transition:color .2s}
+.navlinks a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;
+  background:var(--blue);border-radius:2px;transition:width .25s}
+.navlinks a:hover{color:var(--navy)}.navlinks a:hover::after{width:100%}
+@media(max-width:860px){.navlinks{display:none}}
+
+/* ---------- hero ---------- */
+header{position:relative;overflow:hidden;color:#fff;
+  background:linear-gradient(155deg,var(--navy-900) 0%,var(--navy) 52%,var(--blue-600) 100%)}
+header::before,header::after{content:'';position:absolute;border-radius:50%;pointer-events:none}
+header::before{width:620px;height:620px;top:-280px;right:-160px;
+  background:radial-gradient(circle,rgba(62,141,214,.5),transparent 68%)}
+header::after{width:520px;height:520px;bottom:-300px;left:-140px;
+  background:radial-gradient(circle,rgba(242,136,222,.22),transparent 70%)}
+.ripple{position:absolute;inset:0;opacity:.16;pointer-events:none}
+.heroin{position:relative;z-index:2;padding:96px 0 84px}
+.herologo{width:168px;margin-bottom:56px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 16px 7px 13px;
+  border-radius:999px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.24);
+  font-size:12.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;margin-bottom:26px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--pink);
+  box-shadow:0 0 0 4px rgba(242,136,222,.28)}
+h1{font-size:clamp(2.5rem,6.2vw,4.35rem);font-weight:700;letter-spacing:-.035em;max-width:15ch}
+h1 .accent{color:var(--blue-300)}
+h1 .pk{color:var(--pink)}
+.lede{margin-top:26px;max-width:56ch;font-size:clamp(1.02rem,1.7vw,1.2rem);
+  color:rgba(255,255,255,.84);font-weight:300;line-height:1.68}
+.meta{margin-top:52px;padding-top:26px;border-top:1px solid rgba(255,255,255,.18);
+  display:flex;gap:44px;flex-wrap:wrap}
+.meta b{display:block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);font-weight:600;margin-bottom:5px}
+.meta span{font-size:15px;font-weight:500}
+
+/* ---------- sections ---------- */
+section{padding:92px 0;border-bottom:1px solid var(--rule)}
+section.alt{background:var(--paper)}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:16px}
+.tag.pk{color:var(--pink)}
+h2{font-size:clamp(1.8rem,3.6vw,2.6rem);max-width:20ch;color:var(--navy-900)}
+.sub{margin-top:20px;max-width:62ch;font-size:1.05rem;color:var(--ink-soft);font-weight:300}
+h3{font-size:1.28rem;color:var(--navy);margin-bottom:10px}
+h4{font-size:1rem;font-weight:600;color:var(--navy-900)}
+.mt{margin-top:52px}.mt-s{margin-top:32px}
+
+/* ---------- cards / grids ---------- */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:880px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1px solid var(--rule);border-radius:var(--r);
+  padding:30px;box-shadow:var(--shadow);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
+section.alt .card{background:var(--mist)}
+.chip{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;padding:4px 11px;border-radius:999px;
+  background:var(--blue-100);color:var(--blue-600);margin-bottom:14px}
+.chip.act{background:rgba(242,136,222,.16);color:#B4459C}
+.card p{font-size:.94rem;color:var(--ink-soft);font-weight:300}
+
+/* numbered steps */
+.steps{counter-reset:s;display:grid;gap:18px;grid-template-columns:repeat(4,1fr)}
+@media(max-width:880px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.step{position:relative;background:var(--paper);border:1px solid var(--rule);
+  border-radius:var(--r);padding:28px 24px}
+section.alt .step{background:var(--mist)}
+.step .n{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--navy),var(--blue));color:#fff;
+  font-weight:700;font-size:1rem;margin-bottom:16px;box-shadow:0 8px 18px -8px rgba(23,87,135,.7)}
+.step p{font-size:.92rem;color:var(--ink-soft);font-weight:300}
+.step strong{color:var(--navy);font-weight:600}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:880px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--paper);border:1px solid var(--rule);border-radius:var(--r);
+  padding:30px 24px;text-align:center}
+section.alt .stat{background:var(--mist)}
+.stat .v{font-size:clamp(1.9rem,4vw,2.6rem);font-weight:700;letter-spacing:-.035em;
+  color:var(--blue);line-height:1}
+.stat .l{margin-top:9px;font-size:12px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-soft);font-weight:600}
+
+/* compare */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:720px){.cmp{grid-template-columns:1fr}}
+.panel{border-radius:var(--r);padding:32px;border:1px solid var(--rule);background:var(--paper)}
+.panel.win{background:linear-gradient(160deg,var(--navy-900),var(--navy));border-color:transparent;color:#fff}
+.panel h4{margin-bottom:20px;font-size:.8rem;letter-spacing:.13em;text-transform:uppercase}
+.panel.win h4{color:var(--blue-300)}
+.panel ul{list-style:none;display:grid;gap:15px}
+.panel li{display:flex;gap:13px;font-size:.94rem;font-weight:300;line-height:1.55}
+.panel.win li{color:rgba(255,255,255,.9)}
+.mk{flex:none;width:21px;height:21px;border-radius:7px;display:grid;place-items:center;
+  font-size:11px;font-weight:700;margin-top:2px}
+.mk.no{background:#E9EEF3;color:var(--ink-soft)}
+.mk.yes{background:rgba(255,255,255,.16);color:#fff}
+
+/* table */
+.tbl{width:100%;border-collapse:collapse;margin-top:8px;font-size:.94rem}
+.tbl th{text-align:left;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-soft);font-weight:700;padding:0 18px 13px;border-bottom:2px solid var(--rule)}
+.tbl td{padding:17px 18px;border-bottom:1px solid var(--rule);font-weight:300;vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td:first-child{font-weight:500;color:var(--navy-900)}
+.tbl tr:hover td{background:var(--blue-100)}
+.tbl .num{font-weight:600;color:var(--navy);white-space:nowrap}
+.tbl tr.total td{background:var(--navy-900);color:#fff;border-bottom:none}
+.tbl tr.total:hover td{background:var(--navy-900)}
+.tbl tr.total td:first-child{color:#fff}
+.tbl tr.total .num{color:var(--blue-300)}
+.tblwrap{overflow-x:auto;background:var(--paper);border:1px solid var(--rule);
+  border-radius:var(--r);padding:26px;box-shadow:var(--shadow)}
+section.alt .tblwrap{background:var(--mist)}
+
+/* callout */
+.callout{margin-top:32px;border-radius:var(--r);padding:30px 34px;
+  background:linear-gradient(140deg,var(--navy-900),var(--navy));color:#fff;
+  display:flex;gap:26px;align-items:flex-start}
+.callout .kd{flex:none;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--pink);font-weight:700;padding-top:4px;width:96px}
+.callout p{font-size:1rem;font-weight:300;color:rgba(255,255,255,.9)}
+.callout strong{color:#fff;font-weight:600}
+@media(max-width:640px){.callout{flex-direction:column;gap:12px}.callout .kd{width:auto}}
+
+/* rule list */
+.rlist{list-style:none;display:grid;gap:12px;margin-top:18px}
+.rlist li{display:flex;gap:12px;font-size:.93rem;font-weight:300;color:var(--ink-soft);line-height:1.55}
+.rlist li::before{content:'';flex:none;width:6px;height:6px;border-radius:50%;
+  background:var(--blue);margin-top:9px}
+
+/* timeline */
+.tl{position:relative;display:grid;gap:0;margin-top:44px}
+.tl::before{content:'';position:absolute;left:19px;top:12px;bottom:12px;width:2px;
+  background:linear-gradient(180deg,var(--blue),var(--blue-200))}
+.tlrow{position:relative;padding:0 0 34px 62px}
+.tlrow:last-child{padding-bottom:0}
+.tlrow .mark{position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--blue);display:grid;place-items:center;
+  font-weight:700;font-size:.85rem;color:var(--navy);z-index:2}
+section.alt .tlrow .mark{background:var(--mist)}
+.tlrow .mark.day{font-size:10px;line-height:1.05;text-align:center;letter-spacing:0;background:var(--pink);border-color:var(--pink);color:#fff}
+
+/* faq */
+details{background:var(--paper);border:1px solid var(--rule);border-radius:16px;
+  margin-bottom:12px;overflow:hidden;transition:box-shadow .25s}
+section.alt details{background:var(--mist)}
+details[open]{box-shadow:var(--shadow)}
+summary{padding:22px 26px;cursor:pointer;font-weight:600;font-size:1rem;color:var(--navy-900);
+  list-style:none;display:flex;align-items:center;gap:16px;transition:color .2s}
+summary::-webkit-details-marker{display:none}
+summary:hover{color:var(--blue)}
+summary::after{content:'+';margin-left:auto;font-size:1.5rem;font-weight:300;color:var(--blue);
+  transition:transform .3s;line-height:1}
+details[open] summary::after{transform:rotate(45deg)}
+details .body{padding:0 26px 24px;font-size:.94rem;font-weight:300;color:var(--ink-soft);line-height:1.7}
+details .body strong{color:var(--navy);font-weight:600}
+
+/* contact + footer */
+.final{background:linear-gradient(155deg,var(--navy-900),var(--navy) 60%,var(--blue-600));
+  color:#fff;border:none;position:relative;overflow:hidden}
+.final::after{content:'';position:absolute;width:560px;height:560px;border-radius:50%;
+  bottom:-320px;right:-160px;background:radial-gradient(circle,rgba(242,136,222,.2),transparent 70%)}
+.final .wrap{position:relative;z-index:2}
+.final h2{color:#fff}.final .sub{color:rgba(255,255,255,.8)}
+.final .tag{color:var(--pink)}
+.fcard{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+  border-radius:var(--r);padding:28px}
+.fcard h4{color:#fff;margin-bottom:12px;font-size:.78rem;letter-spacing:.13em;text-transform:uppercase}
+.fcard p{font-size:.94rem;color:rgba(255,255,255,.82);font-weight:300}
+.fcard a{color:var(--blue-300);text-decoration:none;font-weight:500}
+.fcard a:hover{color:#fff}
+.cta{display:inline-flex;align-items:center;gap:12px;margin-top:40px;padding:17px 34px;
+  border-radius:999px;background:#fff;color:var(--navy);font-weight:600;font-size:1rem;
+  text-decoration:none;transition:transform .25s,box-shadow .25s;box-shadow:0 16px 34px -14px rgba(0,0,0,.5)}
+.cta:hover{transform:translateY(-3px);box-shadow:0 22px 44px -14px rgba(0,0,0,.55)}
+footer{background:var(--navy-900);color:rgba(255,255,255,.55);padding:46px 0;font-size:13.5px}
+footer .fin{display:flex;justify-content:space-between;align-items:center;gap:26px;flex-wrap:wrap}
+.footlogo{width:112px;opacity:.95}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}.card:hover{transform:none}}
+
+@media print{
+  nav,#bar,.cta{display:none!important}
+  body{background:#fff;font-size:11pt}
+  section{padding:24px 0;break-inside:avoid;border-bottom:1px solid #ccc}
+  header{background:var(--navy)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card,.stat,.step,.tblwrap,details{box-shadow:none;break-inside:avoid}
+  .rv{opacity:1;transform:none}
+  .panel.win,.callout,.final{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+
+
+.redund{display:flex;gap:16px;align-items:center;margin:2px 0 18px;padding:16px 20px;border-radius:14px;
+  background:linear-gradient(120deg,var(--navy-900),var(--navy));color:#fff;border-left:5px solid var(--pink)}
+.redund .rmark{flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--pink);
+  color:#fff;font-weight:800;font-size:1.15rem;letter-spacing:-.02em}
+.redund b{display:block;font-size:1.02rem;font-weight:700;color:#fff;line-height:1.35}
+.redund span:not(.rmark){display:block;margin-top:3px;font-size:.88rem;font-weight:300;color:rgba(255,255,255,.82)}
+@media print{.redund{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+/* ---------- product section ---------- */
+.patent{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:8px 16px 8px 12px;border-radius:999px;
+  background:var(--navy-900);color:#fff;font-size:12.5px;font-weight:600;letter-spacing:.02em}
+.patent .pdot{width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 4px rgba(242,136,222,.28)}
+
+.pfeature{background:var(--mist);border:1px solid var(--rule);border-radius:var(--r);padding:34px}
+.phead{max-width:64ch}
+.phead h3{font-size:1.5rem;letter-spacing:-.02em}
+.phead p{color:var(--ink-soft);font-weight:300}
+.modes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+@media(max-width:900px){.modes{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.modes{grid-template-columns:1fr}}
+.mode{background:var(--paper);border:1px solid var(--rule);border-radius:18px;padding:20px 20px 22px;position:relative}
+.mode svg{width:100%;max-width:140px;height:auto;display:block;margin:0 auto 12px}
+.mode .mn{position:absolute;top:14px;left:14px;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--navy),var(--blue));color:#fff;font-weight:700;font-size:.8rem}
+.mode h4{font-size:1rem;margin-bottom:6px}
+.mode p{font-size:.88rem;color:var(--ink-soft);font-weight:300;line-height:1.55}
+.callout.pdiff ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+.callout.pdiff li{font-size:.94rem;font-weight:300;color:rgba(255,255,255,.88);line-height:1.55}
+.callout.pdiff li b{color:#fff;font-weight:600}
+@media(max-width:720px){.callout.pdiff ul{grid-template-columns:1fr}}
+.pcard h3{font-size:1.25rem}
+.pcard>p{font-size:.94rem;color:var(--ink-soft);font-weight:300}
+
+/* ---------- warning chain band ---------- */
+.warnband{background:linear-gradient(155deg,var(--navy-900),var(--navy) 62%,var(--blue-600));color:#fff;border:none;position:relative;overflow:hidden}
+.warnband::before{content:'';position:absolute;width:620px;height:620px;border-radius:50%;top:-300px;right:-200px;background:radial-gradient(circle,rgba(62,141,214,.45),transparent 68%);pointer-events:none}
+.warnband .wrap{position:relative;z-index:2}
+.warnband h2{color:#fff;max-width:22ch}.warnband .sub{color:rgba(255,255,255,.82)}
+.warnband .tag{color:var(--pink)}
+.warnband h3{color:#fff}
+.chain{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative}
+.link:not(.last)::after{content:"\203A";position:absolute;right:-13px;top:28px;color:var(--blue-300);font-size:22px;font-weight:700;z-index:2}
+.link{position:relative;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:24px 22px;backdrop-filter:blur(4px)}
+.link .ln{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#fff;color:var(--navy);font-weight:700;margin-bottom:16px;box-shadow:0 8px 20px -8px rgba(0,0,0,.5)}
+.link.last .ln{background:var(--pink);color:#fff}
+.link h4{color:#fff;font-size:1.02rem;margin-bottom:8px}
+.link p{font-size:.9rem;font-weight:300;color:rgba(255,255,255,.84);line-height:1.55}
+@media(max-width:880px){.chain{grid-template-columns:repeat(2,1fr)}.link::after{display:none}}
+@media(max-width:560px){.chain{grid-template-columns:1fr}}
+.wcard{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:28px}
+.wcard .chip{background:rgba(255,255,255,.14);color:#fff}
+.wcard h3{margin-bottom:6px}
+.wcard .rlist li{color:rgba(255,255,255,.86)}
+.wcard .rlist li::before{background:var(--pink)}
+.wcard .role{margin-top:16px;padding-top:14px;border-top:1px dashed rgba(255,255,255,.22);font-size:.88rem;font-weight:300;color:rgba(255,255,255,.9)}
+.wcard .role b{color:var(--blue-300);font-weight:600}
+.propgrid{display:grid;grid-template-columns:1fr 300px 1fr;gap:28px;align-items:center;margin-top:36px}
+@media(max-width:960px){.propgrid{grid-template-columns:1fr 1fr}.phone{grid-column:1 / -1;justify-self:center;order:-1}}
+@media(max-width:640px){.propgrid{grid-template-columns:1fr}}
+.propcol h4{font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;color:var(--blue-300);margin-bottom:16px}
+.propcol.adds h4{color:var(--pink)}
+.propcol ul{list-style:none;display:grid;gap:16px}
+.propcol li{font-size:.92rem;font-weight:300;color:rgba(255,255,255,.88);line-height:1.55;padding-left:16px;border-left:2px solid rgba(127,180,228,.5)}
+.propcol.adds li{border-left-color:rgba(242,136,222,.7)}
+.propcol li b{color:#fff;font-weight:600}
+.phone{width:270px;margin:0 auto;border-radius:38px;padding:12px;background:#0B1B28;box-shadow:0 30px 60px -24px rgba(0,0,0,.7),inset 0 0 0 2px rgba(255,255,255,.12)}
+.phone .scr{border-radius:28px;overflow:hidden;background:linear-gradient(170deg,#1C4E78,#0E2E48);padding:18px 12px 22px;min-height:440px;position:relative}
+.phone .tm{text-align:center;color:#fff;font-size:44px;font-weight:300;letter-spacing:-.02em;margin:18px 0 2px}
+.phone .dt{text-align:center;color:rgba(255,255,255,.75);font-size:12px;margin-bottom:22px}
+.note-card{background:rgba(255,255,255,.92);color:var(--ink);border-radius:16px;padding:12px 13px;margin-bottom:10px;box-shadow:0 8px 20px -10px rgba(0,0,0,.5)}
+.note-card .hd{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ink-soft);margin-bottom:6px}
+.note-card .ic{width:18px;height:18px;border-radius:5px;background:linear-gradient(140deg,var(--navy),var(--blue));display:grid;place-items:center;color:#fff;font-size:10px;font-weight:700}
+.note-card .lv{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#F28C28;color:#fff;border-radius:5px;padding:2px 6px;margin-bottom:5px}
+.note-card .lv.adv{background:#E8C33A;color:#3A2E00}
+.note-card .tt{font-size:12.5px;font-weight:600;line-height:1.35;margin-bottom:3px}
+.note-card .bd{font-size:11.5px;font-weight:300;line-height:1.45;color:#2D4357}
+.phone .illus{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-size:10px;color:rgba(255,255,255,.55)}
+.fineprint{margin-top:34px;font-size:.82rem;font-weight:300;color:rgba(255,255,255,.7);max-width:80ch}
+@media print{.warnband,.link,.wcard,.phone{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+.navlogo,.footlogo,.herologo{position:relative}
+.logoreg{position:absolute;top:-4px;right:-11px;font-size:10px;line-height:1;font-weight:600;color:currentColor;opacity:.85}
+.navlogo .logoreg{color:var(--navy)}
+sup.reg{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-weight:inherit}
+/* coming-soon sash */
+.card.has-sash,.wcard.has-sash{position:relative;overflow:hidden}
+.sash{position:absolute;top:22px;right:-46px;width:170px;transform:rotate(45deg);text-align:center;
+  background:linear-gradient(90deg,#F288DE,#C95FB8);color:#fff;font-size:10.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;padding:6px 0;box-shadow:0 6px 14px -6px rgba(180,69,156,.6);pointer-events:none}
+@media print{.sash{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+/* ---------- Meridian three-layer explainer (scoped) ---------- */
+.mx{--x-paper:#FFFFFF;--x-ink:#0F2233;--x-ink-soft:#54718B;--x-rule:#DBE7F2;--x-accent:#3E8DD6;
+  --abyss:#08243A;--aqua:#34CFD0;--aqua-soft:#9EE6E4;margin-top:40px;color:var(--x-ink)}
+.mx *,.mx *::before,.mx *::after{box-sizing:border-box}
+.mx svg text{font-family:'Poppins',system-ui,sans-serif}
+.mx .t-serif{font-family:'Poppins',system-ui,sans-serif;font-weight:600}
+.mx .t-sans{font-family:'Poppins',system-ui,sans-serif}
+.mx .toggle{display:inline-flex;background:var(--x-paper);border:1px solid var(--x-rule);border-radius:40px;padding:4px;margin-bottom:16px}
+.mx .toggle button{appearance:none;border:0;background:transparent;color:var(--x-ink-soft);font:600 14px 'Poppins',system-ui,sans-serif;padding:9px 20px;border-radius:30px;cursor:pointer}
+.mx .toggle button[aria-pressed="true"]{background:var(--abyss);color:#fff}
+.mx button:focus-visible,.mx .hot:focus-visible{outline:3px solid var(--aqua);outline-offset:2px}
+.mx .stage{position:relative;width:100%;aspect-ratio:10/7;border-radius:var(--r,22px);overflow:hidden;background:#04253B;box-shadow:var(--shadow-lift,0 24px 60px -30px rgba(4,37,59,.7))}
+.mx .layer{position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .9s ease,filter .9s ease,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.mx .off{opacity:0;pointer-events:none}
+.mx .dim{opacity:.2;filter:blur(3px)}
+.mx .badge{position:absolute;left:14px;top:14px;z-index:6;font-size:12px;font-weight:500;color:#DCEEF4;background:rgba(4,37,59,.74);border:1px solid rgba(52,207,208,.35);padding:6px 12px;border-radius:20px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.mx .badge b{color:var(--aqua);font-weight:600}
+.mx .mesh{stroke-dasharray:6 9;animation:mxdash 1.6s linear infinite}
+.mx .flow{stroke-dasharray:18 22;animation:mxdash 1.1s linear infinite}
+@keyframes mxdash{to{stroke-dashoffset:-30}}
+.mx .intel{position:absolute;inset:0;z-index:4;display:grid;grid-template-columns:1fr 26px 1.35fr 26px 1fr;align-items:center;gap:6px;padding:60px 22px 22px;color:#EAF6FA;overflow:auto;line-height:1.45}
+.mx .ibox{background:rgba(4,37,59,.82);border:1px solid rgba(52,207,208,.28);border-radius:14px;padding:14px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.mx .ilbl{font-weight:600;font-size:15px;color:#fff;margin-bottom:2px}
+.mx .ihint{font-size:11.5px;color:#9DBFCE}
+.mx .mx-chip{display:block;font-size:12.5px;padding:8px 10px;border-radius:9px;background:rgba(255,255,255,.07);margin-top:8px;opacity:0;transform:translateY(6px);transition:opacity .5s,transform .5s}
+.mx .mx-chip.on{opacity:1;transform:none}
+.mx .experts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}
+.mx .ex{font-size:11.5px;padding:7px 9px;border-radius:9px;border:1px solid rgba(255,255,255,.13);color:#9DBFCE;transition:background .45s,color .45s,box-shadow .45s,border-color .45s}
+.mx .ex.on{background:var(--aqua);color:#04253B;border-color:var(--aqua);font-weight:600;box-shadow:0 0 18px rgba(52,207,208,.45)}
+.mx .jepa{margin-top:10px;font-size:11.5px;color:var(--aqua-soft);border-top:1px dashed rgba(158,230,228,.35);padding-top:8px}
+.mx .arrow{color:var(--aqua);font-size:20px;text-align:center}
+.mx .alert{opacity:0;transform:translateY(6px);transition:opacity .5s,transform .5s}
+.mx .alert.on{opacity:1;transform:none}
+.mx .alert h4{font-size:16px;margin:10px 0 4px;color:#fff;font-weight:600;letter-spacing:-.01em}
+.mx .alert .loc{font-size:12px;color:#9DBFCE}
+.mx .alert .rec{font-size:12.5px;margin:8px 0 10px}
+.mx .status{font-size:12px;color:#FFC9BC;margin-bottom:10px}
+.mx .status.ok{color:var(--aqua)}
+.mx .cosign{appearance:none;border:0;background:var(--aqua);color:#04253B;font:600 13px 'Poppins',system-ui,sans-serif;padding:9px 14px;border-radius:30px;cursor:pointer;width:100%}
+.mx .cosign[disabled]{background:rgba(255,255,255,.12);color:#9DBFCE;cursor:default}
+.mx .cap{display:grid;grid-template-columns:auto 1fr;gap:16px;margin-top:20px;align-items:start;min-height:96px}
+.mx .mx-num{font-size:36px;line-height:1;color:var(--x-accent);font-weight:700;letter-spacing:-.03em}
+.mx .captitle{font-weight:600;font-size:1.15rem;line-height:1.25;margin:2px 0 6px;color:var(--navy-900,#08243A)}
+.mx .cap p{margin:0;color:var(--x-ink-soft);max-width:66ch;font-weight:300}
+.mx .controls{display:flex;align-items:center;gap:10px;margin-top:16px;flex-wrap:wrap}
+.mx .btn{appearance:none;border:1px solid var(--x-rule);background:var(--x-paper);color:var(--x-ink);font:600 14px 'Poppins',system-ui,sans-serif;padding:9px 18px;border-radius:30px;cursor:pointer}
+.mx .btn.primary{background:var(--abyss);color:#fff;border-color:var(--abyss)}
+.mx .dots{display:flex;gap:8px;margin-left:auto}
+.mx .dots button{width:30px;height:6px;border-radius:4px;border:0;background:var(--x-rule);cursor:pointer;padding:0}
+.mx .dots button[aria-current="true"]{background:var(--aqua)}
+.mx .note{font-size:12px;color:var(--x-ink-soft);margin-top:18px;font-weight:300}
+@media (max-width:680px){
+  .mx .stage{aspect-ratio:1/1}
+  .mx .intel{grid-template-columns:1fr;gap:8px;padding:54px 12px 12px;align-content:start}
+  .mx .arrow{display:none}
+  .mx .chips-row{display:flex;flex-wrap:wrap;gap:6px}
+  .mx .mx-chip{display:inline-block;margin-top:6px;font-size:11px;padding:6px 8px}
+  .mx .experts{grid-template-columns:repeat(4,1fr);gap:5px}
+  .mx .ex{font-size:10px;padding:5px 6px}
+  .mx .ibox{padding:10px}
+  .mx .alert h4{margin-top:4px}
+  .mx .mx-num{font-size:30px}
+  .mx .dots{margin-left:0}
+  .mx .stage.is-hero .badge{display:none}
+  .mx .toggle button{padding:9px 14px}
+}
+@media (prefers-reduced-motion:reduce){
+  .mx .layer,.mx .mx-chip,.mx .alert,.mx .ex{transition:none}
+  .mx .mesh,.mx .flow{animation:none}
+}
+@media print{.mx .toggle,.mx .controls{display:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<nav>
+  <div class="navin">
+    <a href="#top" class="navlogo" aria-label="Matter home"><svg style="width:100%;height:auto;display:block"  data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1259 257.45">
+  <defs>
+    <style>
+      .mlc-1 {
+        fill: #c1e4f8;
+      }
+
+      .mlc-2 {
+        fill: #165888;
+      }
+
+      .mlc-3 {
+        fill: #fff;
+      }
+
+      .mlc-4 {
+        fill: #448cca;
+      }
+    </style>
+  </defs>
+  <g  data-name="Layer 2">
+    <g  data-name="Layer 5">
+      <g>
+        <g>
+          <path class="mlc-2" d="M0,57.8h67.92v23.64c18.51-17.76,39.27-26.65,62.29-26.65,28.52,0,50.28,12.01,65.29,36.03,15.26-24.27,37.02-36.41,65.29-36.41,9.01,0,17.51,1.31,25.51,3.94,8,2.63,14.88,6.75,20.64,12.38,5.75,5.63,10.32,12.95,13.7,21.96,3.38,9.01,5.07,19.89,5.07,32.65v124.98h-67.92v-94.95c0-9.76-.69-17.76-2.06-24.02-1.38-6.25-3.38-11.13-6-14.64-2.63-3.5-5.69-5.88-9.19-7.13s-7.26-1.88-11.26-1.88c-21.76,0-32.64,15.89-32.64,47.66v94.95h-67.92v-94.95c0-9.76-.63-17.83-1.88-24.21-1.26-6.38-3.07-11.45-5.44-15.2-2.38-3.75-5.44-6.32-9.19-7.69s-8.13-2.06-13.13-2.06c-4.26,0-8.26.63-12.01,1.88s-7.07,3.69-9.94,7.32c-2.88,3.63-5.13,8.63-6.75,15.01-1.63,6.38-2.44,14.7-2.44,24.96v94.95H0V57.8Z"/>
+          <path class="mlc-2" d="M675.44,114.47v135.86h-67.92V114.47h-22.51v-56.67h22.51V0h67.92v57.8h38.65v56.67h-38.65Z"/>
+          <path class="mlc-2" d="M800.88,114.47v135.86h-67.92V114.47h-22.51v-56.67h22.51V0h67.92v57.8h38.65v56.67h-38.65Z"/>
+          <path class="mlc-2" d="M908.82,165.51c0,29.27,13.75,43.91,41.28,43.91,14.76,0,25.89-6.01,33.39-18.02h65.67c-13.26,44.04-46.41,66.05-99.44,66.05-16.26,0-31.14-2.44-44.65-7.32s-25.08-11.82-34.71-20.83-17.07-19.76-22.33-32.28c-5.25-12.51-7.88-26.52-7.88-42.03s2.5-30.46,7.5-43.35c5-12.88,12.13-23.83,21.39-32.84,9.25-9.01,20.45-15.95,33.58-20.83s27.96-7.32,44.47-7.32,30.89,2.44,43.9,7.32c13,4.88,24.02,11.95,33.02,21.2,9,9.26,15.88,20.58,20.64,33.97,4.75,13.39,7.13,28.47,7.13,45.23v7.13h-142.96ZM988.37,126.1c-2.25-9.51-6.89-17.13-13.88-22.89-7.01-5.75-15.51-8.63-25.51-8.63-10.51,0-19.08,2.76-25.71,8.26-6.63,5.51-10.82,13.27-12.57,23.27h77.67Z"/>
+          <path class="mlc-2" d="M1072.01,57.8h67.92v31.53c7.25-11.51,16.13-20.33,26.64-26.46,10.51-6.13,22.76-9.19,36.78-9.19h5.82c2.12,0,4.56.25,7.32.75v64.93c-9.01-4.5-18.76-6.76-29.27-6.76-15.76,0-27.58,4.69-35.46,14.07-7.88,9.38-11.82,23.08-11.82,41.1v82.57h-67.92V57.8h-.01Z"/>
+          <path class="mlc-4" d="M1193.15,223.31c0-4.5.84-8.77,2.53-12.81,1.69-4.03,4.03-7.55,7.04-10.56,3-3,6.52-5.35,10.55-7.04,4.03-1.69,8.3-2.53,12.8-2.53s8.77.84,12.81,2.53c4.03,1.69,7.55,4.04,10.55,7.04s5.35,6.52,7.04,10.56c1.69,4.04,2.53,8.3,2.53,12.81s-.85,8.77-2.53,12.81c-1.69,4.04-4.04,7.56-7.04,10.56s-6.52,5.35-10.55,7.04c-4.04,1.69-8.3,2.53-12.81,2.53s-8.77-.84-12.8-2.53c-4.04-1.69-7.56-4.03-10.55-7.04-3-3-5.35-6.52-7.04-10.56-1.69-4.03-2.53-8.3-2.53-12.81h0Z"/>
+          <path class="mlc-2" d="M500.25,57.8v19.16c-15.76-16.76-35.65-25.15-59.66-25.15-14.26,0-27.27,2.69-39.03,8.07-11.76,5.39-21.89,12.71-30.39,21.96-8.51,9.25-15.14,20.07-19.89,32.46-4.76,12.39-7.13,25.46-7.13,39.22,0,14.77,2.44,28.4,7.32,40.91,4.88,12.51,11.69,23.4,20.45,32.65,8.75,9.26,19.01,16.45,30.77,21.58,11.75,5.12,24.64,7.69,38.65,7.69,24.77,0,44.4-9.13,58.91-27.4v21.39h68.29V57.8h-68.29Z"/>
+        </g>
+        <g>
+          <path class="mlc-2" d="M486,166.54c0,6.46-1.27,12.74-3.77,18.65-2.41,5.7-5.87,10.83-10.26,15.22-4.4,4.4-9.52,7.85-15.22,10.26-5.91,2.5-12.18,3.77-18.65,3.77s-12.74-1.27-18.65-3.77c-5.7-2.41-10.83-5.87-15.22-10.26-4.4-4.4-7.85-9.52-10.26-15.22-2.5-5.91-3.77-12.18-3.77-18.65,0-24.41,13.77-40.58,25.91-54.85,6.95-8.16,13.51-15.87,16.63-24.13.84-2.23,2.91-3.66,5.29-3.66h.07c2.4.03,4.47,1.51,5.27,3.79,2.91,8.29,9.6,16.1,16.68,24.37,12.16,14.21,25.95,30.31,25.95,54.48h0Z"/>
+          <path class="mlc-3" d="M481.69,166.54c0,24.07-19.51,43.59-43.59,43.59s-43.59-19.51-43.59-43.59c0-36.56,33.25-53.61,42.26-77.46.45-1.18,2.11-1.16,2.53.03,8.32,23.68,42.39,40.89,42.39,77.42h0Z"/>
+          <path class="mlc-1" d="M481.69,166.54c0,24.07-19.51,43.59-43.59,43.59-19.29,0-35.66-12.53-41.4-29.9,9.5,11.36,25.25,17.42,39.89,14.8,4.87-.87,9.6-2.63,13.75-5.32,12.33-7.99,18.24-24.66,13.7-38.63-3.06-9.41-10.03-16.93-15.34-25.28-7.93-12.48-12.31-20.09-10.13-37.48.32.14.6.4.74.8,8.32,23.68,42.39,40.89,42.39,77.42h-.01Z"/>
+          <path class="mlc-3" d="M405.32,154.39c.66-10.21,8.51-19.2,14.75-26.77,2.28-2.71,4.66-5.55,6.88-8.31.2-.25.64-.8.85-1.06.29-.37.58-.73.89-1.09.33-.39.92-.43,1.3-.1.27.24.38.6.29.93-.12.46-.26.92-.4,1.37-.28.87-.65,1.82-1,2.67-4.67,11-14.17,18.98-19.99,29.22-.22.37-.43.79-.63,1.16-.43.81-.81,1.63-1.21,2.45-.46.87-1.78.52-1.73-.47h0Z"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg><span class="logoreg" aria-hidden="true">®</span></a>
+    <div class="navlinks">
+      <a href="#system">System</a><a href="#product">Product</a><a href="#alerts">Alerts</a><a href="#problem">Problem</a><a href="#benefits">Benefits</a>
+      <a href="#cost">Cost</a><a href="#proof">Proof</a><a href="#next">Next steps</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <svg class="ripple" viewBox="0 0 1440 600" preserveAspectRatio="none" aria-hidden="true">
+    <g fill="none" stroke="#fff" stroke-width="1.1">
+      <path d="M0,150 C240,90 480,210 720,150 C960,90 1200,210 1440,150"/>
+      <path d="M0,240 C240,180 480,300 720,240 C960,180 1200,300 1440,240"/>
+      <path d="M0,330 C240,270 480,390 720,330 C960,270 1200,390 1440,330"/>
+      <path d="M0,420 C240,360 480,480 720,420 C960,360 1200,480 1440,420"/>
+      <path d="M0,510 C240,450 480,570 720,510 C960,450 1200,570 1440,510"/>
+    </g>
+  </svg>
+  <div class="wrap heroin">
+    <div class="herologo"><svg style="width:100%;height:auto;display:block"  data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1259.29 257.45">
+  <defs>
+    <style>
+      .mlr-1 {
+        fill: #7abbe7;
+      }
+
+      .mlr-2 {
+        fill: #165888;
+      }
+
+      .mlr-3 {
+        fill: #fff;
+      }
+
+      .mlr-4 {
+        fill: #3780b8;
+      }
+
+      .mlr-5 {
+        fill: #448cca;
+      }
+    </style>
+  </defs>
+  <g  data-name="Layer 2">
+    <g  data-name="Layer 5">
+      <g>
+        <g>
+          <path class="mlr-3" d="M0,57.8h67.93v23.64c18.51-17.76,39.28-26.65,62.3-26.65,28.52,0,50.29,12.01,65.3,36.03,15.26-24.27,37.03-36.41,65.31-36.41,9.01,0,17.51,1.31,25.52,3.94,8,2.63,14.88,6.75,20.64,12.38,5.75,5.63,10.32,12.95,13.7,21.96s5.07,19.89,5.07,32.65v124.98h-67.93v-94.95c0-9.76-.69-17.76-2.06-24.02-1.38-6.25-3.38-11.13-6.01-14.64-2.63-3.5-5.69-5.88-9.2-7.13s-7.26-1.88-11.26-1.88c-21.77,0-32.65,15.89-32.65,47.66v94.95h-67.93v-94.95c0-9.76-.63-17.83-1.88-24.21-1.26-6.38-3.07-11.45-5.44-15.2-2.38-3.75-5.44-6.32-9.19-7.69s-8.13-2.06-13.14-2.06c-4.26,0-8.26.63-12.01,1.88s-7.07,3.69-9.95,7.32-5.13,8.63-6.75,15.01c-1.63,6.38-2.44,14.7-2.44,24.96v94.95H0V57.8Z"/>
+          <path class="mlr-3" d="M675.59,114.47v135.86h-67.93V114.47h-22.52v-56.67h22.52V0h67.93v57.8h38.66v56.67h-38.66Z"/>
+          <path class="mlr-3" d="M801.05,114.47v135.86h-67.93V114.47h-22.52v-56.67h22.52V0h67.93v57.8h38.66v56.67h-38.66Z"/>
+          <path class="mlr-3" d="M909.03,165.51c0,29.27,13.76,43.91,41.28,43.91,14.76,0,25.89-6.01,33.4-18.02h65.68c-13.26,44.04-46.42,66.05-99.46,66.05-16.27,0-31.15-2.44-44.66-7.32-13.51-4.88-25.09-11.82-34.72-20.83-9.64-9.01-17.08-19.76-22.33-32.28-5.26-12.51-7.88-26.52-7.88-42.03s2.5-30.46,7.51-43.35c5-12.88,12.13-23.83,21.39-32.84,9.25-9.01,20.46-15.95,33.59-20.83s27.96-7.32,44.48-7.32,30.9,2.44,43.91,7.32c13.01,4.88,24.02,11.95,33.03,21.2,9.01,9.26,15.88,20.58,20.64,33.97,4.75,13.39,7.13,28.47,7.13,45.23v7.13h-142.99ZM988.59,126.1c-2.25-9.51-6.89-17.13-13.89-22.89-7.01-5.75-15.52-8.63-25.52-8.63-10.51,0-19.08,2.76-25.71,8.26-6.63,5.51-10.82,13.27-12.57,23.27h77.69Z"/>
+          <path class="mlr-3" d="M1072.25,57.8h67.93v31.53c7.25-11.51,16.14-20.33,26.65-26.46,10.51-6.13,22.77-9.19,36.78-9.19h5.82c2.12,0,4.56.25,7.32.75v64.93c-9.01-4.5-18.77-6.76-29.28-6.76-15.76,0-27.58,4.69-35.46,14.07-7.88,9.38-11.82,23.08-11.82,41.1v82.57h-67.93V57.8h-.01Z"/>
+          <path class="mlr-2" d="M1193.41,223.31c0-4.5.84-8.77,2.53-12.81,1.69-4.03,4.03-7.55,7.04-10.56,3-3,6.52-5.35,10.56-7.04,4.03-1.69,8.3-2.53,12.81-2.53s8.77.84,12.81,2.53c4.03,1.69,7.55,4.04,10.56,7.04,3,3,5.35,6.52,7.04,10.56,1.69,4.04,2.53,8.3,2.53,12.81s-.85,8.77-2.53,12.81c-1.69,4.04-4.04,7.56-7.04,10.56-3.01,3-6.52,5.35-10.56,7.04-4.04,1.69-8.31,2.53-12.81,2.53s-8.77-.84-12.81-2.53-7.56-4.03-10.56-7.04c-3.01-3-5.35-6.52-7.04-10.56-1.69-4.03-2.53-8.3-2.53-12.81h0Z"/>
+          <path class="mlr-3" d="M500.36,57.8v.02s-.01,19.14-.01,19.14c-15.76-16.76-35.65-25.15-59.67-25.15-14.26,0-27.27,2.69-39.03,8.07-11.76,5.39-21.9,12.71-30.4,21.96-8.51,9.25-15.14,20.07-19.89,32.46-4.75,12.39-7.13,25.46-7.13,39.22,0,14.77,2.44,28.4,7.32,40.91,4.88,12.51,11.7,23.4,20.46,32.65,8.75,9.26,19.01,16.45,30.77,21.58,11.76,5.12,24.64,7.69,38.66,7.69,24.77,0,44.41-9.13,58.92-27.4v21.39h68.31V57.8h-68.31Z"/>
+        </g>
+        <g>
+          <path class="mlr-3" d="M486.28,166.54c0,6.46-1.27,12.74-3.77,18.65-2.41,5.7-5.87,10.83-10.26,15.22-4.4,4.4-9.52,7.85-15.22,10.26-5.91,2.5-12.18,3.77-18.65,3.77s-12.74-1.27-18.65-3.77c-5.7-2.41-10.83-5.87-15.22-10.26-4.4-4.4-7.85-9.52-10.26-15.22-2.5-5.91-3.77-12.18-3.77-18.65,0-24.41,13.77-40.58,25.91-54.85,6.95-8.16,13.51-15.87,16.63-24.13.84-2.23,2.91-3.66,5.29-3.66h.07c2.4.03,4.47,1.51,5.27,3.79,2.91,8.29,9.6,16.1,16.68,24.37,12.16,14.21,25.95,30.31,25.95,54.48h0Z"/>
+          <path class="mlr-5" d="M481.97,166.54c0,24.07-19.51,43.59-43.59,43.59s-43.59-19.51-43.59-43.59c0-36.56,33.25-53.61,42.26-77.46.45-1.18,2.11-1.16,2.53.03,8.32,23.68,42.39,40.89,42.39,77.42h0Z"/>
+          <path class="mlr-4" d="M481.97,166.54c0,24.07-19.51,43.59-43.59,43.59-19.29,0-35.66-12.53-41.4-29.9,9.5,11.36,25.25,17.42,39.89,14.8,4.87-.87,9.6-2.63,13.75-5.32,12.33-7.99,18.24-24.66,13.7-38.63-3.06-9.41-10.03-16.93-15.34-25.28-7.93-12.48-12.31-20.09-10.13-37.48.32.14.6.4.74.8,8.32,23.68,42.39,40.89,42.39,77.42h0Z"/>
+          <path class="mlr-1" d="M405.6,154.39c.66-10.21,8.51-19.2,14.75-26.77,2.28-2.71,4.66-5.55,6.88-8.31.2-.25.64-.8.85-1.06.29-.37.58-.73.89-1.09.33-.39.92-.43,1.3-.1.27.24.38.6.29.93-.12.46-.26.92-.4,1.37-.28.87-.65,1.82-1,2.67-4.67,11-14.17,18.98-19.99,29.22-.22.37-.43.79-.63,1.16-.43.81-.81,1.63-1.21,2.45-.46.87-1.78.52-1.73-.47h0Z"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg><span class="logoreg" aria-hidden="true">®</span></div>
+    <div class="eyebrow"><span class="dot"></span> Meridian Flood Intelligence</div>
+    <h1>Super early flood warning for <span class="accent">your council</span><span class="pk">.</span></h1>
+    <p class="lede">A briefing for local government on protecting your community with sensing that
+      sees a flood coming — hours before the water rises.</p>
+  </div>
+</header>
+
+<section class="alt" id="what">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag">What is Meridian</span>
+      <h2>A system that detects flood risk before it reaches your streets</h2>
+      <p class="sub">Meridian is the early flood warning system that protects your community by
+        detecting flood risks hours before flooding occurs.</p>
+    </div>
+    <div class="steps mt rv">
+      <div class="step"><div class="n">1</div><p><strong>StormPuck™</strong> water sensors and
+        <strong>StormSight</strong> cameras are placed at high-risk locations — bridges, underpasses
+        and stormwater pits.</p></div>
+      <div class="step"><div class="n">2</div><p>Artificial intelligence analyses video, water levels
+        and weather locally, at the roadside, to predict flooding.</p></div>
+      <div class="step"><div class="n">3</div><p>Your council receives a <strong>45–90 minute
+        warning</strong> before flooding happens, through <strong>StormPilot</strong>.</p></div>
+      <div class="step"><div class="n">4</div><p>Warnings go to your council and the <strong>SES</strong>, and through them to residents'
+        phones via <strong>AusAlert</strong>. StormGate floodway signage follows from late 2027.</p></div>
+    </div>
+    <div class="callout rv"><div class="kd">Result</div>
+      <p>More time to <strong>evacuate people</strong>, close roads, and protect infrastructure.</p></div>
+  </div>
+</section>
+
+<section id="system">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag">The Meridian system</span>
+      <h2>One early warning, from under the street to across the catchment</h2>
+      <p class="sub">Start with the whole picture, from regional catchment to city streets, then zoom
+        into either to see the device doing the work.</p>
+    </div>
+    <div class="mx" id="mx-root">
+
+
+  <div class="toggle" role="group" aria-label="Choose setting">
+    <button id="mx-tHero" aria-pressed="true">Overview</button>
+    <button id="mx-tUrban" aria-pressed="false">Urban</button>
+    <button id="mx-tRegional" aria-pressed="false">Regional</button>
+  </div>
+
+  <div class="stage" id="mx-stage">
+    <div class="badge" id="mx-badge"></div>
+
+    <!-- shared defs -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <radialGradient id="mx-cell"><stop offset="0" stop-color="#9EE6E4" stop-opacity=".42"/><stop offset=".6" stop-color="#9EE6E4" stop-opacity=".16"/><stop offset="1" stop-color="#9EE6E4" stop-opacity="0"/></radialGradient>
+        <pattern id="mx-rain" width="26" height="26" patternUnits="userSpaceOnUse">
+          <line x1="19" y1="0" x2="13" y2="15" stroke="#CFE7EF" stroke-opacity=".38" stroke-width="1.6"/>
+          <animateTransform attributeName="patternTransform" type="translate" from="0 0" to="-13 26" dur=".55s" repeatCount="indefinite"/>
+        </pattern>
+        <linearGradient id="mx-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#062C44"/><stop offset="1" stop-color="#0B4F73"/></linearGradient>
+        <radialGradient id="mx-glow"><stop offset="0" stop-color="#34CFD0" stop-opacity=".55"/><stop offset="1" stop-color="#34CFD0" stop-opacity="0"/></radialGradient>
+        <pattern id="mx-soil" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="4" cy="5" r="1.3" fill="#2A4553"/><circle cx="13" cy="13" r="1" fill="#24404D"/></pattern>
+        <clipPath id="mx-uWaterClip">
+          <rect x="432" y="262" width="136" height="330"/>
+          <rect x="150" y="527" width="700" height="66"/>
+          <rect x="160" y="262" width="40" height="330"/>
+          <rect x="800" y="262" width="40" height="330"/>
+        </clipPath>
+        <filter id="mx-softGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="mx-feather" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="7"/></filter>
+        <linearGradient id="mx-puckSide" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C9D3D9"/><stop offset=".45" stop-color="#F4F7F8"/><stop offset="1" stop-color="#B7C3CA"/></linearGradient>
+        <radialGradient id="mx-nodeGlow"><stop offset="0" stop-color="#FFFFFF" stop-opacity="1"/><stop offset=".35" stop-color="#BFF4F5" stop-opacity=".8"/><stop offset="1" stop-color="#34CFD0" stop-opacity="0"/></radialGradient>
+        <radialGradient id="mx-beamR" cx="0" cy=".5" r="1"><stop offset="0" stop-color="#E4F1FF" stop-opacity=".95"/><stop offset=".55" stop-color="#9EC6F5" stop-opacity=".55"/><stop offset="1" stop-color="#7FAEEB" stop-opacity="0"/></radialGradient>
+        <linearGradient id="mx-beamV" gradientUnits="userSpaceOnUse" x1="286" y1="199" x2="780" y2="600"><stop offset="0" stop-color="#EAF4FF" stop-opacity=".95"/><stop offset=".6" stop-color="#A9CCF6" stop-opacity=".55"/><stop offset="1" stop-color="#8DB8F0" stop-opacity="0"/></linearGradient>
+        <clipPath id="mx-rWaterClip"><polygon points="330,400 390,600 650,600 720,400"/></clipPath>
+      </defs>
+    </svg>
+
+    <!-- OVERVIEW: city and catchment in one isometric view -->
+    <svg class="layer" id="mx-hero" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Isometric view of a regional catchment draining through a river into a city, with the flood-prone zone shaded blue">
+      <rect width="1000" height="700" fill="#DCE7EC"/>
+      <g id="mx-heroG"></g>
+    </svg>
+
+    <!-- URBAN: bird's-eye -->
+    <svg class="layer off" id="mx-ovU" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Bird's-eye view of a city with a mesh of StormPuck sensors under the streets">
+      <rect width="1000" height="700" fill="#123F58"/>
+      <g id="mx-uBlocks"></g>
+      <path d="M-20,640 C180,575 300,650 470,612 S790,540 1020,585" fill="none" stroke="#0E7FB8" stroke-width="22" stroke-linecap="round" opacity=".85"/>
+      <path d="M-20,640 C180,575 300,650 470,612 S790,540 1020,585" fill="none" stroke="#34CFD0" stroke-width="2.5" opacity=".45"/>
+      <g id="mx-uMesh" filter="url(#mx-softGlow)"></g>
+      <g id="mx-uPucks"></g>
+      <g>
+        <circle r="175" fill="url(#mx-cell)"/><circle r="150" fill="url(#mx-rain)"/>
+        <animateTransform attributeName="transform" type="translate" values="-160 250;540 320" dur="9s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.8;1" dur="9s" repeatCount="indefinite"/>
+      </g>
+      <g>
+        <rect x="487" y="338" width="26" height="26" rx="3" fill="none" stroke="#34CFD0" stroke-width="3"/>
+        <circle cx="500" cy="351" r="22" fill="none" stroke="#34CFD0" stroke-width="2.5">
+          <animate attributeName="r" values="20;46" dur="2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values=".9;0" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <line x1="514" y1="338" x2="560" y2="292" stroke="#34CFD0" stroke-width="2"/>
+        <rect x="556" y="262" width="186" height="38" rx="19" fill="#04253B" stroke="#34CFD0" stroke-width="1.5"/>
+        <text x="649" y="288" text-anchor="middle" class="t-sans" font-size="19" font-weight="600" fill="#EAF6FA">StormPuck™ in a pit</text>
+      </g>
+      <rect x="196" y="644" width="372" height="38" rx="19" fill="#04253B" opacity=".85"/>
+      <text x="382" y="670" text-anchor="middle" class="t-sans" font-size="18" fill="#9EE6E4">Sensing mesh beneath the streets</text>
+    </svg>
+
+    <!-- URBAN: in focus -->
+    <svg class="layer off" id="mx-dtU" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" style="transform:scale(1.12)" role="img" aria-label="Cross-section of a stormwater pit with a StormPuck sensing rising water in the pipe while the street above is dry">
+      <rect width="1000" height="262" fill="url(#mx-sky)"/>
+      <rect width="1000" height="236" fill="url(#mx-rain)"/>
+      <rect y="262" width="1000" height="438" fill="#102631"/>
+      <rect y="262" width="1000" height="438" fill="url(#mx-soil)"/>
+      <rect y="238" width="1000" height="24" fill="#24404F"/>
+      <line x1="0" y1="241" x2="1000" y2="241" stroke="#CFE7EF" stroke-width="2" stroke-dasharray="30 26" opacity=".45"/>
+      <!-- neighbour pits -->
+      <rect x="152" y="262" width="56" height="270" fill="#355A6A"/><rect x="160" y="262" width="40" height="270" fill="#071823"/>
+      <rect x="792" y="262" width="56" height="270" fill="#355A6A"/><rect x="800" y="262" width="40" height="270" fill="#071823"/>
+      <!-- pipe -->
+      <rect x="150" y="515" width="700" height="90" fill="#355A6A"/>
+      <rect x="150" y="527" width="700" height="66" fill="#071823"/>
+      <!-- main pit -->
+      <rect x="420" y="262" width="160" height="265" fill="#355A6A"/>
+      <rect x="432" y="262" width="136" height="331" fill="#071823"/>
+      <rect x="420" y="232" width="160" height="10" fill="#6E8F9C"/>
+      <g stroke="#071823" stroke-width="4"><line x1="440" y1="232" x2="440" y2="242"/><line x1="460" y1="232" x2="460" y2="242"/><line x1="480" y1="232" x2="480" y2="242"/><line x1="500" y1="232" x2="500" y2="242"/><line x1="520" y1="232" x2="520" y2="242"/><line x1="540" y1="232" x2="540" y2="242"/><line x1="560" y1="232" x2="560" y2="242"/></g>
+      <!-- water -->
+      <g clip-path="url(#mx-uWaterClip)">
+        <rect x="150" y="585" width="700" height="240" fill="#0E7FB8" opacity=".9">
+          <animate attributeName="y" values="585;468;468;585" keyTimes="0;.55;.85;1" dur="9s" repeatCount="indefinite"/>
+        </rect>
+        <line class="flow" x1="150" y1="575" x2="850" y2="575" stroke="#9EE6E4" stroke-width="3" opacity=".6"/>
+      </g>
+      <!-- mesh links: glowing lattice between pits -->
+      <g filter="url(#mx-softGlow)" fill="none" stroke="#DDF8F9" stroke-linecap="round">
+        <path d="M500,292 L180,306" stroke-width="2.2" opacity=".9"/>
+        <path d="M500,292 L820,306" stroke-width="2.2" opacity=".9"/>
+        <path d="M180,306 L120,250 M180,306 L120,380 M820,306 L880,250 M820,306 L880,380" stroke-width="1.6" opacity=".55"/>
+        <path d="M500,292 L330,232 L180,306 M500,292 L670,232 L820,306" stroke-width="1.2" opacity=".35"/>
+      </g>
+      <g fill="#FFFFFF">
+        <circle r="3.4"><animateMotion dur="2.2s" repeatCount="indefinite" path="M500,292 L180,306"/></circle>
+        <circle r="3.4"><animateMotion dur="2.2s" begin="1.1s" repeatCount="indefinite" path="M500,292 L820,306"/></circle>
+      </g>
+      <!-- neighbouring StormPucks -->
+      <g>
+        <ellipse cx="180" cy="314" rx="18" ry="5.5" fill="#B7C3CA"/><rect x="162" y="304" width="36" height="10" fill="url(#mx-puckSide)"/><ellipse cx="180" cy="304" rx="18" ry="5.5" fill="#FFFFFF"/>
+        <circle cx="180" cy="304" r="12" fill="url(#mx-nodeGlow)"/>
+      </g>
+      <g>
+        <ellipse cx="820" cy="314" rx="18" ry="5.5" fill="#B7C3CA"/><rect x="802" y="304" width="36" height="10" fill="url(#mx-puckSide)"/><ellipse cx="820" cy="304" rx="18" ry="5.5" fill="#FFFFFF"/>
+        <circle cx="820" cy="304" r="12" fill="url(#mx-nodeGlow)"/>
+      </g>
+      <!-- StormPuck -->
+      <circle cx="500" cy="296" r="70" fill="url(#mx-glow)" opacity=".7"><animate attributeName="opacity" values=".4;.85;.4" dur="2.4s" repeatCount="indefinite"/></circle>
+      <circle cx="500" cy="296" r="30" fill="none" stroke="#DDF8F9" stroke-width="1.6"><animate attributeName="r" values="30;120" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values=".7;0" dur="2.4s" repeatCount="indefinite"/></circle>
+      <circle cx="500" cy="296" r="30" fill="none" stroke="#DDF8F9" stroke-width="1.6"><animate attributeName="r" values="30;120" dur="2.4s" begin="1.2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".7;0" dur="2.4s" begin="1.2s" repeatCount="indefinite"/></circle>
+      <line x1="432" y1="300" x2="462" y2="300" stroke="#6E8F9C" stroke-width="5"/>
+      <ellipse cx="500" cy="312" rx="40" ry="10" fill="#9FAEB6"/>
+      <rect x="460" y="288" width="80" height="24" fill="url(#mx-puckSide)"/>
+      <ellipse cx="500" cy="288" rx="40" ry="10" fill="#FFFFFF" stroke="#D3DCE1" stroke-width="1"/>
+      <ellipse cx="500" cy="288" rx="26" ry="6" fill="none" stroke="#DCE4E8" stroke-width="1.2"/>
+      <circle cx="500" cy="288" r="16" fill="url(#mx-nodeGlow)"><animate attributeName="r" values="12;19;12" dur="1.6s" repeatCount="indefinite"/></circle>
+      <circle cx="500" cy="288" r="3.6" fill="#FFFFFF"/>
+      <!-- callouts -->
+      <circle cx="542" cy="290" r="4" fill="#34CFD0"/>
+      <polyline points="542,290 588,160 604,160" fill="none" stroke="#34CFD0" stroke-width="2"/>
+      <text x="612" y="140" class="t-serif" font-size="32" fill="#FFFFFF">StormPuck™</text>
+      <text x="612" y="172" class="t-sans" font-size="20" fill="#CFE7EF">Level, flow and pressure</text>
+      <text x="612" y="198" class="t-sans" font-size="20" fill="#CFE7EF">inside the pipe</text>
+      <text x="178" y="140" class="t-sans" font-size="20" font-weight="600" fill="#9EE6E4">Street still dry</text>
+      <line x1="178" y1="152" x2="178" y2="226" stroke="#9EE6E4" stroke-width="2" stroke-dasharray="4 5"/>
+      <text x="590" y="452" class="t-sans" font-size="19" fill="#CFE7EF">Mesh link to</text>
+      <text x="590" y="476" class="t-sans" font-size="19" fill="#CFE7EF">neighbouring pits</text>
+      <text x="178" y="654" class="t-sans" font-size="21" font-weight="600" fill="#FFFFFF">Water rises below ground first</text>
+    </svg>
+
+    <!-- URBAN: pull back to the city-wide mesh -->
+    <svg class="layer off" id="mx-flU" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" style="transform:scale(4)" role="img" aria-label="One StormPuck highlighted within a city-wide mesh of thousands of sensor nodes">
+      <defs>
+        <pattern id="mx-meshGrid" width="15" height="15" patternUnits="userSpaceOnUse"><path d="M15,0 L0,0 0,15" fill="none" stroke="#34CFD0" stroke-width=".6" opacity=".22"/></pattern>
+        <clipPath id="mx-cityShape"><path d="M140,330 C150,170 300,90 470,96 C640,90 820,150 870,300 C910,430 820,600 620,630 C450,660 260,640 180,540 C140,480 135,400 140,330 Z"/></clipPath>
+        <linearGradient id="mx-topFade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#04253B" stop-opacity=".95"/><stop offset="1" stop-color="#04253B" stop-opacity="0"/></linearGradient>
+      </defs>
+      <rect width="1000" height="700" fill="#04253B"/>
+      <g id="mx-flDots"></g>
+      <circle cx="500" cy="350" r="10" fill="none" stroke="#9EE6E4" stroke-width="2">
+        <animate attributeName="r" values="10;460" dur="3.6s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values=".7;0" dur="3.6s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="500" cy="350" r="10" fill="none" stroke="#9EE6E4" stroke-width="2">
+        <animate attributeName="r" values="10;460" dur="3.6s" begin="1.8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values=".7;0" dur="3.6s" begin="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="500" cy="350" r="38" fill="url(#mx-glow)"/>
+      <ellipse cx="500" cy="356" rx="14" ry="4.5" fill="#9FAEB6"/>
+      <rect x="486" y="348" width="28" height="8" fill="url(#mx-puckSide)"/>
+      <ellipse cx="500" cy="348" rx="14" ry="4.5" fill="#FFFFFF"/>
+      <circle cx="500" cy="348" r="12" fill="url(#mx-nodeGlow)"><animate attributeName="r" values="9;15;9" dur="1.6s" repeatCount="indefinite"/></circle>
+      <rect width="1000" height="220" fill="url(#mx-topFade)"/>
+      <text x="500" y="98" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-weight="500" font-size="48" fill="#FFFFFF">City saving starts with this.</text>
+      <text x="500" y="140" text-anchor="middle" class="t-sans" font-size="21" fill="#9EE6E4">StormPuck™ Mesh – your city-wide safety net</text>
+    </svg>
+
+    <!-- REGIONAL: bird's-eye -->
+    <svg class="layer off" id="mx-ovR" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Bird's-eye view of a regional catchment with camera and radar units at river crossings">
+      <rect width="1000" height="700" fill="#0B3537"/>
+      <g fill="#0D3B3D" stroke="#164A4B" stroke-width="2">
+        <polygon points="0,0 280,0 230,190 0,240"/>
+        <polygon points="560,0 1000,0 1000,250 640,300"/>
+        <polygon points="0,420 260,360 330,700 0,700"/>
+        <polygon points="760,520 1000,470 1000,700 700,700"/>
+      </g>
+      <g fill="none" stroke="#1E5A5A" stroke-width="2" opacity=".5">
+        <ellipse cx="180" cy="560" rx="150" ry="80"/><ellipse cx="180" cy="560" rx="95" ry="48"/>
+        <ellipse cx="860" cy="120" rx="170" ry="90"/><ellipse cx="860" cy="120" rx="105" ry="52"/>
+      </g>
+      <path d="M30,40 C160,120 180,250 300,280 S460,330 500,350 S620,460 720,470 S880,560 980,660" fill="none" stroke="#0E7FB8" stroke-width="24" stroke-linecap="round"/>
+      <path d="M30,40 C160,120 180,250 300,280 S460,330 500,350 S620,460 720,470 S880,560 980,660" fill="none" stroke="#34CFD0" stroke-width="3" opacity=".45"/>
+      <g stroke="#2E5C66" stroke-width="10" stroke-linecap="round">
+        <line x1="300" y1="0" x2="300" y2="700"/><line x1="380" y1="0" x2="620" y2="700"/><line x1="0" y1="470" x2="1000" y2="470"/><line x1="620" y1="700" x2="800" y2="200"/>
+      </g>
+      <g stroke="#6E959C" stroke-width="1.6" stroke-dasharray="10 12">
+        <line x1="300" y1="0" x2="300" y2="700"/><line x1="380" y1="0" x2="620" y2="700"/><line x1="0" y1="470" x2="1000" y2="470"/>
+      </g>
+      <g fill="#2A5866">
+        <rect x="770" y="160" width="16" height="16"/><rect x="792" y="168" width="14" height="14"/><rect x="812" y="156" width="18" height="18"/><rect x="778" y="184" width="14" height="14"/><rect x="800" y="190" width="18" height="12"/><rect x="826" y="182" width="14" height="16"/>
+      </g>
+      <g id="mx-rNodes"></g>
+      <g>
+        <circle r="175" fill="url(#mx-cell)"/><circle r="150" fill="url(#mx-rain)"/>
+        <animateTransform attributeName="transform" type="translate" values="-160 180;560 280" dur="9s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.8;1" dur="9s" repeatCount="indefinite"/>
+      </g>
+      <g>
+        <circle cx="500" cy="350" r="22" fill="none" stroke="#34CFD0" stroke-width="2.5">
+          <animate attributeName="r" values="22;52" dur="2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values=".9;0" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <line x1="514" y1="338" x2="560" y2="300" stroke="#34CFD0" stroke-width="2"/>
+        <rect x="556" y="270" width="250" height="38" rx="19" fill="#04253B" stroke="#34CFD0" stroke-width="1.5"/>
+        <text x="681" y="296" text-anchor="middle" class="t-sans" font-size="19" font-weight="600" fill="#EAF6FA">Camera and radar at a crossing</text>
+      </g>
+      <rect x="176" y="644" width="310" height="38" rx="19" fill="#04253B" opacity=".85"/>
+      <text x="331" y="670" text-anchor="middle" class="t-sans" font-size="18" fill="#9EE6E4">Rivers, floodways and roads</text>
+    </svg>
+
+    <!-- REGIONAL: in focus -->
+    <svg class="layer off" id="mx-dtR" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" style="transform:scale(1.12)" role="img" aria-label="Side view of a floodway crossing watched by a pole-mounted camera and radar as the river rises">
+      <rect width="1000" height="420" fill="url(#mx-sky)"/>
+      <rect width="1000" height="420" fill="url(#mx-rain)"/>
+      <g clip-path="url(#mx-rWaterClip)">
+        <rect x="300" y="600" width="460" height="200" fill="#0E7FB8" opacity=".9">
+          <animate attributeName="y" values="600;476;476;600" keyTimes="0;.55;.85;1" dur="9s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+      <path d="M0,400 L330,400 L390,600 L650,600 L720,400 L1000,400 L1000,700 L0,700 Z" fill="#102B2A"/>
+      <path d="M0,400 L330,400 L390,600 L650,600 L720,400 L1000,400" fill="none" stroke="#2D6260" stroke-width="4"/>
+      <rect x="0" y="392" width="330" height="10" fill="#3E5C66"/><rect x="720" y="392" width="280" height="10" fill="#3E5C66"/>
+      <!-- causeway -->
+      <rect x="352" y="470" width="336" height="16" fill="#7D9AA4"/>
+      <g fill="#102B2A"><rect x="420" y="486" width="26" height="114"/><rect x="520" y="486" width="26" height="114"/><rect x="610" y="486" width="26" height="114"/></g>
+      <!-- depth board -->
+      <rect x="640" y="410" width="16" height="190" fill="#EAF6FA"/>
+      <g stroke="#E2674E" stroke-width="3"><line x1="640" y1="430" x2="656" y2="430"/><line x1="640" y1="470" x2="656" y2="470"/><line x1="640" y1="510" x2="656" y2="510"/><line x1="640" y1="550" x2="656" y2="550"/></g>
+      <!-- pole, solar, light, camera, radar -->
+      <ellipse cx="250" cy="401" rx="74" ry="7" fill="#8A4B33" opacity=".85"/>
+      <rect x="230" y="390" width="40" height="10" fill="#CBD5DA"/>
+      <rect x="243" y="116" width="14" height="276" fill="#2F3B44"/><rect x="246" y="116" width="3" height="276" fill="#4A5965"/>
+      <path d="M250,132 C232,128 214,132 200,142" fill="none" stroke="#2F3B44" stroke-width="5"/>
+      <rect x="170" y="140" width="38" height="8" rx="3" fill="#E9EEF1"/><rect x="174" y="148" width="30" height="3" fill="#FFF7D6" opacity=".9"/>
+      <line x1="250" y1="116" x2="262" y2="98" stroke="#2F3B44" stroke-width="5"/>
+      <polygon points="222,92 300,72 308,92 230,112" fill="#2B5FB5" stroke="#8FB0E8" stroke-width="1.2"/>
+      <g stroke="#8FB0E8" stroke-width=".8" opacity=".7"><line x1="248" y1="85" x2="256" y2="105"/><line x1="274" y1="79" x2="282" y2="99"/><line x1="226" y1="102" x2="304" y2="82"/></g>
+      <rect x="257" y="188" width="14" height="5" fill="#CBD5DA"/>
+      <rect x="268" y="180" width="20" height="14" rx="3" fill="#F2F5F7"/>
+      <path d="M268,194 a10,10 0 0,0 20,0 Z" fill="#1C2A33"/><circle cx="281" cy="197" r="2" fill="#7FC8F0"/>
+      <!-- feathered vision beam -->
+      <polygon points="284,192 290,206 690,610 735,420" fill="url(#mx-beamV)" filter="url(#mx-feather)" opacity=".9"><animate attributeName="opacity" values=".75;1;.75" dur="3s" repeatCount="indefinite"/></polygon>
+      <polygon points="285,196 288,202 650,520 690,470" fill="#EAF4FF" opacity=".28" filter="url(#mx-feather)"/>
+      <!-- radar on a cantilever over the channel -->
+      <line x1="257" y1="246" x2="462" y2="246" stroke="#2F3B44" stroke-width="5"/>
+      <rect x="440" y="248" width="40" height="22" rx="4" fill="#F2F5F7"/><rect x="446" y="268" width="28" height="4" fill="#9FB0BA"/>
+      <line x1="460" y1="274" x2="460" y2="470" stroke="#9EE6E4" stroke-width="2" stroke-dasharray="5 7" opacity=".7"/>
+      <g fill="none" stroke="#9EE6E4" stroke-width="2.5">
+        <path d="M444,0 Q460,9 476,0"><animateTransform attributeName="transform" type="translate" values="0 278;0 462" dur="1.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="1.5s" repeatCount="indefinite"/></path>
+        <path d="M444,0 Q460,9 476,0"><animateTransform attributeName="transform" type="translate" values="0 278;0 462" dur="1.5s" begin=".5s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="1.5s" begin=".5s" repeatCount="indefinite"/></path>
+        <path d="M444,0 Q460,9 476,0"><animateTransform attributeName="transform" type="translate" values="0 278;0 462" dur="1.5s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="1.5s" begin="1s" repeatCount="indefinite"/></path>
+      </g>
+      <!-- callouts -->
+      <circle cx="288" cy="190" r="4" fill="#34CFD0"/>
+      <polyline points="288,190 390,92 560,92" fill="none" stroke="#34CFD0" stroke-width="2"/>
+      <text x="568" y="84" class="t-serif" font-size="30" fill="#FFFFFF">Camera vision</text>
+      <text x="568" y="114" class="t-sans" font-size="19" fill="#CFE7EF">Reads the depth board,</text>
+      <text x="568" y="138" class="t-sans" font-size="19" fill="#CFE7EF">debris and flow</text>
+      <circle cx="482" cy="258" r="4" fill="#34CFD0"/>
+      <polyline points="482,258 552,232 570,232" fill="none" stroke="#34CFD0" stroke-width="2"/>
+      <text x="578" y="222" class="t-serif" font-size="30" fill="#FFFFFF">Radar</text>
+      <text x="578" y="252" class="t-sans" font-size="19" fill="#CFE7EF">Non-contact water level</text>
+      <text x="300" y="652" class="t-sans" font-size="21" font-weight="600" fill="#FFFFFF">Floodway crossing</text>
+      <text x="300" y="680" class="t-sans" font-size="18" fill="#9DBFCE">seen before it goes under</text>
+    </svg>
+
+    <!-- Layer 3: intelligence -->
+    <div class="intel off" id="mx-intel" aria-live="polite">
+      <div class="ibox">
+        <div class="ilbl">Signals in</div>
+        <div class="chips-row" id="mx-chips"></div>
+      </div>
+      <div class="arrow" aria-hidden="true">›</div>
+      <div class="ibox">
+        <div class="ilbl">Mixture of Experts</div>
+        <div class="ihint">Specialist agents switch on as conditions shift</div>
+        <div class="experts" id="mx-experts"></div>
+        <div class="jepa">JEPA world model: being integrated</div>
+      </div>
+      <div class="arrow" aria-hidden="true">›</div>
+      <div class="ibox alert" id="mx-alertBox">
+        <div class="ilbl">Decision</div>
+        <h4 id="mx-aTitle"></h4>
+        <div class="loc" id="mx-aLoc"></div>
+        <div class="rec" id="mx-aRec"></div>
+        <div class="status" id="mx-aStatus">Waiting for operator co-sign</div>
+        <button class="cosign" id="mx-cosign">Co-sign alert</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cap">
+    <div class="mx-num" id="mx-capNum">1</div>
+    <div><div class="captitle" id="mx-capTitle"></div><p id="mx-capText"></p></div>
+  </div>
+
+  <div class="controls">
+    <button class="btn" id="mx-prev" aria-label="Previous step">Back</button>
+    <button class="btn primary" id="mx-play">Pause tour</button>
+    <button class="btn" id="mx-next" aria-label="Next step">Next</button>
+    <div class="dots" id="mx-dots"></div>
+  </div>
+
+  <p class="note">Illustrative visualisation. Locations and alert content are examples, not live data.</p>
+    </div>
+
+    <div class="rv" style="margin-top:84px">
+      <h2>Four parts, one job</h2>
+      <p class="sub">Meridian is the platform your council procures. These are the four components
+        that make it work in the field.</p>
+    </div>
+    <div class="grid g2 mt rv">
+      <div class="card"><span class="chip">Sense</span><h3>StormPuck™</h3>
+        <p>In-pit water level and flow sensors, linked as an underground mesh. Battery-powered, IP68, no trenching or mains power required.</p></div>
+      <div class="card"><span class="chip">Sense</span><h3>StormSight</h3>
+        <p>Roadside vision. Reads water depth, debris and blockage from the camera feed — interpretation
+          happens on the device, not in a data centre.</p></div>
+      <div class="card has-sash"><span class="sash" aria-label="Coming late 2027">Late 2027</span><span class="chip act">Act</span><h3>StormGate</h3>
+        <p>Floodway signage that responds to what the sensors see — warning motorists before a crossing
+          becomes impassable.</p></div>
+      <div class="card"><span class="chip act">Act</span><h3>StormPilot</h3>
+        <p>The operator view. Live conditions, alert thresholds, historical patterns, and the reasoning
+          behind every warning issued.</p></div>
+    </div>
+    <div class="callout rv"><div class="kd">In short</div>
+      <p><strong>StormPuck™</strong> feels the water. <strong>StormSight</strong> sees it.
+        <strong>StormGate</strong> closes the road. <strong>StormPilot</strong> tells you why.
+        Between sensing and acting sits Meridian's edge intelligence — the reasoning runs at the
+        roadside, so a storm event never depends on a working connection to a distant server.</p></div>
+  </div>
+</section>
+
+<section class="alt" id="product">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag">The products</span>
+      <h2>Inside the system</h2>
+      <p class="sub">Three products carry Meridian from the pit to the work order. StormPuck™ senses both below and
+        above the street, from pits and pipes to under bridges and in culverts; StormSight watches the crossings;
+        and StormPilot turns what they find into action.</p>
+      <div class="patent"><span class="pdot"></span>Patent pending · international (PCT) patent application filed</div>
+    </div>
+
+    <!-- StormPuck -->
+    <div class="pfeature mt rv">
+      <div class="phead">
+        <span class="chip">Sense · in the pit</span>
+        <h3>StormPuck™: four readings from the one advanced radar/optical module</h3>
+        <p>Most pit sensors return one number: how deep the water is. StormPuck™ looks into the pit. Its radar/optical
+          sensing sees the pit itself, so a single unit tells your team four things.</p>
+      </div>
+      <div class="modes">
+        <div class="mode">
+          <svg viewBox="0 0 120 90" aria-hidden="true"><rect x="30" y="14" width="60" height="70" rx="3" fill="#E3EEF9" stroke="#175787" stroke-width="3"/><rect x="33" y="48" width="54" height="33" fill="#7FB4E4"/><line x1="33" y1="48" x2="87" y2="48" stroke="#2A6FA8" stroke-width="2"/><ellipse cx="60" cy="22" rx="12" ry="4" fill="#fff" stroke="#9FB0BA"/><line x1="60" y1="27" x2="60" y2="46" stroke="#F288DE" stroke-width="2" stroke-dasharray="3 3"/><path d="M96 70 L96 50 M92 54 L96 48 L100 54" stroke="#F288DE" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>
+          <div class="mn">1</div><h4>Water level</h4>
+          <p>Continuous level in the pit, so a surcharge is seen building below the street while the road is still dry.</p>
+        </div>
+        <div class="mode">
+          <svg viewBox="0 0 120 90" aria-hidden="true"><rect x="22" y="14" width="46" height="70" rx="3" fill="#E3EEF9" stroke="#175787" stroke-width="3"/><rect x="25" y="40" width="40" height="41" fill="#7FB4E4"/><rect x="66" y="62" width="48" height="16" fill="#E3EEF9" stroke="#175787" stroke-width="3"/><rect x="69" y="65" width="10" height="10" fill="#7FB4E4"/><path d="M80 64 q6 -3 10 2 q5 -4 8 2 q2 4 -3 7 q-6 3 -11 0 q-5 2 -4 -11z" fill="#B4459C"/><ellipse cx="45" cy="22" rx="11" ry="4" fill="#fff" stroke="#9FB0BA"/><line x1="45" y1="27" x2="45" y2="38" stroke="#F288DE" stroke-width="2" stroke-dasharray="3 3"/></svg>
+          <div class="mn">2</div><h4>Internal blockage</h4>
+          <p>Flags a restricted outlet pipe when water holds in the pit longer than that pit's own history says it should.</p>
+        </div>
+        <div class="mode">
+          <svg viewBox="0 0 120 90" aria-hidden="true"><rect x="30" y="20" width="60" height="64" rx="3" fill="#E3EEF9" stroke="#175787" stroke-width="3"/><rect x="26" y="12" width="68" height="8" fill="#54718B"/><g stroke="#E3EEF9" stroke-width="2"><line x1="36" y1="12" x2="36" y2="20"/><line x1="46" y1="12" x2="46" y2="20"/><line x1="56" y1="12" x2="56" y2="20"/><line x1="66" y1="12" x2="66" y2="20"/><line x1="76" y1="12" x2="76" y2="20"/><line x1="86" y1="12" x2="86" y2="20"/></g><path d="M30 12 q6 -9 14 -3 q5 -7 12 -1 q7 -6 12 1 q6 -5 10 2 l-2 3 h-44z" fill="#B4459C"/><ellipse cx="60" cy="30" rx="11" ry="4" fill="#fff" stroke="#9FB0BA"/><line x1="60" y1="25" x2="60" y2="16" stroke="#F288DE" stroke-width="2" stroke-dasharray="3 3"/></svg>
+          <div class="mn">3</div><h4>External blockage</h4>
+          <p>Sees the grate and inlet choking with leaves, litter or sediment before rain arrives, when clearing is cheap and safe.</p>
+        </div>
+        <div class="mode">
+          <svg viewBox="0 0 120 90" aria-hidden="true"><rect x="30" y="14" width="60" height="70" rx="3" fill="#E3EEF9" stroke="#175787" stroke-width="3"/><path d="M33 81 L33 70 q8 -5 14 -1 q7 -6 14 -1 q8 -5 13 0 q6 -3 13 1 L87 81z" fill="#B4459C"/><circle cx="45" cy="62" r="3" fill="#B4459C"/><rect x="62" y="58" width="9" height="4" rx="1" fill="#B4459C" transform="rotate(-20 66 60)"/><ellipse cx="60" cy="22" rx="12" ry="4" fill="#fff" stroke="#9FB0BA"/><line x1="60" y1="27" x2="60" y2="54" stroke="#F288DE" stroke-width="2" stroke-dasharray="3 3"/></svg>
+          <div class="mn">4</div><h4>Debris and silt</h4>
+          <p>Detects debris and silt building up in the pit, so cleaning crews go where the build-up actually is.</p>
+        </div>
+      </div>
+      <div class="callout pdiff"><div class="kd">What makes it different</div>
+        <ul>
+          <li><b>Radar/optical sensing.</b> It sees the condition of the pit, not just a water height from a float or pressure point.</li>
+          <li><b>One unit, four jobs.</b> Flood warning in the wet, maintenance intelligence in the dry.</li>
+          <li><b>Part of the mesh.</b> Every StormPuck™ is a node in the underground mesh, so neighbouring pits back each other up.</li>
+          <li><b>Simple to install.</b> Battery-powered and IP68, fitted in about 30 minutes with no trenching or mains power.</li>
+        </ul></div>
+    </div>
+
+    <div class="grid g2 mt rv">
+      <div class="card pcard"><span class="chip act">Act · office and field</span>
+        <h3>StormPilot: work management built around your drains</h3>
+        <p>StormPilot is where readings become decisions and jobs. It's built for stormwater crews and emergency
+          staff, not adapted from a generic dashboard.</p>
+        <ul class="rlist">
+          <li>Turns StormPuck™ and StormSight findings into prioritised jobs: which grate to clear and which pipe to jet, before which storm</li>
+          <li>Field crews get a clear stop list and close each job with photo evidence</li>
+          <li>Every alert and every job keeps a timestamped record, building the evidence asset plans and disaster recovery claims rely on</li>
+          <li>Operator co-sign on every public alert, with the reasoning shown</li>
+          <li>Designed to connect with council asset management systems</li>
+        </ul></div>
+      <div class="card pcard"><span class="chip">Sense · at the crossing</span>
+        <h3>StormSight: self-learning AI vision</h3>
+        <p>StormSight cameras read the crossings, floodways and culverts that cut communities off, and they get
+          better at it the longer they watch.</p>
+        <ul class="rlist">
+          <li>Reads water depth against the depth board, plus debris, blockage and flow</li>
+          <li>Self-learning: each camera learns what normal looks like at its own site and sharpens with every event</li>
+          <li>Inference runs on the pole. Video stays on site; only the finding is sent</li>
+          <li>Shared learning across sites improves every camera without exporting any council's local data</li>
+        </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="warnband" id="alerts">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag">Connected to the warning chain</span>
+      <h2>From the pit to every phone in the street</h2>
+      <p class="sub">Meridian doesn't replace Australia's warning system. It feeds it, giving your council and
+        the SES a verified, street-level trigger early enough to warn residents before the water arrives.</p>
+    </div>
+
+    <div class="chain mt rv">
+      <div class="link"><div class="ln">1</div><h4>Sense</h4>
+        <p>StormPuck™ reads the pits and pipes under the city. StormSight watches crossings and floodways.</p></div>
+      <div class="link"><div class="ln">2</div><h4>Anticipate</h4>
+        <p>Meridian's edge intelligence flags rising risk, and StormPilot shows the reasoning behind it.</p></div>
+      <div class="link"><div class="ln">3</div><h4>Authorise</h4>
+        <p>Your council duty officer co-signs. The SES, as the control agency for flood, decides the public warning.</p></div>
+      <div class="link last"><div class="ln">4</div><h4>Reach residents</h4>
+        <p>AusAlert to every compatible phone in the affected area, plus state warning apps and council channels.</p></div>
+    </div>
+
+    <div class="grid g3 mt rv">
+      <div class="wcard has-sash"><span class="sash" aria-label="Optional">Option</span><span class="chip">National</span><h3>AusAlert</h3>
+        <ul class="rlist">
+          <li>Australia's cell-broadcast warning system, live from October 2026</li>
+          <li>Reaches compatible phones in the affected area, targeted to about 160 metres, even when networks are congested</li>
+          <li>Two levels: Critical and Priority alerts</li>
+        </ul>
+        <div class="role"><b>Meridian's role:</b> hands the authorised issuer a verified trigger, the affected area and a draft message, ready to approve and send.</div></div>
+      <div class="wcard has-sash"><span class="sash" aria-label="Optional">Option</span><span class="chip">State</span><h3>SES and emergency services</h3>
+        <ul class="rlist">
+          <li>The SES is the control agency for flood in each state, VICSES in Victoria</li>
+          <li>Live pit and crossing conditions stream to the incident team</li>
+          <li>Warnings framed in Australian Warning System levels: Advice, Watch and Act, Emergency Warning</li>
+        </ul>
+        <div class="role"><b>Meridian's role:</b> a shared, street-level picture for the incident team, with automated escalation as thresholds are crossed.</div></div>
+      <div class="wcard"><span class="chip">Local</span><h3>Your council</h3>
+        <ul class="rlist">
+          <li>StormPilot in the emergency operations centre and on duty officers' phones</li>
+          <li>Road closures, crews and sandbag points triggered from the same event</li>
+          <li>Fits your municipal emergency management plan</li>
+        </ul>
+        <div class="role"><b>Meridian's role:</b> an operator co-signs every public alert, with a full audit trail of why it was raised.</div></div>
+    </div>
+
+    <div class="rv" style="margin-top:84px">
+      <h3 style="font-size:1.6rem;letter-spacing:-.02em">Advanced property awareness for residents</h3>
+      <p class="sub" style="margin-top:12px">Victoria already gives residents strong tools for knowing their flood risk. Meridian is
+        designed to make them sharper, with street-level readings that reach residents through the apps they already use.</p>
+    </div>
+    <div class="propgrid rv">
+      <div class="propcol">
+        <h4>What Victoria already has</h4>
+        <ul>
+          <li><b>VicEmergency app.</b> Residents set watch zones around their home, school or business and get warnings for those places.</li>
+          <li><b>VICSES Local Flood Guides.</b> Minor, moderate and major flood levels for each community, and what each one means.</li>
+          <li><b>FloodZoom.</b> The state's flood intelligence platform for agencies, combining forecasts, flood mapping, real-time river gauges and property data such as floor heights.</li>
+        </ul>
+      </div>
+      <div class="phone" aria-label="Illustrative example of a street-level flood notification on a resident's phone">
+        <div class="scr">
+          <div class="tm">5:42</div><div class="dt">Saturday · heavy rain</div>
+          <div class="note-card"><div class="hd"><span class="ic">!</span>Watch zone: Home · now</div>
+            <span class="lv">Watch and Act</span>
+            <div class="tt">Flooding likely: Main St underpass</div>
+            <div class="bd">Stormwater rising in pits on Main St and Rose Ave. Properties on the low side of Rose Ave may be affected. Avoid the underpass.</div></div>
+          <div class="note-card"><div class="hd"><span class="ic">!</span>Watch zone: School · 18 min ago</div>
+            <span class="lv adv">Advice</span>
+            <div class="tt">Creek Rd crossing: water rising</div>
+            <div class="bd">Use the Hill St route for school pick-up.</div></div>
+          <div class="illus">Illustrative example</div>
+        </div>
+      </div>
+      <div class="propcol adds">
+        <h4>What Meridian adds</h4>
+        <ul>
+          <li><b>Street-level readings.</b> Data from inside the pit network, not only river gauges, so stormwater and flash flooding that river forecasts miss can be warned on.</li>
+          <li><b>Earlier, street-specific warnings.</b> Fed into the channels residents already use, so a watch zone names the actual street, pit or crossing.</li>
+          <li><b>Property-level context.</b> Matched against property and floor-height data, so advice can say which homes are likely to take water.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="fineprint">AusAlert messages and public warnings are issued by authorised emergency agencies. Meridian supplies the trigger,
+      the affected area and a draft message; the agency decides and sends. Connections to state platforms such as VicEmergency
+      and FloodZoom are set up with each state's agency.</p>
+  </div>
+</section>
+
+<section class="alt" id="problem">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag pk">The problem we're solving</span>
+      <h2>Today's warnings arrive too late</h2>
+      <p class="sub">Meridian changes that.</p>
+    </div>
+    <div class="cmp mt rv">
+      <div class="panel"><h4>Current challenges</h4><ul>
+        <li><span class="mk no">✕</span>Warnings arrive too late — after flooding has already started.</li>
+        <li><span class="mk no">✕</span>Single point of failure — if one sensor breaks, you're blind.</li>
+        <li><span class="mk no">✕</span>False alarms — too many false alerts mean people ignore warnings.</li>
+        <li><span class="mk no">✕</span>Expensive to operate — cloud-based systems cost $939K over 3 years.</li>
+        <li><span class="mk no">✕</span>Data privacy concerns — flood data stored overseas.</li>
+      </ul></div>
+      <div class="panel win"><h4>The Meridian advantage</h4><ul>
+        <li><span class="mk yes">✓</span>45–90 minute warning — hours before flooding.</li>
+        <li><span class="mk yes">✓</span>Redundant system — if one sensor fails, others still monitor.</li>
+        <li><span class="mk yes">✓</span>96% accuracy — minimal false alarms, so people trust alerts.</li>
+        <li><span class="mk yes">✓</span>54% cheaper — $430K vs. $939K over 3 years.</li>
+        <li><span class="mk yes">✓</span>Data stays in Australia — sovereign and secure.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="benefits">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag">Key benefits</span>
+      <h2>Seven ways Meridian protects your community</h2>
+    </div>
+    <div class="tblwrap mt rv"><table class="tbl">
+      <thead><tr><th style="width:30%">Benefit</th><th>Impact</th></tr></thead><tbody>
+      <tr><td>Community safety</td><td>Residents evacuate safely; fewer injuries and deaths during floods.</td></tr>
+      <tr><td>Infrastructure protection</td><td>Warnings give time to close floodgates, redirect traffic, and activate emergency protocols.</td></tr>
+      <tr><td>Cost savings</td><td>$1M+ in prevented property damage per significant flood event.</td></tr>
+      <tr><td>Emergency response</td><td>Faster, more coordinated response — all agencies on the same page.</td></tr>
+      <tr><td>Insurance savings</td><td>Improved flood preparedness may lower insurance premiums.</td></tr>
+      <tr><td>Year-round utility</td><td>Between storms, the StormPuck™ mesh works as a live condition survey of your pit network.</td></tr>
+      <tr><td>Community confidence</td><td>Clear, reliable alerts build public trust.</td></tr>
+      </tbody></table></div>
+
+    <div class="mt rv">
+      <span class="tag pk">The other 350 days</span>
+      <h2>Maintenance you can plan</h2>
+      <p class="sub">Floods are episodic. The StormPuck™ mesh is not — it reports continuously from
+        inside your stormwater pits every day of the year, which turns pit maintenance from a
+        scheduled guess into a targeted response.</p>
+    </div>
+    <div class="grid g3 mt-s rv">
+      <div class="card"><h3>Inspect by condition, not calendar</h3><ul class="rlist">
+        <li>Cyclic inspection visits every pit at the same interval, whether or not it needs attention</li>
+        <li>StormPuck™ flags which pits are filling, silting or draining slowly</li>
+        <li>Crews are sent where the data points, not down a list</li></ul></div>
+      <div class="card"><h3>Blockages found before the storm</h3><ul class="rlist">
+        <li>A pit that drains slower than its own history is showing early blockage</li>
+        <li>Detected in dry weather, when clearing is cheap, safe and unhurried</li>
+        <li>Field-validated blockage detection in live council deployment</li></ul></div>
+      <div class="card"><h3>Evidence for asset planning</h3><ul class="rlist">
+        <li>Multi-year condition history per pit, not per catchment</li>
+        <li>Identifies chronic problem assets that justify capital renewal</li>
+        <li>Supports asset management plans and defensible budget submissions</li></ul></div>
+    </div>
+    <div class="callout rv"><div class="kd">Why it matters</div>
+      <p>The mesh earns its keep in the dry season. A council that never floods in a given year still
+        gets a full year of condition data on the network it is already obligated to maintain — and
+        <strong>every blockage cleared before the storm is one less flood to warn about</strong>.</p></div>
+  </div>
+</section>
+
+<section class="alt" id="scale">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag">Scale</span>
+      <h2>How many sensors does my council need?</h2>
+      <p class="sub">Rule of thumb: 100 sensors per 10–15 km of high-risk waterways.</p>
+    </div>
+    <div class="tblwrap mt rv"><table class="tbl">
+      <thead><tr><th>Council type</th><th>Population</th><th>Typical deployment</th></tr></thead><tbody>
+      <tr><td>Small regional</td><td>20K–50K</td><td class="num">10–50 sensors</td></tr>
+      <tr><td>Medium city</td><td>50K–200K</td><td class="num">100–3,000 sensors</td></tr>
+      <tr><td>Large metro</td><td>200K+</td><td class="num">3,000+ sensors</td></tr>
+      </tbody></table></div>
+    <div class="callout rv"><div class="kd">Case study</div>
+      <p><strong>Monash Council, Melbourne.</strong> Population 180K · first deployment (2022) of
+        25 sensors · fully operational with a 5+ year proven track record.</p></div>
+  </div>
+</section>
+
+<section id="cost">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag">Cost breakdown</span>
+      <h2>Transparent, predictable pricing</h2>
+      <p class="sub">Example: a 15-sensor council.</p>
+    </div>
+    <div class="grid g2 mt rv">
+      <div class="tblwrap"><h4 style="margin-bottom:18px">One-time capital cost</h4><table class="tbl">
+        <thead><tr><th>Item</th><th>Cost</th></tr></thead><tbody>
+        <tr><td>Hardware (15 StormPuck™ units + StormSight cameras)</td><td class="num">$30,000</td></tr>
+        <tr><td>Installation &amp; training</td><td class="num">$15,000</td></tr>
+        <tr><td>Network infrastructure (LoRaWAN + LTE)</td><td class="num">$5,000</td></tr>
+        <tr class="total"><td>Total capital</td><td class="num">$50,000</td></tr>
+        </tbody></table></div>
+      <div class="tblwrap"><h4 style="margin-bottom:18px">Annual operating cost</h4><table class="tbl">
+        <thead><tr><th>Item</th><th>Cost</th></tr></thead><tbody>
+        <tr><td>Software subscription (NMS integration, updates, support)</td><td class="num">$30,000</td></tr>
+        <tr><td>Maintenance &amp; repair</td><td class="num">$5,000</td></tr>
+        <tr><td>Connectivity (data)</td><td class="num">$2,000</td></tr>
+        <tr class="total"><td>Total annual</td><td class="num">$37,000</td></tr>
+        </tbody></table></div>
+    </div>
+    <div class="stats mt rv">
+      <div class="stat"><div class="v">$50K</div><div class="l">Capital</div></div>
+      <div class="stat"><div class="v">$185K</div><div class="l">Operations · 5 × $37K</div></div>
+      <div class="stat"><div class="v">$235K</div><div class="l">Total 5-year</div></div>
+      <div class="stat"><div class="v">$0.26</div><div class="l">Per person / year</div></div>
+    </div>
+    <div class="callout rv"><div class="kd">Per warning</div>
+      <p>Cost per early warning: <strong>~$5,000–$10,000</strong> — against $1M+ in prevented flood damage.</p></div>
+  </div>
+</section>
+
+<section class="alt" id="roi">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag pk">Return on investment</span>
+      <h2>The 2022 Queensland / NSW floods, compared</h2>
+    </div>
+    <div class="cmp mt rv">
+      <div class="panel"><h4>Without Meridian</h4><ul>
+        <li><span class="mk no">✕</span>Property damage — $200M</li>
+        <li><span class="mk no">✕</span>Lives at risk — potentially hundreds</li>
+        <li><span class="mk no">✕</span>Recovery time — months to years</li>
+      </ul></div>
+      <div class="panel win"><h4>With Meridian</h4><ul>
+        <li><span class="mk yes">✓</span>Property damage — $40M</li>
+        <li><span class="mk yes">✓</span>Lives saved — high confidence</li>
+        <li><span class="mk yes">✓</span>Recovery time — weeks</li>
+        <li><span class="mk yes">✓</span>Net benefit — $150M</li>
+      </ul></div>
+    </div>
+    <div class="callout rv"><div class="kd">ROI</div>
+      <p><strong>638× return</strong> — $150M net benefit against $235K five-year cost. Even a
+        1-in-20-year major flood event pays for Meridian many times over in damage prevention.</p></div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag">Timeline &amp; implementation</span>
+      <h2>Installed pilot in 30 mins – full-scale mesh in six months</h2>
+    </div>
+    <div class="tl rv">
+      <div class="tlrow"><div class="mark day">Day 1</div><h3>Pilot installed</h3><ul class="rlist">
+        <li>Pilot StormPuck™ units installed in about 30 minutes each</li>
+        <li>No trenching or mains power required</li>
+        <li>Readings from your own pits start flowing the same day</li></ul></div>
+      <div class="tlrow"><div class="mark">1–2</div><h3>Planning &amp; assessment</h3><ul class="rlist">
+        <li><span>Matter<sup class="reg">®</sup> team visits your council</span></li>
+        <li>Identify high-risk locations — bridges, underpasses, culverts</li>
+        <li>Finalise StormPuck™ / StormSight placement &amp; network design</li>
+        <li>Estimate total deployment</li></ul></div>
+      <div class="tlrow"><div class="mark">3–4</div><h3>Installation</h3><ul class="rlist">
+        <li>Hardware ordered &amp; delivered</li>
+        <li>Field installation at selected sites</li>
+        <li>Network testing — LoRaWAN + LTE coverage</li>
+        <li>Initial staff training</li></ul></div>
+      <div class="tlrow"><div class="mark">5</div><h3>Operational testing</h3><ul class="rlist">
+        <li>System runs in monitoring mode, no public alerts yet</li>
+        <li>Validate accuracy on your local conditions</li>
+        <li>Refine alert thresholds</li></ul></div>
+      <div class="tlrow"><div class="mark">6</div><h3>Live deployment</h3><ul class="rlist">
+        <li>System goes live</li>
+        <li>Public alerts begin, integrated into council emergency systems</li>
+        <li>Ongoing support &amp; optimisation</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="integration">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag">Integration</span>
+      <h2>Adds capability without replacing what you have</h2>
+    </div>
+    <div class="grid g3 mt rv">
+      <div class="card"><h3>AusAlert</h3><ul class="rlist">
+        <li>Verified trigger and draft message handed to the authorised issuer</li>
+        <li>Cell broadcast to compatible phones in the affected area</li>
+        <li>About 160-metre targeting, so only affected streets are alerted</li></ul></div>
+      <div class="card"><h3>StormPilot dashboard</h3><ul class="rlist">
+        <li>Real-time visibility of all StormPuck™ and StormSight data</li>
+        <li>Custom alert thresholds to your preferences</li>
+        <li>Historical analysis of patterns over time</li>
+        <li>Integration with council GIS / mapping</li></ul></div>
+      <div class="card"><h3>Emergency services</h3><ul class="rlist">
+        <li>Direct feed to the state SES or relevant control agency</li>
+        <li>Shared situational awareness dashboard</li>
+        <li>Automated escalation protocols</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="proof">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag">Proven in the field</span>
+      <h2>Performance across live council deployments</h2>
+      <p class="sub">Meridian is not a pilot concept. StormPuck™ and StormSight are operating today
+        across Australian council networks, through real storm seasons, in real catchments.</p>
+    </div>
+    <div class="stats mt rv">
+      <div class="stat"><div class="v">2–3%</div><div class="l">False alarm rate</div></div>
+      <div class="stat"><div class="v">52 min</div><div class="l">Avg. warning lead time</div></div>
+      <div class="stat"><div class="v">99.8%</div><div class="l">Uptime</div></div>
+      <div class="stat"><div class="v">96%</div><div class="l">Detection accuracy</div></div>
+    </div>
+    <p class="sub mt-s rv">Reference sites and site visits are available on request — including live
+      blockage detection validated in the field.</p>
+  </div>
+</section>
+
+<section class="alt" id="funding">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag pk">Funding opportunities</span>
+      <h2>You don't have to pay upfront</h2>
+    </div>
+    <div class="grid g2 mt rv">
+      <div class="card"><span class="chip">Option 1</span><h3>Disaster Ready Fund contribution</h3><ul class="rlist">
+        <li><span>Matter<sup class="reg">®</sup> provides capital infrastructure — $30K StormPuck™ / StormSight hardware</span></li>
+        <li>Your council provides operating budget — $37K/year</li>
+        <li>Result: free hardware, manageable annual cost</li></ul></div>
+      <div class="card"><span class="chip">Option 2</span><h3>Government grants</h3><ul class="rlist">
+        <li>State emergency management grants</li>
+        <li>Federal climate adaptation funding</li>
+        <li>Water management grants</li></ul></div>
+      <div class="card"><span class="chip">Option 3</span><h3>Insurance partnership</h3><ul class="rlist">
+        <li>Work with your insurance provider</li>
+        <li>Potential premium reductions offset costs</li>
+        <li>Insurers benefit from lower claims</li></ul></div>
+      <div class="card"><span class="chip">Option 4</span><h3>Cost-sharing with neighbours</h3><ul class="rlist">
+        <li>Councils in the same catchment share regional infrastructure</li>
+        <li>Significantly reduces per-council cost</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="next">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag">Next steps</span>
+      <h2>If you're interested</h2>
+    </div>
+    <div class="tl rv">
+      <div class="tlrow"><div class="mark">1</div><h3>Free consultation</h3>
+        <p class="sub" style="margin-top:8px">Contact the Matter<sup class="reg">®</sup> team — hello@matter.city · +61 8 9207 7755</p></div>
+      <div class="tlrow"><div class="mark">2</div><h3>Schedule a site visit</h3>
+        <p class="sub" style="margin-top:8px">Matter<sup class="reg">®</sup> visits your council, identifies
+          optimal StormPuck™ and StormSight locations, and discusses integration with your emergency systems.</p></div>
+      <div class="tlrow"><div class="mark">3</div><h3>Feasibility study (optional)</h3>
+        <p class="sub" style="margin-top:8px">Detailed catchment assessment, hydraulic modelling of
+          flood propagation, and a customised cost estimate, delivered with our accredited engineering partners.</p></div>
+      <div class="tlrow"><div class="mark">4</div><h3>Pilot program — 3–6 months</h3>
+        <p class="sub" style="margin-top:8px">Deploy 25 StormPuck™ units in your highest-risk area.
+          A pilot of this length proves siting, connectivity, uptime, blockage detection and the
+          maintenance workflow against your own network. Flood-response accuracy is established over
+          a full storm season, so the pilot is a readiness check rather than a wet-weather trial —
+          then decide on full rollout.</p></div>
+      <div class="tlrow"><div class="mark">5</div><h3>Flood consultancy program</h3>
+        <p class="sub" style="margin-top:8px">Where a council needs certified hydrologic or hydraulic
+          assessment, Matter<sup class="reg">®</sup> delivers it through accredited engineering partners. Meridian supplies
+          the field data; the partner provides the certified engineering opinion.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="faq">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag">Questions &amp; answers</span>
+      <h2>The things councils ask first</h2>
+    </div>
+    <div class="mt rv">
+      <details open><summary>What if the internet goes down?</summary><div class="body">
+        <div class="redund"><span class="rmark">3×</span><div><b>Built to stay on: three layers of redundancy and multiple mesh points.</b>
+          <span>No single link, mesh point or power source carries the system alone.</span></div></div>
+        Meridian is built so that no single connection failure can silence it. Detection is fully
+        autonomous — StormPuck™ and StormSight reason locally at the roadside and keep monitoring for
+        <strong>7–14 days without any network at all</strong>, caching alerts and transmitting them the
+        moment a path is restored. For getting alerts out, Meridian carries independent layers:
+        terrestrial mobile (LTE-M / NB-IoT) as the everyday path, Starlink satellite backhaul at
+        cluster sites, and satellite IoT as a low-bandwidth fallback that reaches orbit directly from
+        the field. Each operates independently — losing the mobile network, or losing mains power,
+        does not take the system offline.</div></details>
+      <details><summary>Is this just another cloud system?</summary><div class="body">
+        No. All processing happens locally on edge devices. Only encrypted alert signals leave the
+        site. Your flood data stays in Australia.</div></details>
+      <details><summary>What about privacy?</summary><div class="body">
+        StormSight never stores raw video centrally. Alerts contain only threat-level intelligence —
+        for example "flood warning: impassable water at Bridge St". No personal information is
+        extracted.</div></details>
+      <details><summary>How often do sensors need replacement?</summary><div class="body">
+        Hardware typically lasts 10 years. Batteries last 5–10 years depending on surge usage. StormPuck™
+        is built for field servicing, so the unit can easily be swapped on site.</div></details>
+      <details><summary>Can this predict extreme events, such as 100-year floods?</summary><div class="body">
+        Yes, with lower confidence. Meridian is strongest for frequent and moderate events.</div></details>
+      <details><summary>Will this replace emergency services?</summary><div class="body">
+        No. Meridian is a tool that enhances SES / emergency response and will feed into the new
+        AusAlert system. Humans remain in control.</div></details>
+    </div>
+  </div>
+</section>
+
+<section id="commitment">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag">Our commitment</span>
+      <h2>If your council joins Meridian</h2>
+    </div>
+    <div class="grid g3 mt rv">
+      <div class="card"><h3>Free hardware</h3><p>Capital cost covered by Matter<sup class="reg">®</sup> / DRF funding.</p></div>
+      <div class="card"><h3>5-year support guarantee</h3><p>24/7 technical support.</p></div>
+      <div class="card"><h3>Continuous improvement</h3><p>AI model improves annually.</p></div>
+      <div class="card"><h3>Regular training</h3><p>Staff keep skills current.</p></div>
+      <div class="card"><h3>Community engagement</h3><p>Materials to help explain Meridian to residents.</p></div>
+      <div class="card"><h3>Downloads on request</h3><p>Full technical brief (40 pages) · investor pitch
+        deck (14 slides) · Disaster Ready Fund application (v3.1).</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="contact">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag">Contact &amp; resources</span>
+      <h2>Let's talk</h2>
+      <p class="sub">The fastest, most accurate, most affordable flood early warning available today.</p>
+    </div>
+    <div class="grid g3 mt rv">
+      <div class="fcard"><h4>General enquiries</h4><p>The Matter<sup class="reg">®</sup> Team<br>Meridian Council Programs<br>
+        <a href="mailto:hello@matter.city">info@matter.city</a><br>1300 265 140</p></div>
+      <div class="fcard"><h4>Technical questions</h4><p>The Matter<sup class="reg">®</sup> Team<br>Meridian Engineering<br>
+        <a href="mailto:hello@matter.city">info@matter.city</a></p></div>
+      <div class="fcard"><h4>Partnerships</h4><p>Partnership Manager<br>
+        <a href="mailto:partnerships@matter.city">len@matter.city</a><br>
+        <a href="https://matter.city/meridian">matter.city</a></p></div>
+    </div>
+    <a class="cta rv" href="mailto:info@matter.city"><span>Talk to the Matter<sup class="reg">®</sup> team — free consultation</span><span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fin">
+    <div class="footlogo"><svg style="width:100%;height:auto;display:block"  data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1259.29 257.45">
+  <defs>
+    <style>
+      .mlf-1 {
+        fill: #7abbe7;
+      }
+
+      .mlf-2 {
+        fill: #165888;
+      }
+
+      .mlf-3 {
+        fill: #fff;
+      }
+
+      .mlf-4 {
+        fill: #3780b8;
+      }
+
+      .mlf-5 {
+        fill: #448cca;
+      }
+    </style>
+  </defs>
+  <g  data-name="Layer 2">
+    <g  data-name="Layer 5">
+      <g>
+        <g>
+          <path class="mlf-3" d="M0,57.8h67.93v23.64c18.51-17.76,39.28-26.65,62.3-26.65,28.52,0,50.29,12.01,65.3,36.03,15.26-24.27,37.03-36.41,65.31-36.41,9.01,0,17.51,1.31,25.52,3.94,8,2.63,14.88,6.75,20.64,12.38,5.75,5.63,10.32,12.95,13.7,21.96s5.07,19.89,5.07,32.65v124.98h-67.93v-94.95c0-9.76-.69-17.76-2.06-24.02-1.38-6.25-3.38-11.13-6.01-14.64-2.63-3.5-5.69-5.88-9.2-7.13s-7.26-1.88-11.26-1.88c-21.77,0-32.65,15.89-32.65,47.66v94.95h-67.93v-94.95c0-9.76-.63-17.83-1.88-24.21-1.26-6.38-3.07-11.45-5.44-15.2-2.38-3.75-5.44-6.32-9.19-7.69s-8.13-2.06-13.14-2.06c-4.26,0-8.26.63-12.01,1.88s-7.07,3.69-9.95,7.32-5.13,8.63-6.75,15.01c-1.63,6.38-2.44,14.7-2.44,24.96v94.95H0V57.8Z"/>
+          <path class="mlf-3" d="M675.59,114.47v135.86h-67.93V114.47h-22.52v-56.67h22.52V0h67.93v57.8h38.66v56.67h-38.66Z"/>
+          <path class="mlf-3" d="M801.05,114.47v135.86h-67.93V114.47h-22.52v-56.67h22.52V0h67.93v57.8h38.66v56.67h-38.66Z"/>
+          <path class="mlf-3" d="M909.03,165.51c0,29.27,13.76,43.91,41.28,43.91,14.76,0,25.89-6.01,33.4-18.02h65.68c-13.26,44.04-46.42,66.05-99.46,66.05-16.27,0-31.15-2.44-44.66-7.32-13.51-4.88-25.09-11.82-34.72-20.83-9.64-9.01-17.08-19.76-22.33-32.28-5.26-12.51-7.88-26.52-7.88-42.03s2.5-30.46,7.51-43.35c5-12.88,12.13-23.83,21.39-32.84,9.25-9.01,20.46-15.95,33.59-20.83s27.96-7.32,44.48-7.32,30.9,2.44,43.91,7.32c13.01,4.88,24.02,11.95,33.03,21.2,9.01,9.26,15.88,20.58,20.64,33.97,4.75,13.39,7.13,28.47,7.13,45.23v7.13h-142.99ZM988.59,126.1c-2.25-9.51-6.89-17.13-13.89-22.89-7.01-5.75-15.52-8.63-25.52-8.63-10.51,0-19.08,2.76-25.71,8.26-6.63,5.51-10.82,13.27-12.57,23.27h77.69Z"/>
+          <path class="mlf-3" d="M1072.25,57.8h67.93v31.53c7.25-11.51,16.14-20.33,26.65-26.46,10.51-6.13,22.77-9.19,36.78-9.19h5.82c2.12,0,4.56.25,7.32.75v64.93c-9.01-4.5-18.77-6.76-29.28-6.76-15.76,0-27.58,4.69-35.46,14.07-7.88,9.38-11.82,23.08-11.82,41.1v82.57h-67.93V57.8h-.01Z"/>
+          <path class="mlf-2" d="M1193.41,223.31c0-4.5.84-8.77,2.53-12.81,1.69-4.03,4.03-7.55,7.04-10.56,3-3,6.52-5.35,10.56-7.04,4.03-1.69,8.3-2.53,12.81-2.53s8.77.84,12.81,2.53c4.03,1.69,7.55,4.04,10.56,7.04,3,3,5.35,6.52,7.04,10.56,1.69,4.04,2.53,8.3,2.53,12.81s-.85,8.77-2.53,12.81c-1.69,4.04-4.04,7.56-7.04,10.56-3.01,3-6.52,5.35-10.56,7.04-4.04,1.69-8.31,2.53-12.81,2.53s-8.77-.84-12.81-2.53-7.56-4.03-10.56-7.04c-3.01-3-5.35-6.52-7.04-10.56-1.69-4.03-2.53-8.3-2.53-12.81h0Z"/>
+          <path class="mlf-3" d="M500.36,57.8v.02s-.01,19.14-.01,19.14c-15.76-16.76-35.65-25.15-59.67-25.15-14.26,0-27.27,2.69-39.03,8.07-11.76,5.39-21.9,12.71-30.4,21.96-8.51,9.25-15.14,20.07-19.89,32.46-4.75,12.39-7.13,25.46-7.13,39.22,0,14.77,2.44,28.4,7.32,40.91,4.88,12.51,11.7,23.4,20.46,32.65,8.75,9.26,19.01,16.45,30.77,21.58,11.76,5.12,24.64,7.69,38.66,7.69,24.77,0,44.41-9.13,58.92-27.4v21.39h68.31V57.8h-68.31Z"/>
+        </g>
+        <g>
+          <path class="mlf-3" d="M486.28,166.54c0,6.46-1.27,12.74-3.77,18.65-2.41,5.7-5.87,10.83-10.26,15.22-4.4,4.4-9.52,7.85-15.22,10.26-5.91,2.5-12.18,3.77-18.65,3.77s-12.74-1.27-18.65-3.77c-5.7-2.41-10.83-5.87-15.22-10.26-4.4-4.4-7.85-9.52-10.26-15.22-2.5-5.91-3.77-12.18-3.77-18.65,0-24.41,13.77-40.58,25.91-54.85,6.95-8.16,13.51-15.87,16.63-24.13.84-2.23,2.91-3.66,5.29-3.66h.07c2.4.03,4.47,1.51,5.27,3.79,2.91,8.29,9.6,16.1,16.68,24.37,12.16,14.21,25.95,30.31,25.95,54.48h0Z"/>
+          <path class="mlf-5" d="M481.97,166.54c0,24.07-19.51,43.59-43.59,43.59s-43.59-19.51-43.59-43.59c0-36.56,33.25-53.61,42.26-77.46.45-1.18,2.11-1.16,2.53.03,8.32,23.68,42.39,40.89,42.39,77.42h0Z"/>
+          <path class="mlf-4" d="M481.97,166.54c0,24.07-19.51,43.59-43.59,43.59-19.29,0-35.66-12.53-41.4-29.9,9.5,11.36,25.25,17.42,39.89,14.8,4.87-.87,9.6-2.63,13.75-5.32,12.33-7.99,18.24-24.66,13.7-38.63-3.06-9.41-10.03-16.93-15.34-25.28-7.93-12.48-12.31-20.09-10.13-37.48.32.14.6.4.74.8,8.32,23.68,42.39,40.89,42.39,77.42h0Z"/>
+          <path class="mlf-1" d="M405.6,154.39c.66-10.21,8.51-19.2,14.75-26.77,2.28-2.71,4.66-5.55,6.88-8.31.2-.25.64-.8.85-1.06.29-.37.58-.73.89-1.09.33-.39.92-.43,1.3-.1.27.24.38.6.29.93-.12.46-.26.92-.4,1.37-.28.87-.65,1.82-1,2.67-4.67,11-14.17,18.98-19.99,29.22-.22.37-.43.79-.63,1.16-.43.81-.81,1.63-1.21,2.45-.46.87-1.78.52-1.73-.47h0Z"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg><span class="logoreg" aria-hidden="true">®</span></div>
+    <div>Meridian — protecting Australia's communities from flood.<br>
+      © Matter<sup class="reg">®</sup> IO Pty Ltd 2026 · All rights reserved</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var bar=document.getElementById('bar');
+  function prog(){var h=document.documentElement;
+    var p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;bar.style.width=p+'%';}
+  document.addEventListener('scroll',prog,{passive:true});prog();
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},
+    {threshold:.08,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
+</script>
+<script>
+(function(){
+  var NS='http://www.w3.org/2000/svg';
+  var el=function(id){return document.getElementById('mx-'+id);};
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- build urban grid, mesh, pucks ---------- */
+  (function(){
+    var b='',m='',p='';
+    for(var i=0;i<8;i++)for(var j=0;j<6;j++){
+      var park=((i*7+j*3)%9===0);
+      b+='<rect x="'+(i*125+11)+'" y="'+(j*117+11)+'" width="103" height="95" rx="4" fill="'+(park?'#0C3F45':'#072A40')+'"/>';
+      if(!park)b+='<line x1="'+(i*125+62)+'" y1="'+(j*117+16)+'" x2="'+(i*125+62)+'" y2="'+(j*117+101)+'" stroke="#0E3550" stroke-width="2"/>';
+    }
+    for(var x=1;x<=7;x++)for(var y=1;y<=5;y++){
+      var cx=x*125,cy=y*117;
+      if(x<7)m+='<line x1="'+cx+'" y1="'+cy+'" x2="'+(cx+125)+'" y2="'+cy+'" stroke="#DDF8F9" stroke-width="1.6" opacity=".55"/>';
+      if(y<5)m+='<line x1="'+cx+'" y1="'+cy+'" x2="'+cx+'" y2="'+(cy+117)+'" stroke="#DDF8F9" stroke-width="1.6" opacity=".55"/>';
+      if(x<7&&y<5)m+='<line x1="'+cx+'" y1="'+cy+'" x2="'+(cx+125)+'" y2="'+(cy+117)+'" stroke="#DDF8F9" stroke-width="1" opacity=".28"/>';
+      var d=((cx/1000)*6.5).toFixed(2);
+      p+='<circle cx="'+cx+'" cy="'+cy+'" r="11" fill="url(#mx-nodeGlow)"/><circle cx="'+cx+'" cy="'+cy+'" r="4.2" fill="#FFFFFF"/>'+
+         '<circle cx="'+cx+'" cy="'+cy+'" r="5" fill="none" stroke="#9EE6E4" stroke-width="2" opacity="0">'+
+         '<animate attributeName="r" values="5;20;20" keyTimes="0;.25;1" dur="9s" begin="'+d+'s" repeatCount="indefinite"/>'+
+         '<animate attributeName="opacity" values=".9;0;0" keyTimes="0;.25;1" dur="9s" begin="'+d+'s" repeatCount="indefinite"/></circle>';
+    }
+    document.getElementById('mx-uBlocks').innerHTML=b;
+    document.getElementById('mx-uMesh').innerHTML=m;
+    document.getElementById('mx-uPucks').innerHTML=p;
+  })();
+
+  /* ---------- regional camera + radar nodes ---------- */
+  (function(){
+    var pts=[[300,280],[500,350],[720,470]],s='';
+    var ang=[38,30,24];
+    pts.forEach(function(q,k){
+      s+='<g transform="translate('+q[0]+','+q[1]+')">'+
+        '<g transform="rotate('+ang[k]+')"><path d="M4,-4 L120,-46 Q138,0 120,46 L4,4 Z" fill="url(#mx-beamR)" filter="url(#mx-feather)">'+
+        '<animate attributeName="opacity" values=".7;1;.7" dur="3s" begin="'+(k*.7)+'s" repeatCount="indefinite"/></path></g>'+
+        '<rect x="-7" y="-7" width="14" height="14" rx="2" fill="#2F3B44" stroke="#9FB0BA" stroke-width="1.2"/>'+
+        '<rect x="-13" y="-18" width="22" height="9" rx="1.5" fill="#2B5FB5" stroke="#8FB0E8" stroke-width=".8" transform="rotate(-18)"/>'+
+        '<circle r="3" fill="#FFFFFF"/></g>';
+    });
+    document.getElementById('mx-rNodes').innerHTML=s;
+  })();
+
+  /* ---------- city-wide mesh: a few thousand nodes inside the city outline ---------- */
+  (function(){
+    var seed=7; function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647;}
+    var probe=document.createElementNS(NS,'path');
+    probe.setAttribute('d','M140,330 C150,170 300,90 470,96 C640,90 820,150 870,300 C910,430 820,600 620,630 C450,660 260,640 180,540 C140,480 135,400 140,330 Z');
+    var holder=el('flU'); holder.appendChild(probe);
+    var S=26, cols=[], lines='', nodes='';
+    for(var x=130,i=0;x<=890;x+=S,i++){
+      var col=[];
+      for(var y=80,j=0;y<=670;y+=S,j++){
+        var px=x+(rnd()-.5)*S*.7+(j%2?S/2:0), py=y+(rnd()-.5)*S*.7, inside=true;
+        var pt=holder.createSVGPoint?holder.createSVGPoint():null;
+        if(pt&&probe.isPointInFill){pt.x=px;pt.y=py;inside=probe.isPointInFill(pt);}
+        if(Math.abs(px-500)<16&&Math.abs(py-350)<12){px=500;py=350;inside=true;}
+        col.push(inside?[px,py]:null);
+      }
+      cols.push(col);
+    }
+    function seg(a,b){if(a&&b)lines+='M'+a[0].toFixed(1)+','+a[1].toFixed(1)+'L'+b[0].toFixed(1)+','+b[1].toFixed(1);}
+    for(var i=0;i<cols.length;i++)for(var j=0;j<cols[i].length;j++){
+      var p=cols[i][j]; if(!p)continue;
+      if(j+1<cols[i].length)seg(p,cols[i][j+1]);
+      if(i+1<cols.length){seg(p,cols[i+1][j]);seg(p,cols[i+1][j+(j%2?1:-1)]||null);}
+      nodes+='<circle cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="'+(1.4+rnd()*1.2).toFixed(2)+'"/>';
+    }
+    var s='<path d="'+lines+'" fill="none" stroke="#DDF8F9" stroke-width=".9" opacity=".55" filter="url(#mx-softGlow)"/>'+
+          '<g fill="#FFFFFF" filter="url(#mx-softGlow)">'+nodes+'</g>';
+    holder.removeChild(probe);
+    el('flDots').innerHTML=s;
+  })();
+
+  /* ---------- overview: perspective diorama, catchment behind, city around a harbour ---------- */
+  var HERO={};
+  (function(){
+    var seed=23; function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647;}
+    var W=1400, D=1000, CXp=700, CYp=500;
+    var TH=-16*Math.PI/180, CO=Math.cos(TH), SI=Math.sin(TH);
+    var CAM=1400, H=1800, F=1120, HZ=-760;
+    function rot(x,y){var dx=x-CXp,dy=y-CYp;return [CXp+dx*CO-dy*SI,CYp+dx*SI+dy*CO];}
+    function P(x,y,z){var r=rot(x,y),X=r[0]-CXp,Zd=D-r[1],den=CAM+Zd;return [500+F*X/den, HZ+F*(H-(z||0))/den, den];}
+    function pts(a){return a.map(function(q){var r=P(q[0],q[1],q[2]);return r[0].toFixed(1)+','+r[1].toFixed(1);}).join(' ');}
+    function poly(a,fill,extra){return '<polygon points="'+pts(a)+'" fill="'+fill+'"'+(extra||'')+'/>';}
+    function line(a,stroke,w,extra){return '<polyline points="'+pts(a)+'" fill="none" stroke="'+stroke+'" stroke-width="'+w+'" stroke-linecap="round" stroke-linejoin="round"'+(extra||'')+'/>';}
+    function circ(cx,cy,r,n){var o=[];for(var i=0;i<=n;i++){var a=i/n*Math.PI*2;o.push([cx+Math.cos(a)*r,cy+Math.sin(a)*r*.8]);}return o;}
+    function clip(a){return a.map(function(q){return [Math.max(0,Math.min(W,q[0])),Math.max(0,Math.min(D,q[1]))];});}
+
+    // river winds out of the catchment, then opens into a harbour that splits the city
+    var K=[[420,-90],[430,0],[490,80],[420,160],[470,240],[520,330],[600,430],[760,500],[950,520],[1150,505],[1330,515],[1500,525],[1600,530]];
+    var RC=[];
+    for(var i=1;i<K.length-2;i++)for(var t=0;t<1;t+=1/12){
+      var p0=K[i-1],p1=K[i],p2=K[i+1],p3=K[i+2],t2=t*t,t3=t2*t;
+      RC.push([0,1].map(function(k){return .5*((2*p1[k])+(-p0[k]+p2[k])*t+(2*p0[k]-5*p1[k]+4*p2[k]-p3[k])*t2+(-p0[k]+3*p1[k]-3*p2[k]+p3[k])*t3);}));
+    }
+    function harb(q){return Math.max(0,Math.min(1,(q[1]-300)/170));}
+    function riverW(q,j){return 24+harb(q)*(110+Math.sin(j*.33)*30+Math.sin(j*.87+2)*14);}
+    function floodW(q,j){return riverW(q,j)+50+harb(q)*(110+Math.sin(j*.21+1)*55+Math.sin(j*.57)*28);}
+    function ribbon(wf){
+      var L=[],Rt=[];
+      for(var i=0;i<RC.length;i++){
+        var a=RC[Math.max(0,i-1)],b=RC[Math.min(RC.length-1,i+1)],dx=b[0]-a[0],dy=b[1]-a[1],m=Math.hypot(dx,dy)||1,nx=-dy/m,ny=dx/m,w=wf(RC[i],i)/2;
+        L.push([RC[i][0]+nx*w,RC[i][1]+ny*w]);Rt.push([RC[i][0]-nx*w,RC[i][1]-ny*w]);
+      }
+      return L.concat(Rt.reverse());
+    }
+    function near(x,y){var d=1e9,j=0;for(var k=0;k<RC.length;k++){var e=Math.hypot(RC[k][0]-x,RC[k][1]-y);if(e<d){d=e;j=k;}}return [d,j];}
+    function cityEdge(x){return 250+Math.sin(x*.009)*28+Math.sin(x*.023)*10;}
+
+    var s='';
+    // slab sides then ground
+    [[[0,0],[W,0]],[[W,0],[W,D]],[[W,D],[0,D]],[[0,D],[0,0]]].forEach(function(e,k){
+      s+=poly([[e[0][0],e[0][1],0],[e[1][0],e[1][1],0],[e[1][0],e[1][1],-24],[e[0][0],e[0][1],-24]],k%2?'#BCC8CF':'#A7B6BF');
+    });
+    s+=poly([[0,0],[W,0],[W,D],[0,D]],'#E1E9DD');
+    var edge=[];for(var x=0;x<=W;x+=40)edge.push([x,cityEdge(x)]);
+    s+=poly(edge.concat([[W,D],[0,D]]),'#EDF0F2');
+
+    // catchment
+    [[30,20,170,120],[230,30,110,140],[560,20,190,110],[790,30,170,120],[1000,20,200,130],[1230,40,150,140],[60,160,130,70],[600,150,150,70],[850,170,180,60]].forEach(function(r,k){
+      s+=poly([[r[0],r[1]],[r[0]+r[2],r[1]],[r[0]+r[2],r[1]+r[3]],[r[0],r[1]+r[3]]],k%2?'#D9E3D2':'#E8EDE3',' stroke="#CAD6C4" stroke-width=".8"');
+    });
+    [[160,110,[90,58,30]],[1090,100,[100,65,34]]].forEach(function(h){h[2].forEach(function(r){s+=line(circ(h[0],h[1],r,40),'#BDCBB8',1);});});
+    [[[0,215],[W,175]],[[700,0],[700,cityEdge(700)]],[[180,0],[230,cityEdge(230)]],[[1200,0],[1180,cityEdge(1180)]]].forEach(function(r){s+=line(r,'#FFFFFF',2.4);});
+
+    // flood extent and water
+    s+=poly(clip(ribbon(floodW)),'#A5CDF0',' opacity=".6"');
+    s+=poly(clip(ribbon(riverW)),'#7DB4E4');
+
+    // street grid of long blocks, sub-divided into buildings
+    var SX=46, SY=30, GAP=5, blocks=[], meshS='', puckS='';
+    for(var gx=0;gx<W;gx+=SX)for(var gy=Math.floor(240/SY)*SY;gy<D;gy+=SY){
+      var cx=gx+SX/2, cy=gy+SY/2;
+      if(gy<cityEdge(cx)+6)continue;
+      var nr=near(cx,cy), rw=riverW(RC[nr[1]],nr[1])/2, fw=floodW(RC[nr[1]],nr[1])/2;
+      if(nr[0]<rw+10)continue;
+      var inFlood=nr[0]<fw;
+      // mesh node at the block corner (pits at intersections)
+      if(gy>cityEdge(gx)+30&&near(gx,gy)[0]>rw+6){
+        var q=P(gx,gy,0),r=Math.max(1.2,F*2.8/q[2]);
+        puckS+='<circle cx="'+q[0].toFixed(1)+'" cy="'+q[1].toFixed(1)+'" r="'+r.toFixed(2)+'" fill="#15A0B2"/>';
+        if(near(gx+SX,gy)[0]>rw+6)meshS+=line([[gx,gy],[gx+SX,gy]],'#15A0B2',.6,' opacity=".4"');
+      }
+      if(rnd()<.06){blocks.push({b:[gx+GAP,gy+GAP,gx+SX-GAP,gy+SY-GAP],h:1.2,park:true});continue;}
+      var n=1+Math.floor(rnd()*3), x0=gx+GAP, w=(SX-2*GAP)/n;
+      var d1=Math.hypot(cx-860,(cy-720)*1.3), d2=Math.hypot(cx-930,(cy-370)*1.4);
+      var tall=Math.max(0,1-d1/330)+.55*Math.max(0,1-d2/220);
+      for(var k=0;k<n;k++){
+        var h=4+Math.pow(rnd(),2)*16+tall*Math.pow(rnd(),1.6)*170;
+        if(cy<cityEdge(cx)+70)h*=.6;
+        blocks.push({b:[x0+k*w+(k?1.2:0),gy+GAP,x0+(k+1)*w-(k<n-1?1.2:0),gy+SY-GAP],h:h,flood:inFlood});
+      }
+    }
+    s+=meshS+puckS;
+
+    // regional township
+    [[640,170],[662,180],[648,196],[676,198],[626,190],[690,174]].forEach(function(c){blocks.push({b:[c[0],c[1],c[0]+12,c[1]+12],h:6+rnd()*5});});
+
+    // paint far to near with simple directional light
+    var cam=[CXp,D+CAM], L=[-.5,.86];
+    blocks.forEach(function(o){var c=rot((o.b[0]+o.b[2])/2,(o.b[1]+o.b[3])/2);o.d=Math.hypot(cam[0]-c[0],cam[1]-c[1]);});
+    blocks.sort(function(a,b){return b.d-a.d;});
+    blocks.forEach(function(o){
+      var x0=o.b[0],y0=o.b[1],x1=o.b[2],y1=o.b[3],h=o.h;
+      if(o.park){s+=poly([[x0,y0,h],[x1,y0,h],[x1,y1,h],[x0,y1,h]],'#D2E1CB');return;}
+      [{p:[[x0,y0],[x1,y0]],n:[0,-1]},{p:[[x1,y0],[x1,y1]],n:[1,0]},{p:[[x1,y1],[x0,y1]],n:[0,1]},{p:[[x0,y1],[x0,y0]],n:[-1,0]}].forEach(function(f){
+        var nx=f.n[0]*CO-f.n[1]*SI, ny=f.n[0]*SI+f.n[1]*CO;
+        var c=rot((f.p[0][0]+f.p[1][0])/2,(f.p[0][1]+f.p[1][1])/2);
+        if((cam[0]-c[0])*nx+(cam[1]-c[1])*ny<=0)return;
+        var lum=.5+.5*(nx*L[0]+ny*L[1]), g=Math.round(192+lum*42);
+        var col=o.flood?'rgb('+(g-30)+','+(g-10)+','+Math.min(255,g+12)+')':'rgb('+g+','+(g+5)+','+(g+9)+')';
+        s+=poly([[f.p[0][0],f.p[0][1],0],[f.p[1][0],f.p[1][1],0],[f.p[1][0],f.p[1][1],h],[f.p[0][0],f.p[0][1],h]],col,' stroke="#AFBCC4" stroke-width=".3"');
+      });
+      s+=poly([[x0,y0,h],[x1,y0,h],[x1,y1,h],[x0,y1,h]],o.flood?'#D9E9F7':'#FCFDFD',' stroke="#B8C4CB" stroke-width=".3"');
+    });
+
+    // camera + radar at regional crossings
+    var cams=[[431,6],[478,96],[446,196]];
+    cams.forEach(function(c,k){
+      var g=P(c[0],c[1],0),t=P(c[0],c[1],34),c1=P(c[0]+70,c[1]+40,0),c2=P(c[0]+20,c[1]+80,0);
+      s+='<polygon points="'+t[0].toFixed(1)+','+(t[1]+4).toFixed(1)+' '+c1[0].toFixed(1)+','+c1[1].toFixed(1)+' '+c2[0].toFixed(1)+','+c2[1].toFixed(1)+'" fill="#B9D6F7" opacity=".85" filter="url(#mx-feather)"><animate attributeName="opacity" values=".55;.9;.55" dur="3s" begin="'+(k*.7)+'s" repeatCount="indefinite"/></polygon>';
+      s+='<line x1="'+g[0].toFixed(1)+'" y1="'+g[1].toFixed(1)+'" x2="'+t[0].toFixed(1)+'" y2="'+t[1].toFixed(1)+'" stroke="#2F3B44" stroke-width="2.4"/>';
+      s+='<rect x="'+(t[0]-7).toFixed(1)+'" y="'+(t[1]-5).toFixed(1)+'" width="14" height="5" fill="#2B5FB5" transform="rotate(-14 '+t[0].toFixed(1)+' '+t[1].toFixed(1)+')"/>';
+      s+='<circle cx="'+t[0].toFixed(1)+'" cy="'+(t[1]+6).toFixed(1)+'" r="2.2" fill="#1C2A33"/>';
+    });
+
+    s+='<defs><linearGradient id="mx-haze" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCE7EC" stop-opacity=".9"/><stop offset=".16" stop-color="#DCE7EC" stop-opacity=".3"/><stop offset=".34" stop-color="#DCE7EC" stop-opacity="0"/></linearGradient></defs>';
+    s+='<rect width="1000" height="700" fill="url(#mx-haze)" pointer-events="none"/>';
+
+    function pill(id,cx,cy,w,title,sub,ax,ay){
+      return '<g class="hot" id="mx-'+id+'" role="button" tabindex="0" aria-label="Zoom into '+title+'" style="cursor:pointer">'+
+        '<line x1="'+cx+'" y1="'+cy+'" x2="'+ax+'" y2="'+ay+'" stroke="#04253B" stroke-width="1.6"/>'+
+        '<circle cx="'+ax+'" cy="'+ay+'" r="4" fill="#04253B"/>'+
+        '<rect x="'+(cx-w/2)+'" y="'+(cy-30)+'" width="'+w+'" height="60" rx="14" fill="#04253B"/>'+
+        '<text x="'+cx+'" y="'+(cy-5)+'" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="21" fill="#FFFFFF">'+title+'</text>'+
+        '<text x="'+cx+'" y="'+(cy+19)+'" text-anchor="middle" class="t-sans" font-size="15" fill="#9EE6E4">'+sub+'</text></g>';
+    }
+    var cityA=P(700,800,30), regA=P(cams[1][0],cams[1][1],30);
+    s+=pill('hotU',Math.round(Math.max(330,cityA[0]-80)),640,300,'Urban','StormPuck™ mesh below the streets',Math.round(cityA[0]),Math.round(cityA[1]));
+    s+=pill('hotR',Math.round(Math.min(680,regA[0]+200)),Math.round(regA[1]-34),290,'Regional','Camera and radar at crossings',Math.round(regA[0]+5),Math.round(regA[1]));
+    el('heroG').innerHTML=s;
+
+    var u=P(720,780,0), r=P(470,120,0);
+    HERO.urban=[u[0]-150,u[1]-105,300,210];
+    HERO.regional=[r[0]-150,r[1]-105,300,210];
+  })();
+
+  /* ---------- content ---------- */
+  var EXPERTS=['Baseline hydrology','Storm event','Blockage','Tidal / backwater','Sediment','Convective flash','Infrastructure','Multi-asset'];
+  var DATA={
+    hero:{
+      stages:['hero'],
+      badges:['<b>Overview</b>  City and catchment'],
+      caps:[['One system, from catchment to city','Rain that falls across the regional catchment ends up in the city\u2019s pits and pipes. Meridian watches both: camera and radar at regional crossings, and a StormPuck™ mesh beneath the urban streets. Choose Urban or Regional to zoom in.']]
+    },
+    urban:{
+      stages:['overview','focus','fleet','intel'],
+      badges:['<b>Urban</b>  Bird\u2019s-eye','<b>Urban</b>  In focus: StormPuck™','<b>Urban</b>  Pull back: the mesh','<b>Urban</b>  Intelligence'],
+      caps:[
+        ['Below ground, the mesh','A StormPuck™ array forms a sensing mesh through the pits and pipes beneath the city. As a storm cell moves in, the network is already listening.'],
+        ['StormPuck™, the canary','Stormwater surcharges below the street before it floods above it. StormPuck™ registers the first changes in level, pressure and flow while the road is still dry.'],
+        ['City saving starts with this','Each StormPuck™ is one node in a city-wide mesh that can run to thousands. Every pit becomes a listening post, so the network sees a surcharge spreading while the streets are still dry.'],
+        ['The AI anticipates, a person decides','A Mixture-of-Experts AI routes the event to specialist agents as conditions shift, often before any sensor reading moves. An operator co-signs every public alert before it goes out.']
+      ],
+      chips:['StormPuck™ mesh: pipe surcharge building','Forecast: storm cell inbound','Pit grate: flow restriction'],
+      active:[1,5,2,7],
+      alert:['Underpass flood risk rising','Example: Main St underpass','Recommended: close the underpass and alert affected streets'],
+      target:[500,351]
+    },
+    regional:{
+      stages:['overview','focus','intel'],
+      badges:['<b>Regional</b>  Bird\u2019s-eye','<b>Regional</b>  In focus: camera and radar','<b>Regional</b>  Intelligence'],
+      caps:[
+        ['At the surface, quick sensing','Across wide catchments, camera vision and radar watch the crossings, floodways and rivers that cut regional communities off.'],
+        ['Camera and radar at the crossing','The camera reads the depth board and debris while radar measures water level without touching it, giving early sight of the causeway before it goes under.'],
+        ['The AI anticipates, a person decides','Camera and radar signals feed the same Mixture-of-Experts AI, which routes each event to the right specialists. An operator co-signs every public alert before it goes out.']
+      ],
+      chips:['Radar: river level rising','Camera: water at the depth board','Forecast: heavy catchment rainfall'],
+      active:[0,1,6,7],
+      alert:['Floodway crossing at risk','Example: River Rd causeway','Recommended: close the crossing and alert nearby properties'],
+      target:[500,350]
+    }
+  };
+  var DWELL={hero:6500,overview:5200,focus:7000,fleet:6500,intel:8200};
+  var SEQ=[['hero',0],['urban',0],['urban',1],['urban',2],['urban',3],['hero',0],['regional',0],['regional',1],['regional',2]];
+
+  var hero=el('hero');
+  var ov={urban:el('ovU'),regional:el('ovR')}, dt={urban:el('dtU'),regional:el('dtR')}, fl={urban:el('flU'),regional:null};
+  var intel=el('intel');
+  var state={scene:'hero',step:0,seq:0,playing:!reduce};
+  var timers=[], playTimer=null, vbToken={};
+
+  function later(fn,ms){timers.push(setTimeout(fn,ms));}
+  function clearTimers(){timers.forEach(clearTimeout);timers=[];}
+
+  var FULL=[0,0,1000,700];
+  function boxFor(scene){var t=DATA[scene].target;return [t[0]-70,t[1]-49,140,98];}
+  function setVB(svg,v){svg.setAttribute('viewBox',v.map(function(n){return n.toFixed(2);}).join(' '));}
+  function getVB(svg){return svg.getAttribute('viewBox').split(/\s+/).map(Number);}
+  function animVB(svg,to,dur){
+    var id=svg.id, from=getVB(svg), t0=null, tok={}; vbToken[id]=tok;
+    if(reduce||!dur){setVB(svg,to);return;}
+    function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;}
+    function frame(ts){
+      if(vbToken[id]!==tok)return;
+      if(!t0)t0=ts;
+      var k=Math.min(1,(ts-t0)/dur), e=ease(k);
+      var w=from[2]*Math.pow(to[2]/from[2],e), h=from[3]*Math.pow(to[3]/from[3],e);
+      var cxF=from[0]+from[2]/2, cyF=from[1]+from[3]/2, cxT=to[0]+to[2]/2, cyT=to[1]+to[3]/2;
+      var cx=cxF+(cxT-cxF)*e, cy=cyF+(cyT-cyF)*e;
+      setVB(svg,[cx-w/2,cy-h/2,w,h]);
+      if(k<1)requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  function show(l,opts){if(!l)return;opts=opts||{};l.classList.remove('off');l.classList.toggle('dim',!!opts.dim);l.style.transform=opts.t||'scale(1)';l.style.filter=opts.f||'';}
+  function hide(l,t,f){if(!l)return;l.classList.add('off');l.classList.remove('dim');l.style.transform=t||'scale(1)';l.style.filter=f||'';}
+  function resetScene(k){hide(ov[k]);setVB(ov[k],FULL);hide(dt[k],'scale(1.12)','blur(6px)');hide(fl[k],'scale(4)');}
+
+  function buildIntel(scene){
+    var d=DATA[scene];
+    el('chips').innerHTML=d.chips.map(function(c){return '<span class="mx-chip">'+c+'</span>';}).join('');
+    el('experts').innerHTML=EXPERTS.map(function(x){return '<div class="ex">'+x+'</div>';}).join('');
+    el('aTitle').textContent=d.alert[0];el('aLoc').textContent=d.alert[1];el('aRec').textContent=d.alert[2];
+    el('aStatus').textContent='Waiting for operator co-sign';el('aStatus').className='status';
+    var b=el('cosign');b.disabled=false;b.textContent='Co-sign alert';
+    el('alertBox').classList.remove('on');
+  }
+  function runIntel(scene){
+    buildIntel(scene);
+    var chips=el('chips').children, ex=el('experts').children, d=DATA[scene], f=reduce?0:1;
+    for(var i=0;i<chips.length;i++)(function(c,k){later(function(){c.classList.add('on');},f*(250+k*420));})(chips[i],i);
+    d.active.forEach(function(idx,k){later(function(){ex[idx].classList.add('on');},f*(1500+k*380));});
+    later(function(){el('alertBox').classList.add('on');},f*3200);
+    if(state.playing)later(cosign,5200);
+  }
+  function cosign(){
+    var b=el('cosign'); if(b.disabled)return;
+    b.disabled=true;b.textContent='Co-signed';
+    el('aStatus').textContent='Co-signed by operator. Alert sent.';el('aStatus').className='status ok';
+  }
+  el('cosign').addEventListener('click',cosign);
+
+  function buildDots(){
+    var box=el('dots');box.innerHTML='';
+    if(state.scene==='hero')return;
+    DATA[state.scene].stages.forEach(function(_,k){
+      var b=document.createElement('button');b.setAttribute('aria-label','Step '+(k+1));
+      b.addEventListener('click',function(){setPlaying(false);go(state.scene,k);});
+      box.appendChild(b);
+    });
+  }
+
+  function render(prev){
+    clearTimers();
+    var s=state.scene, st=state.step, Z=reduce?0:1;
+    var sameScene=prev&&prev.scene===s;
+    if(!sameScene)buildDots();
+
+    el('badge').innerHTML=DATA[s].badges[st];
+    el('stage').classList.toggle('is-hero',s==='hero');
+    el('capNum').textContent=s==='hero'?'':String(st+1);
+    el('capTitle').textContent=DATA[s].caps[st][0];
+    el('capText').textContent=DATA[s].caps[st][1];
+    [].forEach.call(el('dots').children,function(b,i){b.setAttribute('aria-current',i===st?'true':'false');});
+    el('tHero').setAttribute('aria-pressed',s==='hero');el('tUrban').setAttribute('aria-pressed',s==='urban');el('tRegional').setAttribute('aria-pressed',s==='regional');
+
+    if(s==='hero'){
+      intel.classList.add('off');
+      var from=prev&&prev.scene!=='hero'?prev.scene:null;
+      resetScene('urban');resetScene('regional');
+      show(hero);
+      if(from){setVB(hero,HERO[from]);animVB(hero,FULL,1500);} else setVB(hero,FULL);
+      schedule();return;
+    }
+
+    var kind=DATA[s].stages[st], o=ov[s], d=dt[s], f=fl[s];
+    var prevKind=sameScene?DATA[s].stages[prev.step]:null;
+    resetScene(s==='urban'?'regional':'urban');
+
+    if(prev&&prev.scene==='hero'&&kind==='overview'){
+      // zoom from the combined overview into this setting
+      intel.classList.add('off');hide(d,'scale(1.12)','blur(6px)');hide(f,'scale(4)');
+      hide(o,'scale(1.15)');setVB(o,FULL);
+      show(hero);animVB(hero,HERO[s],Z*1500);
+      later(function(){hide(hero,'scale(1)','blur(6px)');},Z*950);
+      later(function(){show(o);},Z*900);
+      schedule();return;
+    }
+    hide(hero);setVB(hero,FULL);
+
+    if(kind==='overview'){
+      intel.classList.add('off');
+      hide(d,'scale(1.12)','blur(6px)');hide(f,'scale(4)');
+      show(o);
+      if(prevKind&&prevKind!=='overview'){setVB(o,boxFor(s));animVB(o,FULL,1300);} else setVB(o,FULL);
+    } else if(kind==='focus'){
+      intel.classList.add('off');hide(f,'scale(4)');
+      if(prevKind==='overview'||!sameScene){
+        show(o);setVB(o,FULL);hide(d,'scale(1.12)','blur(6px)');
+        animVB(o,boxFor(s),Z*1600);
+        later(function(){hide(o,'scale(1)','blur(6px)');},Z*1050);
+        later(function(){show(d);},Z*1000);
+      } else {
+        hide(o);setVB(o,boxFor(s));show(d);
+      }
+    } else if(kind==='fleet'){
+      intel.classList.add('off');hide(o);setVB(o,boxFor(s));
+      hide(d,'scale(.55)','blur(4px)');
+      show(f);
+    } else {
+      hide(o);setVB(o,boxFor(s));
+      if(f){hide(d,'scale(.55)','blur(4px)');show(f,{dim:true});}
+      else{show(d,{dim:true});}
+      intel.classList.remove('off');
+      runIntel(s);
+    }
+    schedule();
+  }
+
+  function go(scene,step,seqIdx){
+    var prev={scene:state.scene,step:state.step};
+    state.scene=scene;state.step=step;
+    if(seqIdx!=null)state.seq=seqIdx;
+    else{
+      // keep the tour position in step with manual navigation
+      for(var i=0;i<SEQ.length;i++)if(SEQ[i][0]===scene&&SEQ[i][1]===step){state.seq=i;break;}
+      if(scene==='hero')state.seq=(prev.scene==='urban')?5:0;
+    }
+    render(prev);
+  }
+  function advance(){var i=(state.seq+1)%SEQ.length;go(SEQ[i][0],SEQ[i][1],i);}
+  function back(){var i=(state.seq-1+SEQ.length)%SEQ.length;go(SEQ[i][0],SEQ[i][1],i);}
+  var onScreen=true;
+  if('IntersectionObserver' in window){
+    onScreen=false;
+    new IntersectionObserver(function(es){es.forEach(function(e){onScreen=e.isIntersecting;schedule();});},{threshold:.35}).observe(el('stage'));
+  }
+  function schedule(){
+    clearTimeout(playTimer);
+    if(!onScreen)return;
+    var kind=state.scene==='hero'?'hero':DATA[state.scene].stages[state.step];
+    if(state.playing)playTimer=setTimeout(advance,DWELL[kind]);
+  }
+  function setPlaying(p){
+    state.playing=p;el('play').textContent=p?'Pause tour':'Play tour';schedule();
+  }
+  function enter(scene){
+    setPlaying(false);
+    if(scene===state.scene&&state.step===0)return;
+    if(scene!=='hero'&&state.scene!=='hero'&&state.scene!==scene){
+      // switching settings: pull back to the overview first, then dive in
+      go('hero',0);later(function(){go(scene,0);},reduce?0:1700);return;
+    }
+    go(scene,0);
+  }
+
+  el('next').addEventListener('click',function(){setPlaying(false);advance();});
+  el('prev').addEventListener('click',function(){setPlaying(false);back();});
+  el('play').addEventListener('click',function(){setPlaying(!state.playing);});
+  el('tHero').addEventListener('click',function(){enter('hero');});
+  el('tUrban').addEventListener('click',function(){enter('urban');});
+  el('tRegional').addEventListener('click',function(){enter('regional');});
+  ['hotU','hotR'].forEach(function(id){
+    var g=el(id),sc=id==='hotU'?'urban':'regional';
+    g.addEventListener('click',function(){enter(sc);});
+    g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();enter(sc);}});
+  });
+  el('root').addEventListener('keydown',function(e){
+    if(e.target&&e.target.closest&&e.target.closest('.hot'))return;
+    if(e.key==='ArrowRight'){setPlaying(false);advance();}
+    if(e.key==='ArrowLeft'){setPlaying(false);back();}
+  });
+
+  el('play').textContent=state.playing?'Pause tour':'Play tour';
+  buildDots();
+  render(null);
+})();
+</script>
+</body>
+</html>
