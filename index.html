@@ -243,6 +243,15 @@ footer .fin{display:flex;justify-content:space-between;align-items:center;gap:26
 .redund b{display:block;font-size:1.02rem;font-weight:700;color:#fff;line-height:1.35}
 .redund span:not(.rmark){display:block;margin-top:3px;font-size:.88rem;font-weight:300;color:rgba(255,255,255,.82)}
 @media print{.redund{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+.roiflow{display:flex;align-items:stretch;gap:14px;flex-wrap:wrap}
+.roiflow .rbox{flex:1 1 180px;background:var(--paper);border:1px solid var(--rule);border-radius:var(--r);padding:24px 22px;text-align:center}
+.roiflow .rbox.hot{background:linear-gradient(140deg,var(--navy-900),var(--navy));border:none;color:#fff}
+.roiflow .rv1{font-size:2.1rem;font-weight:700;letter-spacing:-.03em;color:var(--navy)}
+.roiflow .hot .rv1{color:#fff}
+.roiflow .rl{font-size:.88rem;font-weight:300;color:var(--ink-soft);margin-top:4px}
+.roiflow .hot .rl{color:rgba(255,255,255,.82)}
+.roiflow .rop{align-self:center;font-size:1.8rem;font-weight:300;color:var(--pink)}
+@media(max-width:640px){.roiflow .rop{width:100%;text-align:center}}
 /* ---------- product section ---------- */
 .patent{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:8px 16px 8px 12px;border-radius:999px;
   background:var(--navy-900);color:#fff;font-size:12.5px;font-weight:600;letter-spacing:.02em}
@@ -319,6 +328,20 @@ footer .fin{display:flex;justify-content:space-between;align-items:center;gap:26
 .logoreg{position:absolute;top:-4px;right:-11px;font-size:10px;line-height:1;font-weight:600;color:currentColor;opacity:.85}
 .navlogo .logoreg{color:var(--navy)}
 sup.reg{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-weight:inherit}
+/* ---------- clients ---------- */
+.csiro{display:flex;gap:24px;align-items:center;background:linear-gradient(140deg,var(--navy-900),var(--navy));color:#fff;border-radius:var(--r);padding:28px 32px}
+.csiro h3{color:#fff;margin-bottom:6px}.csiro p{color:rgba(255,255,255,.85);font-weight:300;font-size:.95rem}
+.cmono{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--blue-100);color:var(--navy);font-weight:800;font-size:.95rem;letter-spacing:-.02em;margin-bottom:12px}
+.cmono.big{flex:none;width:96px;height:96px;border-radius:50%;background:#fff;color:#00A9CE;font-size:1.25rem;margin:0}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+.cbadge{position:relative;overflow:hidden;background:var(--mist);border:1px solid var(--rule);border-radius:18px;padding:18px 18px 16px;min-height:132px}
+.cbadge .cname{font-weight:600;font-size:.92rem;line-height:1.3;color:var(--navy-900)}
+.cbadge .cstate{margin-top:4px;font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--ink-soft)}
+.cbadge.new{background:var(--paper);border-color:var(--pink);box-shadow:0 10px 24px -14px rgba(180,69,156,.5)}
+.cbadge.new .cmono{background:rgba(242,136,222,.18);color:#B4459C}
+.cbadge.oth .cmono{background:#E9EEF3;color:var(--ink-soft)}
+.cbadge .sash{top:16px;right:-50px;width:150px}
+@media(max-width:640px){.csiro{flex-direction:column;align-items:flex-start}}
 /* coming-soon sash */
 .card.has-sash,.wcard.has-sash{position:relative;overflow:hidden}
 .sash{position:absolute;top:22px;right:-46px;width:170px;transform:rotate(45deg);text-align:center;
@@ -339,7 +362,7 @@ sup.reg{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-
 
 .mx .stage{position:relative;width:100%;aspect-ratio:10/7;border-radius:var(--r,22px);overflow:hidden;background:#04192A;
   box-shadow:0 30px 70px -34px rgba(4,37,59,.75),0 0 0 1px rgba(4,37,59,.06);isolation:isolate}
-.mx .layer{position:absolute;inset:0;width:100%;height:100%;display:block;will-change:transform,clip-path;
+.mx .layer{position:absolute;inset:0;width:100%;height:100%;display:block;
   transition:opacity .7s ease,filter .7s ease,transform 1.2s var(--ease-out)}
 .mx .off{opacity:0;pointer-events:none}
 .mx .dim{opacity:.22;filter:blur(4px) saturate(.8)}
@@ -466,39 +489,61 @@ sup.reg{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-
 }
 @media (prefers-reduced-motion:reduce){.mx .mx-hint i::after{animation:none}}
 </style>
+<style>
+/* phone tweaks */
+@media(max-width:640px){.tblwrap{padding:14px}.tbl{font-size:.85rem}.tbl th{padding:0 10px 10px;font-size:10px;letter-spacing:.08em}.tbl td{padding:12px 10px}.tbl .num{white-space:normal}}
+</style>
 </head>
 <body>
 <div id="bar"></div>
 
 <nav>
   <div class="navin">
-    <a href="#top" class="navlogo" aria-label="Matter home"><svg style="width:100%;height:auto;display:block" role="img" aria-label="Matter" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1259 257.41">
+    <a href="#top" class="navlogo" aria-label="Matter home"><svg style="width:100%;height:auto;display:block"  data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1259 257.45">
   <defs>
     <style>
-      .mlnav-1 {
+      .mlc-1 {
+        fill: #c1e4f8;
+      }
+
+      .mlc-2 {
         fill: #165888;
       }
 
-      .mlnav-2 {
+      .mlc-3 {
+        fill: #fff;
+      }
+
+      .mlc-4 {
         fill: #448cca;
       }
     </style>
   </defs>
-  <g data-name="Layer 2">
-    <g>
-      <path class="mlnav-1" d="M0,57.78h67.92v23.64c18.51-17.76,39.27-26.64,62.29-26.64,28.52,0,50.28,12.01,65.29,36.02,15.26-24.26,37.02-36.4,65.29-36.4,9.01,0,17.51,1.31,25.51,3.94,8,2.63,14.88,6.75,20.64,12.38,5.75,5.63,10.32,12.95,13.7,21.95,3.38,9.01,5.07,19.89,5.07,32.64v124.95h-67.92v-94.93c0-9.76-.69-17.76-2.06-24.01-1.38-6.25-3.38-11.13-6-14.63-2.63-3.5-5.69-5.87-9.19-7.13-3.5-1.25-7.26-1.88-11.26-1.88-21.76,0-32.64,15.89-32.64,47.65v94.93h-67.92v-94.93c0-9.76-.63-17.82-1.88-24.2-1.26-6.38-3.07-11.44-5.44-15.2-2.38-3.75-5.44-6.31-9.19-7.69-3.75-1.37-8.13-2.06-13.13-2.06-4.26,0-8.26.63-12.01,1.88-3.75,1.25-7.07,3.69-9.94,7.32-2.88,3.63-5.13,8.63-6.75,15.01-1.63,6.38-2.44,14.7-2.44,24.95v94.93H0V57.78Z"/>
-      <path class="mlnav-1" d="M500.25,57.78h68.29v192.49h-68.29v-21.39c-14.51,18.26-34.14,27.39-58.91,27.39-14.01,0-26.9-2.57-38.65-7.69-11.76-5.12-22.02-12.32-30.77-21.58-8.76-9.25-15.57-20.13-20.45-32.64-4.88-12.51-7.32-26.14-7.32-40.9,0-13.75,2.37-26.83,7.13-39.21,4.75-12.38,11.38-23.2,19.89-32.46,8.5-9.25,18.63-16.57,30.39-21.95,11.76-5.38,24.77-8.07,39.03-8.07,24.01,0,43.9,8.38,59.66,25.14v-19.14ZM414.7,153.47c0,6.26,1.12,12.07,3.38,17.45,2.25,5.38,5.31,10.07,9.19,14.07,3.87,4,8.5,7.13,13.88,9.38,5.38,2.25,11.19,3.38,17.45,3.38s11.69-1.13,17.07-3.38c5.38-2.25,10-5.38,13.88-9.38,3.88-4,7-8.63,9.38-13.88,2.37-5.25,3.57-10.88,3.57-16.89s-1.19-11.69-3.57-17.07c-2.38-5.38-5.5-10.07-9.38-14.07-3.88-4-8.51-7.13-13.88-9.38-5.38-2.25-11.07-3.38-17.07-3.38s-12.07,1.13-17.45,3.38c-5.38,2.25-10.01,5.38-13.88,9.38-3.88,4-6.94,8.57-9.19,13.7-2.25,5.13-3.38,10.69-3.38,16.7Z"/>
-      <path class="mlnav-1" d="M675.44,114.44v135.83h-67.92V114.44h-22.51v-56.66h22.51V0h67.92v57.78h38.65v56.66h-38.65Z"/>
-      <path class="mlnav-1" d="M800.88,114.44v135.83h-67.92V114.44h-22.51v-56.66h22.51V0h67.92v57.78h38.65v56.66h-38.65Z"/>
-      <path class="mlnav-1" d="M908.82,165.48c0,29.27,13.75,43.9,41.28,43.9,14.76,0,25.89-6,33.39-18.01h65.67c-13.26,44.03-46.41,66.04-99.44,66.04-16.26,0-31.14-2.44-44.65-7.32-13.51-4.88-25.08-11.82-34.71-20.83-9.63-9.01-17.07-19.76-22.33-32.27-5.25-12.51-7.88-26.51-7.88-42.03s2.5-30.45,7.5-43.34c5-12.88,12.13-23.83,21.39-32.83,9.25-9.01,20.45-15.95,33.58-20.83s27.96-7.32,44.47-7.32,30.89,2.44,43.9,7.32c13,4.88,24.02,11.95,33.02,21.2,9,9.26,15.88,20.58,20.64,33.96,4.75,13.38,7.13,28.46,7.13,45.22v7.13h-142.96ZM988.37,126.08c-2.25-9.5-6.89-17.13-13.88-22.89-7.01-5.75-15.51-8.63-25.51-8.63-10.51,0-19.08,2.76-25.71,8.25-6.63,5.51-10.82,13.26-12.57,23.26h77.67Z"/>
-      <path class="mlnav-1" d="M1072.01,57.78h67.92v31.52c7.25-11.5,16.13-20.32,26.64-26.45,10.51-6.13,22.76-9.19,36.78-9.19h5.82c2.12,0,4.56.25,7.32.75v64.91c-9.01-4.5-18.76-6.75-29.27-6.75-15.76,0-27.58,4.69-35.46,14.07-7.88,9.38-11.82,23.08-11.82,41.09v82.55h-67.92V57.78Z"/>
-      <path class="mlnav-2" d="M1193.15,223.26c0-4.5.84-8.77,2.53-12.81,1.69-4.03,4.03-7.55,7.04-10.55,3-3,6.52-5.35,10.55-7.04,4.03-1.69,8.3-2.53,12.8-2.53s8.77.84,12.81,2.53c4.03,1.69,7.55,4.04,10.55,7.04,3,3,5.35,6.52,7.04,10.55,1.69,4.04,2.53,8.3,2.53,12.81s-.85,8.77-2.53,12.8c-1.69,4.04-4.04,7.55-7.04,10.55-3,3-6.52,5.35-10.55,7.03-4.04,1.69-8.3,2.53-12.81,2.53s-8.77-.84-12.8-2.53c-4.04-1.69-7.56-4.03-10.55-7.03-3-3-5.35-6.52-7.04-10.55-1.69-4.03-2.53-8.3-2.53-12.8Z"/>
+  <g  data-name="Layer 2">
+    <g  data-name="Layer 5">
+      <g>
+        <g>
+          <path class="mlc-2" d="M0,57.8h67.92v23.64c18.51-17.76,39.27-26.65,62.29-26.65,28.52,0,50.28,12.01,65.29,36.03,15.26-24.27,37.02-36.41,65.29-36.41,9.01,0,17.51,1.31,25.51,3.94,8,2.63,14.88,6.75,20.64,12.38,5.75,5.63,10.32,12.95,13.7,21.96,3.38,9.01,5.07,19.89,5.07,32.65v124.98h-67.92v-94.95c0-9.76-.69-17.76-2.06-24.02-1.38-6.25-3.38-11.13-6-14.64-2.63-3.5-5.69-5.88-9.19-7.13s-7.26-1.88-11.26-1.88c-21.76,0-32.64,15.89-32.64,47.66v94.95h-67.92v-94.95c0-9.76-.63-17.83-1.88-24.21-1.26-6.38-3.07-11.45-5.44-15.2-2.38-3.75-5.44-6.32-9.19-7.69s-8.13-2.06-13.13-2.06c-4.26,0-8.26.63-12.01,1.88s-7.07,3.69-9.94,7.32c-2.88,3.63-5.13,8.63-6.75,15.01-1.63,6.38-2.44,14.7-2.44,24.96v94.95H0V57.8Z"/>
+          <path class="mlc-2" d="M675.44,114.47v135.86h-67.92V114.47h-22.51v-56.67h22.51V0h67.92v57.8h38.65v56.67h-38.65Z"/>
+          <path class="mlc-2" d="M800.88,114.47v135.86h-67.92V114.47h-22.51v-56.67h22.51V0h67.92v57.8h38.65v56.67h-38.65Z"/>
+          <path class="mlc-2" d="M908.82,165.51c0,29.27,13.75,43.91,41.28,43.91,14.76,0,25.89-6.01,33.39-18.02h65.67c-13.26,44.04-46.41,66.05-99.44,66.05-16.26,0-31.14-2.44-44.65-7.32s-25.08-11.82-34.71-20.83-17.07-19.76-22.33-32.28c-5.25-12.51-7.88-26.52-7.88-42.03s2.5-30.46,7.5-43.35c5-12.88,12.13-23.83,21.39-32.84,9.25-9.01,20.45-15.95,33.58-20.83s27.96-7.32,44.47-7.32,30.89,2.44,43.9,7.32c13,4.88,24.02,11.95,33.02,21.2,9,9.26,15.88,20.58,20.64,33.97,4.75,13.39,7.13,28.47,7.13,45.23v7.13h-142.96ZM988.37,126.1c-2.25-9.51-6.89-17.13-13.88-22.89-7.01-5.75-15.51-8.63-25.51-8.63-10.51,0-19.08,2.76-25.71,8.26-6.63,5.51-10.82,13.27-12.57,23.27h77.67Z"/>
+          <path class="mlc-2" d="M1072.01,57.8h67.92v31.53c7.25-11.51,16.13-20.33,26.64-26.46,10.51-6.13,22.76-9.19,36.78-9.19h5.82c2.12,0,4.56.25,7.32.75v64.93c-9.01-4.5-18.76-6.76-29.27-6.76-15.76,0-27.58,4.69-35.46,14.07-7.88,9.38-11.82,23.08-11.82,41.1v82.57h-67.92V57.8h-.01Z"/>
+          <path class="mlc-4" d="M1193.15,223.31c0-4.5.84-8.77,2.53-12.81,1.69-4.03,4.03-7.55,7.04-10.56,3-3,6.52-5.35,10.55-7.04,4.03-1.69,8.3-2.53,12.8-2.53s8.77.84,12.81,2.53c4.03,1.69,7.55,4.04,10.55,7.04s5.35,6.52,7.04,10.56c1.69,4.04,2.53,8.3,2.53,12.81s-.85,8.77-2.53,12.81c-1.69,4.04-4.04,7.56-7.04,10.56s-6.52,5.35-10.55,7.04c-4.04,1.69-8.3,2.53-12.81,2.53s-8.77-.84-12.8-2.53c-4.04-1.69-7.56-4.03-10.55-7.04-3-3-5.35-6.52-7.04-10.56-1.69-4.03-2.53-8.3-2.53-12.81h0Z"/>
+          <path class="mlc-2" d="M500.25,57.8v19.16c-15.76-16.76-35.65-25.15-59.66-25.15-14.26,0-27.27,2.69-39.03,8.07-11.76,5.39-21.89,12.71-30.39,21.96-8.51,9.25-15.14,20.07-19.89,32.46-4.76,12.39-7.13,25.46-7.13,39.22,0,14.77,2.44,28.4,7.32,40.91,4.88,12.51,11.69,23.4,20.45,32.65,8.75,9.26,19.01,16.45,30.77,21.58,11.75,5.12,24.64,7.69,38.65,7.69,24.77,0,44.4-9.13,58.91-27.4v21.39h68.29V57.8h-68.29Z"/>
+        </g>
+        <g>
+          <path class="mlc-2" d="M486,166.54c0,6.46-1.27,12.74-3.77,18.65-2.41,5.7-5.87,10.83-10.26,15.22-4.4,4.4-9.52,7.85-15.22,10.26-5.91,2.5-12.18,3.77-18.65,3.77s-12.74-1.27-18.65-3.77c-5.7-2.41-10.83-5.87-15.22-10.26-4.4-4.4-7.85-9.52-10.26-15.22-2.5-5.91-3.77-12.18-3.77-18.65,0-24.41,13.77-40.58,25.91-54.85,6.95-8.16,13.51-15.87,16.63-24.13.84-2.23,2.91-3.66,5.29-3.66h.07c2.4.03,4.47,1.51,5.27,3.79,2.91,8.29,9.6,16.1,16.68,24.37,12.16,14.21,25.95,30.31,25.95,54.48h0Z"/>
+          <path class="mlc-3" d="M481.69,166.54c0,24.07-19.51,43.59-43.59,43.59s-43.59-19.51-43.59-43.59c0-36.56,33.25-53.61,42.26-77.46.45-1.18,2.11-1.16,2.53.03,8.32,23.68,42.39,40.89,42.39,77.42h0Z"/>
+          <path class="mlc-1" d="M481.69,166.54c0,24.07-19.51,43.59-43.59,43.59-19.29,0-35.66-12.53-41.4-29.9,9.5,11.36,25.25,17.42,39.89,14.8,4.87-.87,9.6-2.63,13.75-5.32,12.33-7.99,18.24-24.66,13.7-38.63-3.06-9.41-10.03-16.93-15.34-25.28-7.93-12.48-12.31-20.09-10.13-37.48.32.14.6.4.74.8,8.32,23.68,42.39,40.89,42.39,77.42h-.01Z"/>
+          <path class="mlc-3" d="M405.32,154.39c.66-10.21,8.51-19.2,14.75-26.77,2.28-2.71,4.66-5.55,6.88-8.31.2-.25.64-.8.85-1.06.29-.37.58-.73.89-1.09.33-.39.92-.43,1.3-.1.27.24.38.6.29.93-.12.46-.26.92-.4,1.37-.28.87-.65,1.82-1,2.67-4.67,11-14.17,18.98-19.99,29.22-.22.37-.43.79-.63,1.16-.43.81-.81,1.63-1.21,2.45-.46.87-1.78.52-1.73-.47h0Z"/>
+        </g>
+      </g>
     </g>
   </g>
 </svg><span class="logoreg" aria-hidden="true">®</span></a>
     <div class="navlinks">
       <a href="#system">System</a><a href="#product">Product</a><a href="#alerts">Alerts</a><a href="#problem">Problem</a><a href="#benefits">Benefits</a>
-      <a href="#cost">Cost</a><a href="#proof">Proof</a><a href="#next">Next steps</a>
+      <a href="#roi">ROI</a><a href="#proof">Proof</a><a href="#clients">Clients</a><a href="#next">Next steps</a>
     </div>
   </div>
 </nav>
@@ -514,27 +559,49 @@ sup.reg{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-
     </g>
   </svg>
   <div class="wrap heroin">
-    <div class="herologo"><svg style="width:100%;height:auto;display:block" role="img" aria-label="Matter" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1259 257.41">
+    <div class="herologo"><svg style="width:100%;height:auto;display:block"  data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1259.29 257.45">
   <defs>
     <style>
-      .mlhero-1 {
+      .mlr-1 {
+        fill: #7abbe7;
+      }
+
+      .mlr-2 {
+        fill: #165888;
+      }
+
+      .mlr-3 {
         fill: #fff;
       }
 
-      .mlhero-2 {
+      .mlr-4 {
+        fill: #3780b8;
+      }
+
+      .mlr-5 {
         fill: #448cca;
       }
     </style>
   </defs>
-  <g data-name="Layer 2">
-    <g>
-      <path class="mlhero-1" d="M0,57.78h67.92v23.64c18.51-17.76,39.27-26.64,62.29-26.64,28.52,0,50.28,12.01,65.29,36.02,15.26-24.26,37.02-36.4,65.29-36.4,9.01,0,17.51,1.31,25.51,3.94,8,2.63,14.88,6.75,20.64,12.38,5.75,5.63,10.32,12.95,13.7,21.95,3.38,9.01,5.07,19.89,5.07,32.64v124.95h-67.92v-94.93c0-9.76-.69-17.76-2.06-24.01-1.38-6.25-3.38-11.13-6-14.63-2.63-3.5-5.69-5.87-9.19-7.13-3.5-1.25-7.26-1.88-11.26-1.88-21.76,0-32.64,15.89-32.64,47.65v94.93h-67.92v-94.93c0-9.76-.63-17.82-1.88-24.2-1.26-6.38-3.07-11.44-5.44-15.2-2.38-3.75-5.44-6.31-9.19-7.69-3.75-1.37-8.13-2.06-13.13-2.06-4.26,0-8.26.63-12.01,1.88-3.75,1.25-7.07,3.69-9.94,7.32-2.88,3.63-5.13,8.63-6.75,15.01-1.63,6.38-2.44,14.7-2.44,24.95v94.93H0V57.78Z"/>
-      <path class="mlhero-1" d="M500.25,57.78h68.29v192.49h-68.29v-21.39c-14.51,18.26-34.14,27.39-58.91,27.39-14.01,0-26.9-2.57-38.65-7.69-11.76-5.12-22.02-12.32-30.77-21.58-8.76-9.25-15.57-20.13-20.45-32.64-4.88-12.51-7.32-26.14-7.32-40.9,0-13.75,2.37-26.83,7.13-39.21,4.75-12.38,11.38-23.2,19.89-32.46,8.5-9.25,18.63-16.57,30.39-21.95,11.76-5.38,24.77-8.07,39.03-8.07,24.01,0,43.9,8.38,59.66,25.14v-19.14ZM414.7,153.47c0,6.26,1.12,12.07,3.38,17.45,2.25,5.38,5.31,10.07,9.19,14.07,3.87,4,8.5,7.13,13.88,9.38,5.38,2.25,11.19,3.38,17.45,3.38s11.69-1.13,17.07-3.38c5.38-2.25,10-5.38,13.88-9.38,3.88-4,7-8.63,9.38-13.88,2.37-5.25,3.57-10.88,3.57-16.89s-1.19-11.69-3.57-17.07c-2.38-5.38-5.5-10.07-9.38-14.07-3.88-4-8.51-7.13-13.88-9.38-5.38-2.25-11.07-3.38-17.07-3.38s-12.07,1.13-17.45,3.38c-5.38,2.25-10.01,5.38-13.88,9.38-3.88,4-6.94,8.57-9.19,13.7-2.25,5.13-3.38,10.69-3.38,16.7Z"/>
-      <path class="mlhero-1" d="M675.44,114.44v135.83h-67.92V114.44h-22.51v-56.66h22.51V0h67.92v57.78h38.65v56.66h-38.65Z"/>
-      <path class="mlhero-1" d="M800.88,114.44v135.83h-67.92V114.44h-22.51v-56.66h22.51V0h67.92v57.78h38.65v56.66h-38.65Z"/>
-      <path class="mlhero-1" d="M908.82,165.48c0,29.27,13.75,43.9,41.28,43.9,14.76,0,25.89-6,33.39-18.01h65.67c-13.26,44.03-46.41,66.04-99.44,66.04-16.26,0-31.14-2.44-44.65-7.32-13.51-4.88-25.08-11.82-34.71-20.83-9.63-9.01-17.07-19.76-22.33-32.27-5.25-12.51-7.88-26.51-7.88-42.03s2.5-30.45,7.5-43.34c5-12.88,12.13-23.83,21.39-32.83,9.25-9.01,20.45-15.95,33.58-20.83s27.96-7.32,44.47-7.32,30.89,2.44,43.9,7.32c13,4.88,24.02,11.95,33.02,21.2,9,9.26,15.88,20.58,20.64,33.96,4.75,13.38,7.13,28.46,7.13,45.22v7.13h-142.96ZM988.37,126.08c-2.25-9.5-6.89-17.13-13.88-22.89-7.01-5.75-15.51-8.63-25.51-8.63-10.51,0-19.08,2.76-25.71,8.25-6.63,5.51-10.82,13.26-12.57,23.26h77.67Z"/>
-      <path class="mlhero-1" d="M1072.01,57.78h67.92v31.52c7.25-11.5,16.13-20.32,26.64-26.45,10.51-6.13,22.76-9.19,36.78-9.19h5.82c2.12,0,4.56.25,7.32.75v64.91c-9.01-4.5-18.76-6.75-29.27-6.75-15.76,0-27.58,4.69-35.46,14.07-7.88,9.38-11.82,23.08-11.82,41.09v82.55h-67.92V57.78Z"/>
-      <path class="mlhero-2" d="M1193.15,223.26c0-4.5.84-8.77,2.53-12.81,1.69-4.03,4.03-7.55,7.04-10.55,3-3,6.52-5.35,10.55-7.04,4.03-1.69,8.3-2.53,12.8-2.53s8.77.84,12.81,2.53c4.03,1.69,7.55,4.04,10.55,7.04,3,3,5.35,6.52,7.04,10.55,1.69,4.04,2.53,8.3,2.53,12.81s-.85,8.77-2.53,12.8c-1.69,4.04-4.04,7.55-7.04,10.55-3,3-6.52,5.35-10.55,7.03-4.04,1.69-8.3,2.53-12.81,2.53s-8.77-.84-12.8-2.53c-4.04-1.69-7.56-4.03-10.55-7.03-3-3-5.35-6.52-7.04-10.55-1.69-4.03-2.53-8.3-2.53-12.8Z"/>
+  <g  data-name="Layer 2">
+    <g  data-name="Layer 5">
+      <g>
+        <g>
+          <path class="mlr-3" d="M0,57.8h67.93v23.64c18.51-17.76,39.28-26.65,62.3-26.65,28.52,0,50.29,12.01,65.3,36.03,15.26-24.27,37.03-36.41,65.31-36.41,9.01,0,17.51,1.31,25.52,3.94,8,2.63,14.88,6.75,20.64,12.38,5.75,5.63,10.32,12.95,13.7,21.96s5.07,19.89,5.07,32.65v124.98h-67.93v-94.95c0-9.76-.69-17.76-2.06-24.02-1.38-6.25-3.38-11.13-6.01-14.64-2.63-3.5-5.69-5.88-9.2-7.13s-7.26-1.88-11.26-1.88c-21.77,0-32.65,15.89-32.65,47.66v94.95h-67.93v-94.95c0-9.76-.63-17.83-1.88-24.21-1.26-6.38-3.07-11.45-5.44-15.2-2.38-3.75-5.44-6.32-9.19-7.69s-8.13-2.06-13.14-2.06c-4.26,0-8.26.63-12.01,1.88s-7.07,3.69-9.95,7.32-5.13,8.63-6.75,15.01c-1.63,6.38-2.44,14.7-2.44,24.96v94.95H0V57.8Z"/>
+          <path class="mlr-3" d="M675.59,114.47v135.86h-67.93V114.47h-22.52v-56.67h22.52V0h67.93v57.8h38.66v56.67h-38.66Z"/>
+          <path class="mlr-3" d="M801.05,114.47v135.86h-67.93V114.47h-22.52v-56.67h22.52V0h67.93v57.8h38.66v56.67h-38.66Z"/>
+          <path class="mlr-3" d="M909.03,165.51c0,29.27,13.76,43.91,41.28,43.91,14.76,0,25.89-6.01,33.4-18.02h65.68c-13.26,44.04-46.42,66.05-99.46,66.05-16.27,0-31.15-2.44-44.66-7.32-13.51-4.88-25.09-11.82-34.72-20.83-9.64-9.01-17.08-19.76-22.33-32.28-5.26-12.51-7.88-26.52-7.88-42.03s2.5-30.46,7.51-43.35c5-12.88,12.13-23.83,21.39-32.84,9.25-9.01,20.46-15.95,33.59-20.83s27.96-7.32,44.48-7.32,30.9,2.44,43.91,7.32c13.01,4.88,24.02,11.95,33.03,21.2,9.01,9.26,15.88,20.58,20.64,33.97,4.75,13.39,7.13,28.47,7.13,45.23v7.13h-142.99ZM988.59,126.1c-2.25-9.51-6.89-17.13-13.89-22.89-7.01-5.75-15.52-8.63-25.52-8.63-10.51,0-19.08,2.76-25.71,8.26-6.63,5.51-10.82,13.27-12.57,23.27h77.69Z"/>
+          <path class="mlr-3" d="M1072.25,57.8h67.93v31.53c7.25-11.51,16.14-20.33,26.65-26.46,10.51-6.13,22.77-9.19,36.78-9.19h5.82c2.12,0,4.56.25,7.32.75v64.93c-9.01-4.5-18.77-6.76-29.28-6.76-15.76,0-27.58,4.69-35.46,14.07-7.88,9.38-11.82,23.08-11.82,41.1v82.57h-67.93V57.8h-.01Z"/>
+          <path class="mlr-2" d="M1193.41,223.31c0-4.5.84-8.77,2.53-12.81,1.69-4.03,4.03-7.55,7.04-10.56,3-3,6.52-5.35,10.56-7.04,4.03-1.69,8.3-2.53,12.81-2.53s8.77.84,12.81,2.53c4.03,1.69,7.55,4.04,10.56,7.04,3,3,5.35,6.52,7.04,10.56,1.69,4.04,2.53,8.3,2.53,12.81s-.85,8.77-2.53,12.81c-1.69,4.04-4.04,7.56-7.04,10.56-3.01,3-6.52,5.35-10.56,7.04-4.04,1.69-8.31,2.53-12.81,2.53s-8.77-.84-12.81-2.53-7.56-4.03-10.56-7.04c-3.01-3-5.35-6.52-7.04-10.56-1.69-4.03-2.53-8.3-2.53-12.81h0Z"/>
+          <path class="mlr-3" d="M500.36,57.8v.02s-.01,19.14-.01,19.14c-15.76-16.76-35.65-25.15-59.67-25.15-14.26,0-27.27,2.69-39.03,8.07-11.76,5.39-21.9,12.71-30.4,21.96-8.51,9.25-15.14,20.07-19.89,32.46-4.75,12.39-7.13,25.46-7.13,39.22,0,14.77,2.44,28.4,7.32,40.91,4.88,12.51,11.7,23.4,20.46,32.65,8.75,9.26,19.01,16.45,30.77,21.58,11.76,5.12,24.64,7.69,38.66,7.69,24.77,0,44.41-9.13,58.92-27.4v21.39h68.31V57.8h-68.31Z"/>
+        </g>
+        <g>
+          <path class="mlr-3" d="M486.28,166.54c0,6.46-1.27,12.74-3.77,18.65-2.41,5.7-5.87,10.83-10.26,15.22-4.4,4.4-9.52,7.85-15.22,10.26-5.91,2.5-12.18,3.77-18.65,3.77s-12.74-1.27-18.65-3.77c-5.7-2.41-10.83-5.87-15.22-10.26-4.4-4.4-7.85-9.52-10.26-15.22-2.5-5.91-3.77-12.18-3.77-18.65,0-24.41,13.77-40.58,25.91-54.85,6.95-8.16,13.51-15.87,16.63-24.13.84-2.23,2.91-3.66,5.29-3.66h.07c2.4.03,4.47,1.51,5.27,3.79,2.91,8.29,9.6,16.1,16.68,24.37,12.16,14.21,25.95,30.31,25.95,54.48h0Z"/>
+          <path class="mlr-5" d="M481.97,166.54c0,24.07-19.51,43.59-43.59,43.59s-43.59-19.51-43.59-43.59c0-36.56,33.25-53.61,42.26-77.46.45-1.18,2.11-1.16,2.53.03,8.32,23.68,42.39,40.89,42.39,77.42h0Z"/>
+          <path class="mlr-4" d="M481.97,166.54c0,24.07-19.51,43.59-43.59,43.59-19.29,0-35.66-12.53-41.4-29.9,9.5,11.36,25.25,17.42,39.89,14.8,4.87-.87,9.6-2.63,13.75-5.32,12.33-7.99,18.24-24.66,13.7-38.63-3.06-9.41-10.03-16.93-15.34-25.28-7.93-12.48-12.31-20.09-10.13-37.48.32.14.6.4.74.8,8.32,23.68,42.39,40.89,42.39,77.42h0Z"/>
+          <path class="mlr-1" d="M405.6,154.39c.66-10.21,8.51-19.2,14.75-26.77,2.28-2.71,4.66-5.55,6.88-8.31.2-.25.64-.8.85-1.06.29-.37.58-.73.89-1.09.33-.39.92-.43,1.3-.1.27.24.38.6.29.93-.12.46-.26.92-.4,1.37-.28.87-.65,1.82-1,2.67-4.67,11-14.17,18.98-19.99,29.22-.22.37-.43.79-.63,1.16-.43.81-.81,1.63-1.21,2.45-.46.87-1.78.52-1.73-.47h0Z"/>
+        </g>
+      </g>
     </g>
   </g>
 </svg><span class="logoreg" aria-hidden="true">®</span></div>
@@ -681,7 +748,7 @@ sup.reg{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-
       <g id="mx-uMesh" filter="url(#mx-softGlow)"></g>
       <g id="mx-uPucks"></g>
       <!-- rain radar cell drifting over the city -->
-      <g style="mix-blend-mode:screen" pointer-events="none">
+      <g pointer-events="none">
         <g>
           <ellipse rx="230" ry="170" fill="url(#mx-stormA)"/>
           <ellipse cx="18" cy="-8" rx="140" ry="104" fill="url(#mx-stormB)"/>
@@ -837,7 +904,7 @@ sup.reg{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-
       </g>
       <text x="812" y="232" text-anchor="middle" class="t-sans" font-size="13" fill="#7FA9AE">Township</text>
       <g id="mx-rNodes"></g>
-      <g style="mix-blend-mode:screen" pointer-events="none">
+      <g pointer-events="none">
         <g>
           <ellipse rx="230" ry="170" fill="url(#mx-stormA)"/>
           <ellipse cx="18" cy="-8" rx="140" ry="104" fill="url(#mx-stormB)"/>
@@ -1271,62 +1338,39 @@ sup.reg{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-
   </div>
 </section>
 
-<section id="cost">
-  <div class="wrap">
-    <div class="rv">
-      <span class="tag">Cost breakdown</span>
-      <h2>Transparent, predictable pricing</h2>
-      <p class="sub">Example: a 15-sensor council.</p>
-    </div>
-    <div class="grid g2 mt rv">
-      <div class="tblwrap"><h4 style="margin-bottom:18px">One-time capital cost</h4><table class="tbl">
-        <thead><tr><th>Item</th><th>Cost</th></tr></thead><tbody>
-        <tr><td>Hardware (15 StormPuck™ units + StormSight cameras)</td><td class="num">$30,000</td></tr>
-        <tr><td>Installation &amp; training</td><td class="num">$15,000</td></tr>
-        <tr><td>Network infrastructure (LoRaWAN + LTE)</td><td class="num">$5,000</td></tr>
-        <tr class="total"><td>Total capital</td><td class="num">$50,000</td></tr>
-        </tbody></table></div>
-      <div class="tblwrap"><h4 style="margin-bottom:18px">Annual operating cost</h4><table class="tbl">
-        <thead><tr><th>Item</th><th>Cost</th></tr></thead><tbody>
-        <tr><td>Software subscription (NMS integration, updates, support)</td><td class="num">$30,000</td></tr>
-        <tr><td>Maintenance &amp; repair</td><td class="num">$5,000</td></tr>
-        <tr><td>Connectivity (data)</td><td class="num">$2,000</td></tr>
-        <tr class="total"><td>Total annual</td><td class="num">$37,000</td></tr>
-        </tbody></table></div>
-    </div>
-    <div class="stats mt rv">
-      <div class="stat"><div class="v">$50K</div><div class="l">Capital</div></div>
-      <div class="stat"><div class="v">$185K</div><div class="l">Operations · 5 × $37K</div></div>
-      <div class="stat"><div class="v">$235K</div><div class="l">Total 5-year</div></div>
-      <div class="stat"><div class="v">$0.26</div><div class="l">Per person / year</div></div>
-    </div>
-    <div class="callout rv"><div class="kd">Per warning</div>
-      <p>Cost per early warning: <strong>~$5,000–$10,000</strong> — against $1M+ in prevented flood damage.</p></div>
-  </div>
-</section>
-
 <section class="alt" id="roi">
   <div class="wrap">
     <div class="rv">
-      <span class="tag pk">Return on investment</span>
-      <h2>The 2022 Queensland / NSW floods, compared</h2>
+      <span class="tag pk">Return on investment · Yarra Trams</span>
+      <h2>Every pit checked by hand costs $700</h2>
+      <p class="sub">Yarra Trams keeps Melbourne's tram network clear of stormwater. Before sensing, the only way to know
+        whether a pit was blocked or surcharging was to send a crew to look. At around AU$700 a visit, four visits a night
+        adds up fast.</p>
+    </div>
+    <div class="roiflow mt rv">
+      <div class="rbox"><div class="rv1">AU$700</div><div class="rl">per manual pit visit</div></div>
+      <div class="rop">×</div>
+      <div class="rbox"><div class="rv1">4</div><div class="rl">visits per night</div></div>
+      <div class="rop">=</div>
+      <div class="rbox hot"><div class="rv1">AU$2,800</div><div class="rl">every night, spent finding out</div></div>
     </div>
     <div class="cmp mt rv">
-      <div class="panel"><h4>Without Meridian</h4><ul>
-        <li><span class="mk no">✕</span>Property damage — $200M</li>
-        <li><span class="mk no">✕</span>Lives at risk — potentially hundreds</li>
-        <li><span class="mk no">✕</span>Recovery time — months to years</li>
+      <div class="panel"><h4>Checking by hand</h4><ul>
+        <li><span class="mk no">✕</span>A crew drives to each pit to see if it's blocked or filling</li>
+        <li><span class="mk no">✕</span>AU$700 a visit, whether or not anything is wrong</li>
+        <li><span class="mk no">✕</span>Night work beside live tram lines</li>
+        <li><span class="mk no">✕</span>Between visits, nobody knows what the pit is doing</li>
       </ul></div>
-      <div class="panel win"><h4>With Meridian</h4><ul>
-        <li><span class="mk yes">✓</span>Property damage — $40M</li>
-        <li><span class="mk yes">✓</span>Lives saved — high confidence</li>
-        <li><span class="mk yes">✓</span>Recovery time — weeks</li>
-        <li><span class="mk yes">✓</span>Net benefit — $150M</li>
+      <div class="panel win"><h4>With StormPuck™</h4><ul>
+        <li><span class="mk yes">✓</span>Every monitored pit reports level and blockage continuously</li>
+        <li><span class="mk yes">✓</span>Crews go only to the pits that need them</li>
+        <li><span class="mk yes">✓</span>Fewer night callouts, less time beside the tracks</li>
+        <li><span class="mk yes">✓</span>A timestamped record of every pit, every night</li>
       </ul></div>
     </div>
-    <div class="callout rv"><div class="kd">ROI</div>
-      <p><strong>638× return</strong> — $150M net benefit against $235K five-year cost. Even a
-        1-in-20-year major flood event pays for Meridian many times over in damage prevention.</p></div>
+    <div class="callout rv"><div class="kd">The maths</div>
+      <p>Each avoided visit saves around <strong>AU$700</strong>. Avoiding four visits a night saves
+        <strong>AU$2,800</strong>, so sensing that removes even part of the routine check-ups pays for itself quickly.</p></div>
   </div>
 </section>
 
@@ -1406,7 +1450,24 @@ sup.reg{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-
   </div>
 </section>
 
-<section class="alt" id="funding">
+<section class="alt" id="clients">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag">Who we work with</span>
+      <h2>Trusted by CSIRO and councils across Australia</h2>
+      <p class="sub">Meridian sensing is deployed with CSIRO and local governments in all six states, from inner-city Melbourne to regional Victoria, coastal Queensland and New South Wales, South Australia, Tasmania and Western Australia.</p>
+    </div>
+    <div class="csiro mt rv">
+      <div class="cmono big">CSIRO</div>
+      <div><h3>CSIRO partnership</h3>
+        <p>Matter<sup class="reg">®</sup> works with CSIRO to monitor gross pollutant traps and stormwater pits across
+          participating councils, measuring debris build-up and supporting the move to condition-based maintenance.</p></div>
+    </div>
+    <div class="cgrid mt-s rv"><div class="cbadge new"><span class="sash" aria-label="New">New</span><div class="cmono">B</div><div class="cname">Blacktown City Council</div><div class="cstate">NSW</div></div><div class="cbadge new"><span class="sash" aria-label="New">New</span><div class="cmono">F</div><div class="cname">City of Fremantle</div><div class="cstate">WA</div></div><div class="cbadge "><div class="cmono">M</div><div class="cname">City of Monash</div><div class="cstate">VIC</div></div><div class="cbadge "><div class="cmono">M</div><div class="cname">City of Melbourne</div><div class="cstate">VIC</div></div><div class="cbadge "><div class="cmono">PP</div><div class="cname">City of Port Phillip</div><div class="cstate">VIC</div></div><div class="cbadge "><div class="cmono">GE</div><div class="cname">Glen Eira City Council</div><div class="cstate">VIC</div></div><div class="cbadge "><div class="cmono">S</div><div class="cname">City of Stonnington</div><div class="cstate">VIC</div></div><div class="cbadge "><div class="cmono">GG</div><div class="cname">City of Greater Geelong</div><div class="cstate">VIC</div></div><div class="cbadge "><div class="cmono">HR</div><div class="cname">Horsham Rural City Council</div><div class="cstate">VIC</div></div><div class="cbadge "><div class="cmono">UD</div><div class="cname">UDC Vietnam</div><div class="cstate">VIETNAM</div></div><div class="cbadge "><div class="cmono">SC</div><div class="cname">Sunshine Coast Council</div><div class="cstate">QLD</div></div><div class="cbadge "><div class="cmono">PS</div><div class="cname">Port Stephens Council</div><div class="cstate">NSW</div></div><div class="cbadge "><div class="cmono">M</div><div class="cname">City of Marion</div><div class="cstate">SA</div></div><div class="cbadge "><div class="cmono">PA</div><div class="cname">City of Port Adelaide Enfield</div><div class="cstate">SA</div></div><div class="cbadge "><div class="cmono">H</div><div class="cname">City of Hobart</div><div class="cstate">TAS</div></div><div class="cbadge "><div class="cmono">L</div><div class="cname">City of Launceston</div><div class="cstate">TAS</div></div><div class="cbadge "><div class="cmono">S</div><div class="cname">Sorell Council</div><div class="cstate">TAS</div></div><div class="cbadge "><div class="cmono">M</div><div class="cname">City of Melville</div><div class="cstate">WA</div></div><div class="cbadge oth"><div class="cmono">YT</div><div class="cname">Yarra Trams</div><div class="cstate">VIC</div></div><div class="cbadge oth"><div class="cmono">S3</div><div class="cname">Stormwater360</div><div class="cstate">AUS / NZ</div></div></div>
+  </div>
+</section>
+
+<section id="funding">
   <div class="wrap">
     <div class="rv">
       <span class="tag pk">Funding opportunities</span>
@@ -1414,8 +1475,8 @@ sup.reg{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-
     </div>
     <div class="grid g2 mt rv">
       <div class="card"><span class="chip">Option 1</span><h3>Disaster Ready Fund contribution</h3><ul class="rlist">
-        <li><span>Matter<sup class="reg">®</sup> provides capital infrastructure — $30K StormPuck™ / StormSight hardware</span></li>
-        <li>Your council provides operating budget — $37K/year</li>
+        <li><span>Matter<sup class="reg">®</sup> provides the StormPuck™ / StormSight hardware</span></li>
+        <li>Your council covers the annual operating subscription</li>
         <li>Result: free hardware, manageable annual cost</li></ul></div>
       <div class="card"><span class="chip">Option 2</span><h3>Government grants</h3><ul class="rlist">
         <li>State emergency management grants</li>
@@ -1505,7 +1566,7 @@ sup.reg{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-
       <h2>If your council joins Meridian</h2>
     </div>
     <div class="grid g3 mt rv">
-      <div class="card"><h3>Free hardware</h3><p>Capital cost covered by Matter<sup class="reg">®</sup> / DRF funding.</p></div>
+      <div class="card"><h3>Affordable, scalable hardware</h3><p>Free if covered by grant funding.</p></div>
       <div class="card"><h3>5-year support guarantee</h3><p>24/7 technical support.</p></div>
       <div class="card"><h3>Continuous improvement</h3><p>AI model improves annually.</p></div>
       <div class="card"><h3>Regular training</h3><p>Staff keep skills current.</p></div>
@@ -1538,27 +1599,49 @@ sup.reg{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-
 
 <footer>
   <div class="wrap fin">
-    <div class="footlogo"><svg style="width:100%;height:auto;display:block" role="img" aria-label="Matter" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1259 257.41">
+    <div class="footlogo"><svg style="width:100%;height:auto;display:block"  data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1259.29 257.45">
   <defs>
     <style>
-      .mlfoot-1 {
+      .mlf-1 {
+        fill: #7abbe7;
+      }
+
+      .mlf-2 {
+        fill: #165888;
+      }
+
+      .mlf-3 {
         fill: #fff;
       }
 
-      .mlfoot-2 {
+      .mlf-4 {
+        fill: #3780b8;
+      }
+
+      .mlf-5 {
         fill: #448cca;
       }
     </style>
   </defs>
-  <g data-name="Layer 2">
-    <g>
-      <path class="mlfoot-1" d="M0,57.78h67.92v23.64c18.51-17.76,39.27-26.64,62.29-26.64,28.52,0,50.28,12.01,65.29,36.02,15.26-24.26,37.02-36.4,65.29-36.4,9.01,0,17.51,1.31,25.51,3.94,8,2.63,14.88,6.75,20.64,12.38,5.75,5.63,10.32,12.95,13.7,21.95,3.38,9.01,5.07,19.89,5.07,32.64v124.95h-67.92v-94.93c0-9.76-.69-17.76-2.06-24.01-1.38-6.25-3.38-11.13-6-14.63-2.63-3.5-5.69-5.87-9.19-7.13-3.5-1.25-7.26-1.88-11.26-1.88-21.76,0-32.64,15.89-32.64,47.65v94.93h-67.92v-94.93c0-9.76-.63-17.82-1.88-24.2-1.26-6.38-3.07-11.44-5.44-15.2-2.38-3.75-5.44-6.31-9.19-7.69-3.75-1.37-8.13-2.06-13.13-2.06-4.26,0-8.26.63-12.01,1.88-3.75,1.25-7.07,3.69-9.94,7.32-2.88,3.63-5.13,8.63-6.75,15.01-1.63,6.38-2.44,14.7-2.44,24.95v94.93H0V57.78Z"/>
-      <path class="mlfoot-1" d="M500.25,57.78h68.29v192.49h-68.29v-21.39c-14.51,18.26-34.14,27.39-58.91,27.39-14.01,0-26.9-2.57-38.65-7.69-11.76-5.12-22.02-12.32-30.77-21.58-8.76-9.25-15.57-20.13-20.45-32.64-4.88-12.51-7.32-26.14-7.32-40.9,0-13.75,2.37-26.83,7.13-39.21,4.75-12.38,11.38-23.2,19.89-32.46,8.5-9.25,18.63-16.57,30.39-21.95,11.76-5.38,24.77-8.07,39.03-8.07,24.01,0,43.9,8.38,59.66,25.14v-19.14ZM414.7,153.47c0,6.26,1.12,12.07,3.38,17.45,2.25,5.38,5.31,10.07,9.19,14.07,3.87,4,8.5,7.13,13.88,9.38,5.38,2.25,11.19,3.38,17.45,3.38s11.69-1.13,17.07-3.38c5.38-2.25,10-5.38,13.88-9.38,3.88-4,7-8.63,9.38-13.88,2.37-5.25,3.57-10.88,3.57-16.89s-1.19-11.69-3.57-17.07c-2.38-5.38-5.5-10.07-9.38-14.07-3.88-4-8.51-7.13-13.88-9.38-5.38-2.25-11.07-3.38-17.07-3.38s-12.07,1.13-17.45,3.38c-5.38,2.25-10.01,5.38-13.88,9.38-3.88,4-6.94,8.57-9.19,13.7-2.25,5.13-3.38,10.69-3.38,16.7Z"/>
-      <path class="mlfoot-1" d="M675.44,114.44v135.83h-67.92V114.44h-22.51v-56.66h22.51V0h67.92v57.78h38.65v56.66h-38.65Z"/>
-      <path class="mlfoot-1" d="M800.88,114.44v135.83h-67.92V114.44h-22.51v-56.66h22.51V0h67.92v57.78h38.65v56.66h-38.65Z"/>
-      <path class="mlfoot-1" d="M908.82,165.48c0,29.27,13.75,43.9,41.28,43.9,14.76,0,25.89-6,33.39-18.01h65.67c-13.26,44.03-46.41,66.04-99.44,66.04-16.26,0-31.14-2.44-44.65-7.32-13.51-4.88-25.08-11.82-34.71-20.83-9.63-9.01-17.07-19.76-22.33-32.27-5.25-12.51-7.88-26.51-7.88-42.03s2.5-30.45,7.5-43.34c5-12.88,12.13-23.83,21.39-32.83,9.25-9.01,20.45-15.95,33.58-20.83s27.96-7.32,44.47-7.32,30.89,2.44,43.9,7.32c13,4.88,24.02,11.95,33.02,21.2,9,9.26,15.88,20.58,20.64,33.96,4.75,13.38,7.13,28.46,7.13,45.22v7.13h-142.96ZM988.37,126.08c-2.25-9.5-6.89-17.13-13.88-22.89-7.01-5.75-15.51-8.63-25.51-8.63-10.51,0-19.08,2.76-25.71,8.25-6.63,5.51-10.82,13.26-12.57,23.26h77.67Z"/>
-      <path class="mlfoot-1" d="M1072.01,57.78h67.92v31.52c7.25-11.5,16.13-20.32,26.64-26.45,10.51-6.13,22.76-9.19,36.78-9.19h5.82c2.12,0,4.56.25,7.32.75v64.91c-9.01-4.5-18.76-6.75-29.27-6.75-15.76,0-27.58,4.69-35.46,14.07-7.88,9.38-11.82,23.08-11.82,41.09v82.55h-67.92V57.78Z"/>
-      <path class="mlfoot-2" d="M1193.15,223.26c0-4.5.84-8.77,2.53-12.81,1.69-4.03,4.03-7.55,7.04-10.55,3-3,6.52-5.35,10.55-7.04,4.03-1.69,8.3-2.53,12.8-2.53s8.77.84,12.81,2.53c4.03,1.69,7.55,4.04,10.55,7.04,3,3,5.35,6.52,7.04,10.55,1.69,4.04,2.53,8.3,2.53,12.81s-.85,8.77-2.53,12.8c-1.69,4.04-4.04,7.55-7.04,10.55-3,3-6.52,5.35-10.55,7.03-4.04,1.69-8.3,2.53-12.81,2.53s-8.77-.84-12.8-2.53c-4.04-1.69-7.56-4.03-10.55-7.03-3-3-5.35-6.52-7.04-10.55-1.69-4.03-2.53-8.3-2.53-12.8Z"/>
+  <g  data-name="Layer 2">
+    <g  data-name="Layer 5">
+      <g>
+        <g>
+          <path class="mlf-3" d="M0,57.8h67.93v23.64c18.51-17.76,39.28-26.65,62.3-26.65,28.52,0,50.29,12.01,65.3,36.03,15.26-24.27,37.03-36.41,65.31-36.41,9.01,0,17.51,1.31,25.52,3.94,8,2.63,14.88,6.75,20.64,12.38,5.75,5.63,10.32,12.95,13.7,21.96s5.07,19.89,5.07,32.65v124.98h-67.93v-94.95c0-9.76-.69-17.76-2.06-24.02-1.38-6.25-3.38-11.13-6.01-14.64-2.63-3.5-5.69-5.88-9.2-7.13s-7.26-1.88-11.26-1.88c-21.77,0-32.65,15.89-32.65,47.66v94.95h-67.93v-94.95c0-9.76-.63-17.83-1.88-24.21-1.26-6.38-3.07-11.45-5.44-15.2-2.38-3.75-5.44-6.32-9.19-7.69s-8.13-2.06-13.14-2.06c-4.26,0-8.26.63-12.01,1.88s-7.07,3.69-9.95,7.32-5.13,8.63-6.75,15.01c-1.63,6.38-2.44,14.7-2.44,24.96v94.95H0V57.8Z"/>
+          <path class="mlf-3" d="M675.59,114.47v135.86h-67.93V114.47h-22.52v-56.67h22.52V0h67.93v57.8h38.66v56.67h-38.66Z"/>
+          <path class="mlf-3" d="M801.05,114.47v135.86h-67.93V114.47h-22.52v-56.67h22.52V0h67.93v57.8h38.66v56.67h-38.66Z"/>
+          <path class="mlf-3" d="M909.03,165.51c0,29.27,13.76,43.91,41.28,43.91,14.76,0,25.89-6.01,33.4-18.02h65.68c-13.26,44.04-46.42,66.05-99.46,66.05-16.27,0-31.15-2.44-44.66-7.32-13.51-4.88-25.09-11.82-34.72-20.83-9.64-9.01-17.08-19.76-22.33-32.28-5.26-12.51-7.88-26.52-7.88-42.03s2.5-30.46,7.51-43.35c5-12.88,12.13-23.83,21.39-32.84,9.25-9.01,20.46-15.95,33.59-20.83s27.96-7.32,44.48-7.32,30.9,2.44,43.91,7.32c13.01,4.88,24.02,11.95,33.03,21.2,9.01,9.26,15.88,20.58,20.64,33.97,4.75,13.39,7.13,28.47,7.13,45.23v7.13h-142.99ZM988.59,126.1c-2.25-9.51-6.89-17.13-13.89-22.89-7.01-5.75-15.52-8.63-25.52-8.63-10.51,0-19.08,2.76-25.71,8.26-6.63,5.51-10.82,13.27-12.57,23.27h77.69Z"/>
+          <path class="mlf-3" d="M1072.25,57.8h67.93v31.53c7.25-11.51,16.14-20.33,26.65-26.46,10.51-6.13,22.77-9.19,36.78-9.19h5.82c2.12,0,4.56.25,7.32.75v64.93c-9.01-4.5-18.77-6.76-29.28-6.76-15.76,0-27.58,4.69-35.46,14.07-7.88,9.38-11.82,23.08-11.82,41.1v82.57h-67.93V57.8h-.01Z"/>
+          <path class="mlf-2" d="M1193.41,223.31c0-4.5.84-8.77,2.53-12.81,1.69-4.03,4.03-7.55,7.04-10.56,3-3,6.52-5.35,10.56-7.04,4.03-1.69,8.3-2.53,12.81-2.53s8.77.84,12.81,2.53c4.03,1.69,7.55,4.04,10.56,7.04,3,3,5.35,6.52,7.04,10.56,1.69,4.04,2.53,8.3,2.53,12.81s-.85,8.77-2.53,12.81c-1.69,4.04-4.04,7.56-7.04,10.56-3.01,3-6.52,5.35-10.56,7.04-4.04,1.69-8.31,2.53-12.81,2.53s-8.77-.84-12.81-2.53-7.56-4.03-10.56-7.04c-3.01-3-5.35-6.52-7.04-10.56-1.69-4.03-2.53-8.3-2.53-12.81h0Z"/>
+          <path class="mlf-3" d="M500.36,57.8v.02s-.01,19.14-.01,19.14c-15.76-16.76-35.65-25.15-59.67-25.15-14.26,0-27.27,2.69-39.03,8.07-11.76,5.39-21.9,12.71-30.4,21.96-8.51,9.25-15.14,20.07-19.89,32.46-4.75,12.39-7.13,25.46-7.13,39.22,0,14.77,2.44,28.4,7.32,40.91,4.88,12.51,11.7,23.4,20.46,32.65,8.75,9.26,19.01,16.45,30.77,21.58,11.76,5.12,24.64,7.69,38.66,7.69,24.77,0,44.41-9.13,58.92-27.4v21.39h68.31V57.8h-68.31Z"/>
+        </g>
+        <g>
+          <path class="mlf-3" d="M486.28,166.54c0,6.46-1.27,12.74-3.77,18.65-2.41,5.7-5.87,10.83-10.26,15.22-4.4,4.4-9.52,7.85-15.22,10.26-5.91,2.5-12.18,3.77-18.65,3.77s-12.74-1.27-18.65-3.77c-5.7-2.41-10.83-5.87-15.22-10.26-4.4-4.4-7.85-9.52-10.26-15.22-2.5-5.91-3.77-12.18-3.77-18.65,0-24.41,13.77-40.58,25.91-54.85,6.95-8.16,13.51-15.87,16.63-24.13.84-2.23,2.91-3.66,5.29-3.66h.07c2.4.03,4.47,1.51,5.27,3.79,2.91,8.29,9.6,16.1,16.68,24.37,12.16,14.21,25.95,30.31,25.95,54.48h0Z"/>
+          <path class="mlf-5" d="M481.97,166.54c0,24.07-19.51,43.59-43.59,43.59s-43.59-19.51-43.59-43.59c0-36.56,33.25-53.61,42.26-77.46.45-1.18,2.11-1.16,2.53.03,8.32,23.68,42.39,40.89,42.39,77.42h0Z"/>
+          <path class="mlf-4" d="M481.97,166.54c0,24.07-19.51,43.59-43.59,43.59-19.29,0-35.66-12.53-41.4-29.9,9.5,11.36,25.25,17.42,39.89,14.8,4.87-.87,9.6-2.63,13.75-5.32,12.33-7.99,18.24-24.66,13.7-38.63-3.06-9.41-10.03-16.93-15.34-25.28-7.93-12.48-12.31-20.09-10.13-37.48.32.14.6.4.74.8,8.32,23.68,42.39,40.89,42.39,77.42h0Z"/>
+          <path class="mlf-1" d="M405.6,154.39c.66-10.21,8.51-19.2,14.75-26.77,2.28-2.71,4.66-5.55,6.88-8.31.2-.25.64-.8.85-1.06.29-.37.58-.73.89-1.09.33-.39.92-.43,1.3-.1.27.24.38.6.29.93-.12.46-.26.92-.4,1.37-.28.87-.65,1.82-1,2.67-4.67,11-14.17,18.98-19.99,29.22-.22.37-.43.79-.63,1.16-.43.81-.81,1.63-1.21,2.45-.46.87-1.78.52-1.73-.47h0Z"/>
+        </g>
+      </g>
     </g>
   </g>
 </svg><span class="logoreg" aria-hidden="true">®</span></div>
@@ -1932,55 +2015,77 @@ sup.reg{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-
   }
   function stopVB(svg){vbToken[svg.id]={};}
 
-  /* layer state helpers */
-  function clean(l){if(!l)return;l.style.transition='';l.style.clipPath='';l.style.webkitClipPath='';l.style.transformOrigin='';l.style.opacity='';l.style.transform='';l.style.filter='';}
-  function show(l,dim){if(!l)return;l.classList.remove('off');l.classList.toggle('dim',!!dim);}
-  function hide(l){if(!l)return;l.classList.add('off');l.classList.remove('dim');}
-  function only(list){LAYERS.forEach(function(l){if(list.indexOf(l)<0)hide(l);});}
+  /* ---------- layer engine: exactly one settled layer (`cur`); a transition reveals the next one on top ---------- */
+  var cur=null, pend=null;
+  function reflow(l){return l.getBoundingClientRect();}
+  function wipe(l){l.style.clipPath='';l.style.webkitClipPath='';l.style.transform='';l.style.transformOrigin='';l.style.filter='';l.style.opacity='';l.style.zIndex='';}
+  function instantHide(l){if(!l)return;l.style.transition='none';l.classList.add('off');wipe(l);reflow(l);l.style.transition='';}
+  function settle(l){if(!l)return;l.style.transition='none';l.classList.remove('off');wipe(l);reflow(l);l.style.transition='';}
+  function finish(){
+    if(!pend)return; var p=pend; pend=null;
+    if(p.vb){stopVB(p.vb);setVB(p.vb,FULL);}
+    if(p.out&&p.out!==p.inn){instantHide(p.out);stopVB(p.out);setVB(p.out,FULL);}
+    settle(p.inn);
+  }
   function rets(){[].forEach.call(stage.querySelectorAll('.ret.on'),function(r){r.classList.remove('on');});}
   function lock(id){var r=el(id);if(r)r.classList.add('on');}
   function toPx(p){var r=stage.getBoundingClientRect(),s=Math.max(r.width/1000,r.height/700);
     return {x:(p[0]-500)*s+r.width/2,y:(p[1]-350)*s+r.height/2,D:Math.hypot(r.width,r.height)*1.1};}
   function circ(p,r){return 'circle('+Math.round(r)+'px at '+Math.round(p.x)+'px '+Math.round(p.y)+'px)';}
   function setClip(l,v){l.style.clipPath=v;l.style.webkitClipPath=v;}
+  function snap(to){pend={out:cur,inn:to};finish();cur=to;}
 
-  /* portal in: camera dives into a point on `from`, and `to` opens out of that same point */
-  function portalIn(from,to,pt,box,o){
-    o=o||{}; var dur=o.dur||1150, s0=o.scale||1.5, delay=o.delay||0;
-    if(!Z){hide(from);clean(from);clean(to);show(to);return;}
+  /* portal in: camera dives into a point on the current layer, and `to` opens out of that point on top */
+  function portalIn(to,pt,box,o){
+    o=o||{}; var from=cur, dur=o.dur||1150, s0=o.scale||1.5, delay=o.delay||0;
+    cur=to;
+    if(!Z||!from||from===to){pend={out:from,inn:to};finish();return;}
+    pend={out:from,inn:to};
     var p=toPx(pt);
+    instantHide(to);
     later(function(){
       if(box)animVB(from,box,dur*1.25);
-      from.style.transition='filter .9s ease';
-      later(function(){from.style.filter='blur(5px) brightness(.75)';},dur*.25);
-      to.style.transition='none';to.classList.remove('off','dim');to.style.opacity='1';
+      from.style.transition='opacity '+dur+'ms ease';from.style.opacity='.5';
+      to.style.transition='none';to.classList.remove('off');to.style.zIndex='2';
       setClip(to,circ(p,0));to.style.transformOrigin=Math.round(p.x)+'px '+Math.round(p.y)+'px';
-      to.style.transform='scale('+s0+')';to.style.filter='blur(6px)';
-      to.getBoundingClientRect();
-      later(function(){
-        to.style.transition='clip-path '+dur+'ms cubic-bezier(.7,0,.22,1),-webkit-clip-path '+dur+'ms cubic-bezier(.7,0,.22,1),transform '+Math.round(dur*1.5)+'ms cubic-bezier(.16,1,.3,1),filter '+dur+'ms ease';
-        setClip(to,circ(p,p.D));to.style.transform='scale(1)';to.style.filter='blur(0px)';
-      },30);
-      later(function(){hide(from);clean(from);clean(to);if(o.after)o.after();},dur*1.5+60);
+      to.style.transform='scale('+s0+')';reflow(to);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){
+        if(pend&&pend.inn!==to)return;
+        to.style.transition='clip-path '+dur+'ms cubic-bezier(.7,0,.22,1),-webkit-clip-path '+dur+'ms cubic-bezier(.7,0,.22,1),transform '+Math.round(dur*1.5)+'ms cubic-bezier(.16,1,.3,1)';
+        setClip(to,circ(p,p.D));to.style.transform='scale(1)';
+      });});
+      later(finish,dur*1.5+80);
     },delay);
   }
-  /* portal out: `top` collapses back into its point while `under` pulls back to full view */
-  function portalOut(top,under,pt,box,o){
-    o=o||{}; var dur=o.dur||1050;
-    if(!Z){hide(top);clean(top);clean(under);show(under);if(box)setVB(under,FULL);return;}
+  /* portal out: the current layer collapses back into its point while `under` pulls back to full view beneath it */
+  function portalOut(under,pt,box,o){
+    o=o||{}; var top=cur, dur=o.dur||1050;
+    cur=under;
+    if(!Z||!top||top===under){pend={out:top,inn:under};finish();return;}
+    pend={out:top,inn:under,vb:box?under:null};
     var p=toPx(pt);
-    clean(under);under.style.transition='none';show(under);
-    if(box){setVB(under,box);under.style.filter='blur(5px) brightness(.8)';}
-    under.getBoundingClientRect();
-    top.style.transition='none';top.classList.remove('off','dim');setClip(top,circ(p,p.D));
-    top.style.transformOrigin=Math.round(p.x)+'px '+Math.round(p.y)+'px';top.getBoundingClientRect();
-    later(function(){
-      top.style.transition='clip-path '+dur+'ms cubic-bezier(.65,0,.35,1),-webkit-clip-path '+dur+'ms cubic-bezier(.65,0,.35,1),transform '+dur+'ms cubic-bezier(.65,0,.35,1),filter '+dur+'ms ease';
-      setClip(top,circ(p,0));top.style.transform='scale('+(o.scale||1.25)+')';top.style.filter='blur(4px)';
+    settle(under);under.style.transition='none';under.style.zIndex='1';
+    if(box){stopVB(under);setVB(under,box);}
+    under.style.opacity='.55';reflow(under);
+    top.style.transition='none';top.style.zIndex='2';setClip(top,circ(p,p.D));
+    top.style.transformOrigin=Math.round(p.x)+'px '+Math.round(p.y)+'px';reflow(top);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){
+      if(pend&&pend.inn!==under)return;
+      top.style.transition='clip-path '+dur+'ms cubic-bezier(.65,0,.35,1),-webkit-clip-path '+dur+'ms cubic-bezier(.65,0,.35,1),transform '+dur+'ms cubic-bezier(.65,0,.35,1)';
+      setClip(top,circ(p,0));top.style.transform='scale('+(o.scale||1.25)+')';
+      under.style.transition='opacity '+dur+'ms ease';under.style.opacity='1';
       if(box)animVB(under,FULL,dur*1.35);
-      under.style.transition='filter '+dur+'ms ease';under.style.filter='blur(0px)';
-    },30);
-    later(function(){hide(top);clean(top);clean(under);},dur+120);
+    });});
+    later(finish,Math.max(dur*1.35,dur+120)+40);
+  }
+  /* plain crossfade for jumps between steps that are not neighbours */
+  function fade(to){
+    var from=cur; cur=to;
+    if(!Z||!from||from===to){pend={out:from,inn:to};finish();return;}
+    pend={out:from,inn:to};
+    to.style.transition='none';to.classList.remove('off');to.style.zIndex='2';to.style.opacity='0';reflow(to);
+    requestAnimationFrame(function(){to.style.transition='opacity .5s ease';to.style.opacity='1';});
+    later(finish,560);
   }
 
   /* ---------- live readout in the pit cutaway ---------- */
@@ -2061,8 +2166,7 @@ sup.reg{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-
 
   /* ---------- scene director ---------- */
   function render(prev){
-    clearTimers();rets();
-    LAYERS.forEach(function(l){clean(l);});
+    clearTimers();finish();rets();
     var s=state.scene, st=state.step;
     var sameScene=prev&&prev.scene===s;
     if(!sameScene)buildDots();
@@ -2075,53 +2179,42 @@ sup.reg{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-
     var pk=prev?(prev.scene==='hero'?'hero':DATA[prev.scene].stages[prev.step]):null;
     stage.classList.toggle('is-hero',s==='hero');stage.classList.toggle('is-intel',kind==='intel');
     if(kind!=='intel')hideIntel();
+    LAYERS.forEach(function(l){if(l!==cur)instantHide(l);});
+    fitPills();
 
-    /* back to the combined overview */
+    if(!prev||!cur){LAYERS.forEach(instantHide);setVB(hero,FULL);cur=null;}
+    function restart(l){try{if(l&&l.setCurrentTime)l.setCurrentTime(0);}catch(e){}}
+
     if(s==='hero'){
       var from=prev&&prev.scene!=='hero'?prev.scene:null;
-      if(from&&pk==='overview'){
-        only([hero,ov[from]]);portalOut(ov[from],hero,heroPt(from),heroBox(from),{scale:1.4});
-      } else {
-        only([hero]);stopVB(hero);setVB(hero,FULL);show(hero);
-      }
-      schedule();return;
+      if(cur)cur.classList.remove('dim');
+      if(from&&pk==='overview'&&cur===ov[from])portalOut(hero,heroPt(from),heroBox(from),{scale:1.4});
+      else{stopVB(hero);setVB(hero,FULL);if(cur)fade(hero);else snap(hero);}
+      return;
     }
 
     var o=ov[s], d=dt[s], f=fl[s], P=PTS[s];
-    function restart(l){try{if(l&&l.setCurrentTime)l.setCurrentTime(0);}catch(e){}}
-    if(!sameScene||pk!==kind){if(kind==='overview')restart(o);if(kind==='focus'&&pk!=='fleet')restart(d);}
     if(kind==='overview'){
-      setVB(o,FULL);
-      if(pk==='hero'){
-        only([hero,o]);stopVB(hero);setVB(hero,FULL);show(hero);
-        lock(s==='urban'?'retHU':'retHR');
-        portalIn(hero,o,heroPt(s),heroBox(s),{delay:Z*520,scale:1.6});
-      } else if(sameScene&&pk==='focus'){
-        only([o,d]);portalOut(d,o,P.ov,boxAround(P.ov,6));
-      } else {
-        only([o]);show(o);
-      }
+      restart(o);setVB(o,FULL);o.classList.remove('dim');
+      if(pk==='hero'&&cur===hero){lock(s==='urban'?'retHU':'retHR');portalIn(o,heroPt(s),heroBox(s),{delay:Z*520,scale:1.6});}
+      else if(sameScene&&pk==='focus'&&cur===d)portalOut(o,P.ov,boxAround(P.ov,6));
+      else if(cur)fade(o); else snap(o);
     } else if(kind==='focus'){
-      if(sameScene&&pk==='overview'){
-        only([o,d]);setVB(o,FULL);show(o);lock(s==='urban'?'retU':'retR');
-        portalIn(o,d,P.ov,boxAround(P.ov,6),{delay:Z*520});
-      } else if(sameScene&&pk==='fleet'){
-        only([d,f]);portalOut(f,d,[500,350],null,{scale:2.4});
-      } else {
-        only([d]);show(d);
-      }
+      d.classList.remove('dim');
+      if(sameScene&&pk==='overview'&&cur===o){restart(d);lock(s==='urban'?'retU':'retR');portalIn(d,P.ov,boxAround(P.ov,6),{delay:Z*520});}
+      else if(sameScene&&pk==='fleet'&&cur===f)portalOut(d,[500,350],null,{scale:2.4});
+      else if(cur===d){/* already showing (back from intel) */}
+      else{restart(d);if(cur)fade(d);else snap(d);}
     } else if(kind==='fleet'){
-      if(sameScene&&pk==='focus'){
-        only([d,f]);portalIn(d,f,P.dt,null,{scale:3,dur:1300});
-      } else {
-        only([f]);show(f);
-      }
-    } else { /* intel */
+      f.classList.remove('dim');
+      if(sameScene&&pk==='focus'&&cur===d)portalIn(f,P.dt,null,{scale:3,dur:1300});
+      else if(cur!==f){if(cur)fade(f);else snap(f);}
+    } else { /* intel: the scene underneath stays, dimmed, with the AI panel on top */
       var base=f||d;
-      only([base]);show(base,true);
+      if(cur!==base){if(cur)fade(base);else snap(base);}
+      base.classList.add('dim');
       showIntel(s);
     }
-    schedule();
   }
 
   function go(scene,step,seqIdx){
@@ -2142,7 +2235,8 @@ sup.reg{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-
   function onScroll(){
     var sp=scrollSpan(), p=Math.min(1,Math.max(0,-sp.r.top/sp.total));
     el('prog').style.width=(p*100).toFixed(2)+'%';
-    var idx=Math.min(N-1,Math.floor(p*N));
+    var fpos=p*N, idx=Math.min(N-1,Math.floor(fpos));
+    if(idx!==state.seq&&fpos>state.seq-.12&&fpos<state.seq+1.12)idx=state.seq;
     if(jumpTo!=null){if(idx===jumpTo){jumpTo=null;clearTimeout(jumpTimer);}return;}
     if(idx!==state.seq)go(SEQ[idx][0],SEQ[idx][1],idx);
   }
@@ -2189,7 +2283,11 @@ sup.reg{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-
     });
   }
   fitPills();
-  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitPills);
+  if(document.fonts){
+    if(document.fonts.load)Promise.all([document.fonts.load('600 18px Poppins'),document.fonts.load('400 17px Poppins')]).then(fitPills,fitPills);
+    if(document.fonts.ready)document.fonts.ready.then(fitPills);
+    if(document.fonts.addEventListener)document.fonts.addEventListener('loadingdone',fitPills);
+  }
   window.addEventListener('load',fitPills);
 
   buildDots();
